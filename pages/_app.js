@@ -26,11 +26,13 @@ const theme = createTheme({
 function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
-      <Box backgroundColor={blue[50]} minHeight={'100vh'}
-        display={'flex'}
-        flexDirection={'column'}
+      <Box
+        backgroundColor={blue[50]}
+        minHeight={"100vh"}
+        display={"flex"}
+        flexDirection={"column"}
         // Disable once website is finished
-        justifyContent={'flex-end'}
+        justifyContent={"flex-end"}
       >
         <Container maxWidth={"xl"}>
           <Header />
