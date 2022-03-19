@@ -17,6 +17,7 @@ import Link from "next/link";
 import {
   companyName,
   companyPhoneNumber,
+  menuLabels,
 } from "../public/Settings/baseSettings";
 
 function HideOnScroll(props) {
@@ -44,34 +45,7 @@ HideOnScroll.propTypes = {
   window: PropTypes.func,
 };
 
-const objButton = [
-  { title: "Get Started", menuTitle: [] },
-  {
-    title: "Experience",
-    menuTitle: ["Front End", "Back End", "Tools"],
-  },
-  {
-    title: "Projects",
-    menuTitle: [
-      "HTML, CSS, and JavaScript",
-      "JavaScript Libraries - React",
-      "React Framework - Next.Js",
-    ],
-  },
-  {
-    title: "Education",
-    menuTitle: ["Web Development Journey"],
-  },
-  {
-    title: "About Us",
-    menuTitle: [
-      "Contact Me",
-      "Who Am I?",
-      "Why you should hire me",
-      "Frequently Asked Questions",
-    ],
-  },
-];
+const objButton = menuLabels;
 
 const style = {
   position: "absolute",

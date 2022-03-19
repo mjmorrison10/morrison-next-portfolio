@@ -7,6 +7,8 @@ function camWords(str) {
       return index === 0 ? word.toLowerCase() : word.toUpperCase();
     })
     .replace(/\s+/g, "")
+    .replace(/,/g, "")
+    .replace(/-/g, "")
 }
 
 export default camWords;

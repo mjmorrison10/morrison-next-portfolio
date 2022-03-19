@@ -17,7 +17,17 @@ export default function SplitButton(props) {
   const [selectedIndex, setSelectedIndex] = React.useState(1);
   let text;
   const color = props.btnColor;
+  
+  // const variant = props.variant;
+  // const setBtnColor = props.setBtnColor;
+  // const key = props.key;
+  // const title = props.title;
+  // const menuOptions = props.menuOptions;
+  // const extMenuOptions = props.extMenuOptions;
+  // const extMenuLinks = props.extMenuLinks;
 
+  // console.log(props.extMenuOptions);
+  
   // console.log(
   //   props.setBtnColor
   // );
@@ -64,7 +74,17 @@ export default function SplitButton(props) {
     setOpen(false);
   };
 
-  console.log(color);
+  function renderSwitch(param) {
+    switch(param) {
+      case undefined:
+        return 'br';
+      case undefined:
+        return 'foo';
+        default:
+        return `/${camWords(props.title)}`;
+    }
+  }
+
   return (
     <React.Fragment>
       {/* <Link
@@ -72,7 +92,7 @@ export default function SplitButton(props) {
         passHref
         > */}
       <Button
-        href={(props.menuOptions.length === 0) ? `/${camWords(props.title)}` : ""}
+        href={props.menuOptions.length === 0 ? `/${camWords(props.title)}` : ""}
         onClick={(e) => {
           handleToggle();
           handleClick(e);
@@ -126,6 +146,18 @@ export default function SplitButton(props) {
                       </MenuItem>
                     </Link>
                   ))}
+                  {/* {extMenuOptions && extMenuOptions.map((option, index) => (
+                    <Link key={option} href={option.extMenuLink} passHref>
+                      <MenuItem
+                        key={option}
+                        divider={true}
+                        selected={index === selectedIndex}
+                        onClick={(event) => handleMenuItemClick(event, index)}
+                      >
+                        {option}
+                      </MenuItem>
+                    </Link>
+                  ))} */}
                 </MenuList>
               </ClickAwayListener>
             </Paper>
