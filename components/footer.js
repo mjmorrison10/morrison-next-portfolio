@@ -5,7 +5,6 @@ import React from "react";
 function Footer() {
   const curYear = new Date().getFullYear();
 
-  console.log(curYear);
   return (
     <Box
       bgcolor="info.dark"

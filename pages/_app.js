@@ -1,13 +1,14 @@
 import Header from "../components/header";
 import "../styles/globals.css";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { blue, blueGrey, grey, orange } from "@mui/material/colors";
+import { blue, blueGrey, grey, lightGreen, orange } from "@mui/material/colors";
 import Footer from "../components/footer";
 import { Box, Container, Fab, Fade, Tooltip } from "@mui/material";
 import ActionTooltip from "../components/actionTooltip";
 import { ArrowDropUp } from "@mui/icons-material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TypewriterComponent from "typewriter-effect";
+import { companyName } from "../public/Settings/baseSettings";
 
 const theme = createTheme({
   palette: {
@@ -29,7 +30,45 @@ const theme = createTheme({
 });
 
 function MyApp({ Component, pageProps }) {
+  // const [opa, setOpa] = useState(0);
   const [welcome, setWelcome] = useState(false);
+
+  const [opa, setOpa] = useState(0);
+
+  // useEffect(() => {
+  //   console.log(welcome, '- Welcome has changed');
+  // }, [welcome])
+
+  useEffect(() => {
+    console.log("before", opa);
+    if (!welcome) return;
+    setOpa(100);
+    // setTimeout(() => {
+    //   console.log("set Timeout");
+    //   setOpa(100);
+    // }, 2500);
+    console.log("after", opa);
+  }, [welcome]);
+
+  // useEffect(() => {
+  //   console.log("before", opa);
+  //   const timer = setInterval(() => {
+  //     console.log("after", opa);
+  //     setOpa(100);
+  //   }, 1000);
+
+  //   return () => {
+  //     clearInterval(timer);
+  //   };
+
+  // const timer = window.setInterval(() => {
+  //   console.log("test");
+  //   setOpa((prevOpa) => prevOpa + 1); // <-- Change this line!
+  // }, 10000);
+  // return () => {
+  //   window.clearInterval(timer);
+  // };
+  // }, []);
 
   return (
     <ThemeProvider theme={theme}>
@@ -43,7 +82,18 @@ function MyApp({ Component, pageProps }) {
         alignItems={!welcome && "center"}
       >
         {!welcome && (
-          <Box sx={{ fontSize: 50, maxWidth: "65ch", color: grey[50], padding: 2 }}>
+          <Box
+            sx={{
+              fontSize: { xs: 40, md: 50 },
+              maxWidth: "65ch",
+              color: lightGreen[500],
+              padding: 2,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              textAlign: "center",
+            }}
+          >
             <TypewriterComponent
               // options={{
               //   strings: [
@@ -56,7 +106,7 @@ function MyApp({ Component, pageProps }) {
               // }}
               onInit={(typewriter) => {
                 typewriter
-                  .typeString("Welcome to MorrisonDevOps!")
+                  .typeString(`Welcome to ${companyName}!`)
                   .pauseFor(2000)
                   .deleteAll()
                   .typeString(
@@ -79,7 +129,10 @@ function MyApp({ Component, pageProps }) {
           <Container
             maxWidth={"xl"}
             sx={{
-              opacity: welcome ? 100 : 0,
+              opacity: opa,
+              // opacity: welcome ? opa : 0,
+              transition: "all 1000ms",
+              // opacity: welcome ? 100 : 0,
             }}
           >
             <Header />

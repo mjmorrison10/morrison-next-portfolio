@@ -44,6 +44,7 @@ export const menuLabels = [
   },
 ];
 
-export const companyName = "MorrisonDevOps";
+export const companyName = "Morrison DevOps";
+export const companyFullName = "Morrison Developer Operations";
 export const companyOwner = "Michael Morrison";
 export const companyPhoneNumber = "(415)340-0480";
