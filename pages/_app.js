@@ -3,7 +3,7 @@ import "../styles/globals.css";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { blue, blueGrey, grey, lightGreen, orange } from "@mui/material/colors";
 import Footer from "../components/footer";
-import { Box, Container, Fab, Fade, Tooltip } from "@mui/material";
+import { Box, Button, Container, Fab, Fade, Tooltip } from "@mui/material";
 import ActionTooltip from "../components/actionTooltip";
 import { ArrowDropUp } from "@mui/icons-material";
 import { useEffect, useState } from "react";
@@ -25,6 +25,21 @@ const theme = createTheme({
     },
     info: {
       main: blue[500],
+    },
+
+    // primary: {
+    //   main: '#0971f1',
+    //   darker: '#053e85',
+    // },
+    // neutral: {
+    //   main: '#64748B',
+    //   contrastText: '#fff',
+    // },
+    matrix: {
+      light: lightGreen["A200"],
+      main: lightGreen["A400"],
+      dark: lightGreen["A700"],
+      contrastText: grey[900],
     },
   },
 });
@@ -70,6 +85,10 @@ function MyApp({ Component, pageProps }) {
   // };
   // }, []);
 
+  const liteGrnColor = lightGreen["A400"];
+  const liteBluColor = blue[50];
+  const bgColor = grey[900];
+
   return (
     <ThemeProvider theme={theme}>
       <Box
@@ -86,7 +105,7 @@ function MyApp({ Component, pageProps }) {
             sx={{
               fontSize: { xs: 40, md: 50 },
               maxWidth: "65ch",
-              color: lightGreen[500],
+              color: lightGreen["A400"],
               padding: 2,
               display: "flex",
               alignItems: "center",
@@ -94,6 +113,22 @@ function MyApp({ Component, pageProps }) {
               textAlign: "center",
             }}
           >
+            <Button
+              color="matrix"
+              variant="contained"
+              onClick={() => {
+                setWelcome(true);
+              }}
+              sx={{
+                position: "absolute",
+                bottom: 10,
+                right: 20,
+                borderRadius: 100,
+                opacity: 0.5,
+              }}
+            >
+              Skip
+            </Button>
             <TypewriterComponent
               // options={{
               //   strings: [
@@ -117,7 +152,7 @@ function MyApp({ Component, pageProps }) {
                   .typeString("Please wait while our servers load. :)")
                   .pauseFor(2000)
                   .callFunction(() => {
-                    setWelcome(true);
+                    // setWelcome(true);
                     console.log("All strings were deleted");
                   })
                   .start();
@@ -131,7 +166,7 @@ function MyApp({ Component, pageProps }) {
             sx={{
               opacity: opa,
               // opacity: welcome ? opa : 0,
-              transition: "all 1000ms",
+              transition: "all 2500ms",
               // opacity: welcome ? 100 : 0,
             }}
           >
