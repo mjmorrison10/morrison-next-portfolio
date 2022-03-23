@@ -1,13 +1,24 @@
 import {
+  Circle,
   Cottage,
   DataThresholding,
   FlightLand,
   LogoutTwoTone,
   PrecisionManufacturing,
+  PropaneSharp,
   Sell,
   YoutubeSearchedFor,
 } from "@mui/icons-material";
-import { Box, Button, Paper, Typography, useMediaQuery } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  Button,
+  Paper,
+  Skeleton,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
+import { height } from "@mui/system";
 import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
@@ -18,8 +29,10 @@ import {
   getStartedBtn,
 } from "../public/Settings/baseSettings";
 import styles from "../styles/Home.module.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import styled from "@emotion/styled";
 
-export default function Home() {
+export default function Home(props) {
   const matchesXs = useMediaQuery((theme) => theme.breakpoints.up("xs"));
   const matchesSm = useMediaQuery((theme) => theme.breakpoints.up("sm"));
   const matchesMd = useMediaQuery((theme) => theme.breakpoints.up("md"));
@@ -50,7 +63,7 @@ export default function Home() {
     },
     {
       heading: `Custom Web Page`,
-      description: `Premium service - full blown custom web page.`,
+      description: `Premium service - fullly customized and complete web page.`,
       icon: <Cottage fontSize={iconFontSize} />,
     },
     {
@@ -82,6 +95,10 @@ export default function Home() {
   //     )
   //   );
 
+  const displayServiceDetails = (desc) => (
+    <Typography variant="body">{desc}</Typography>
+  );
+
   const listOfServicesComp = () =>
     listOfServicesData.map((data, i) => (
       <Paper
@@ -112,10 +129,32 @@ export default function Home() {
             my={0}
             animate={"wave"}
           />
-          <Typography variant="body">{data.description}</Typography>
+          {displayServiceDetails(data.description)}
         </Box>
       </Paper>
     ));
+
+  // const myLoader = ({ source, width, height, quality }) => {
+  //   return `${source}?w=${width}&q=${quality || 75}`;
+  // };
+
+  // const MyImage = (props) => {
+  //   return (
+  //     <Image
+  //       loader={myLoader(props)}
+  //       src={source}
+  //       alt={alt}
+  //       width={width}
+  //       height={height}
+  //     />
+  //   );
+  // };
+
+  const Image = styled("img")({
+    width: "100%",
+  });
+
+  const { loading = false } = props;
 
   return (
     <div className={styles.container}>
@@ -162,7 +201,7 @@ export default function Home() {
             textAlign={"center"}
           >
             {(matchesSm && "Professional Web Development") ||
-              (matchesXs && "Expert Web Sites")}
+              (matchesXs && "Pro Web Design")}
           </Typography>
 
           <Typography
@@ -191,9 +230,14 @@ export default function Home() {
 
       <SkeleBar />
 
-      <Box display={"flex"} gap={1}>
+      <Box
+        display={"flex"}
+        gap={1}
+        flexDirection={(matchesMd && `row`) || (matchesXs && "column-reverse")}
+      >
         <Box
           flex={1}
+          minHeight={300}
           sx={{
             // background: `url('/Images/websiteOnMobileAndDesktopWithBackgroundRemoved.png') no-repeat contain`,
             backgroundSize: `contain`,
@@ -202,17 +246,75 @@ export default function Home() {
             backgroundImage: `url('/Images/websiteOnMobileAndDesktopWithBackgroundRemoved.png')`,
           }}
         ></Box>
+        {!matchesMd && <SkeleBar />}
         <Box
           flex={1}
           display={"flex"}
           flexDirection={"column"}
-          alignItems={"flex-end"}
+          alignItems={(matchesMd && `flex-end`) || (matchesXs && "center")}
           justifyContent={"center"}
           width={"100%"}
           gap={1}
         >
           {listOfServicesComp()}
         </Box>
+      </Box>
+
+      <SkeleBar />
+
+      <Box>
+        <div>
+          {/* <Box sx={{ display: "flex", alignItems: "center" }}>
+            <Box sx={{ margin: 1 }}>
+              {loading ? (
+                <Skeleton variant="circular">
+                  <Avatar />
+                </Skeleton>
+              ) : (
+                <Avatar  src="https://pbs.twimg.com/profile_images/877631054525472768/Xp5FAPD5_reasonably_small.jpg" />
+              )}
+            </Box>
+            <Box sx={{ width: "100%" }}>
+              {loading ? (
+                <Skeleton width="100%">
+                  <Typography>.</Typography>
+                </Skeleton>
+              ) : (
+                <Typography>Ted</Typography>
+              )}
+            </Box>
+          </Box> */}
+          <Box height={"auto"} width={200}>
+            {loading ? (
+              <Skeleton variant="rectangular" height={500} width={500}>
+                <div style={{ paddingTop: "57%" }} />
+              </Skeleton>
+            ) : (
+              // <LazyLoadImage
+              //   src={`/Images/huddleLandingPage.png`}
+              //   alt={"Huddle Landing Page"} // use normal <img> attributes as props
+              //   height={"100%"}
+              //   width={"100%"}
+              // />
+              <Image
+                src="/Images/huddleLandingPage.png"
+                alt=""
+                height={"100%"}
+                width={"100%"}
+              />
+            )}
+          </Box>
+        </div>
+        {/* <Skeleton variant="circular" width={00} height={00}>
+          <LazyLoadImage
+            src={`/Images/huddleLandingPage.png`}
+            alt={"Huddle Landing Page"} // use normal <img> attributes as props
+            height={"100%"}
+            width={"100%"}
+          />
+        </Skeleton> */}
+
+        <Typography>Website App Development</Typography>
       </Box>
     </div>
   );
