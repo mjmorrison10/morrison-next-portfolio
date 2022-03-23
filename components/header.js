@@ -16,7 +16,9 @@ import SplitButton from "./splitButton";
 import Link from "next/link";
 import {
   companyName,
+  companyOwner,
   companyPhoneNumber,
+  getStartedBtn,
   menuLabels,
 } from "../public/Settings/baseSettings";
 
@@ -82,7 +84,7 @@ const style = {
 
 function Header(props) {
   const [open, setOpen] = useState(false);
-  const [btnColor, setBtnColor] = useState("info");
+  // const [btnColor, setBtnColor] = useState("info");
 
   const activateModal = () => {
     !open ? setOpen(true) : setOpen(false);
@@ -95,22 +97,42 @@ function Header(props) {
         <AppBar
           sx={{
             backgroundColor: "primary.light",
+            borderRadius: "0 0 5% 25%",
           }}
         >
           <Toolbar
             sx={{
               display: "flex",
               justifyContent: "space-between",
+              gap: 1,
             }}
           >
             <Link href="/" passHref>
-              <Typography
-                variant="h6"
-                component="div"
-                sx={{ minWidth: "fit-content", cursor: "pointer" }}
+              <Box
+                minWidth={"fit-content"}
+                display={"flex"}
+                flexDirection={"column"}
               >
-                {companyName}
-              </Typography>
+                <Typography
+                  variant="h6"
+                  component="div"
+                  sx={{
+                    minWidth: "fit-content",
+                    cursor: "pointer",
+                  }}
+                >
+                  {companyName}
+                </Typography>
+                <Typography
+                  variant="caption"
+                  sx={{
+                    minWidth: "fit-content",
+                    cursor: "pointer",
+                  }}
+                >
+                  {companyOwner}
+                </Typography>
+              </Box>
             </Link>
 
             <Box
@@ -155,8 +177,10 @@ function Header(props) {
                       isModalOpen={open}
                       modal={activateModal}
                       variant={`contained`}
-                      btnColor={btnColor}
-                      setBtnColor={setBtnColor}
+                      inactiveColor={"info"}
+                      activeColor={"secondary"}
+                      // btnColor={btnColor}
+                      // setBtnColor={setBtnColor}
                       key={i}
                       title={`${btn.title}`}
                       menuOptions={btn.menuTitle}
@@ -194,14 +218,18 @@ function Header(props) {
                 alignItems: "center",
               }}
             >
+              {getStartedBtn}
               {objButton.map((btn, i) => (
                 <SplitButton
                   variant={`contained`}
-                  btnColor={btnColor}
-                  setBtnColor={setBtnColor}
+                  inactiveColor={"info"}
+                  activeColor={"secondary"}
+                  // btnColor={btnColor}
+                  // setBtnColor={setBtnColor}
                   key={i}
                   title={`${btn.title}`}
                   menuOptions={btn.menuTitle}
+              
                 ></SplitButton>
               ))}
 
@@ -211,16 +239,22 @@ function Header(props) {
                 variant="contained"
                 color="primary"
                 href="/apply"
+                sx={{
+                  px: 1,
+                  py: 0.5,
+                  borderRadius: "0 0 15% 15%",
+                }}
               >
-                <Box
-                  sx={{
-                    flexDirection: "column",
-                  }}
-                >
-                  <Typography variant="caption" component="div">
+                <Box display={"flex"} flexDirection={"column"}>
+                  <Typography variant="button" component="div" mb={-0.5}>
                     Free Consultation
                   </Typography>
-                  <Typography variant="caption" component="div">
+                  <Typography
+                    variant="caption"
+                    component="div"
+                    mt={-0.5}
+                    textAlign={"center"}
+                  >
                     {companyPhoneNumber}
                   </Typography>
                 </Box>

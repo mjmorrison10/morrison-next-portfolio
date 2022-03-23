@@ -1,8 +1,111 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import {
+  Cottage,
+  DataThresholding,
+  FlightLand,
+  LogoutTwoTone,
+  PrecisionManufacturing,
+  Sell,
+  YoutubeSearchedFor,
+} from "@mui/icons-material";
+import { Box, Button, Paper, Typography, useMediaQuery } from "@mui/material";
+import Head from "next/head";
+import Image from "next/image";
+import { useState } from "react";
+import TypewriterComponent from "typewriter-effect";
+import SkeleBar from "../components/SkeleBar";
+import {
+  servicesWeOffer,
+  getStartedBtn,
+} from "../public/Settings/baseSettings";
+import styles from "../styles/Home.module.css";
 
 export default function Home() {
+  const matchesXs = useMediaQuery((theme) => theme.breakpoints.up("xs"));
+  const matchesSm = useMediaQuery((theme) => theme.breakpoints.up("sm"));
+  const matchesMd = useMediaQuery((theme) => theme.breakpoints.up("md"));
+  const matchesLg = useMediaQuery((theme) => theme.breakpoints.up("lg"));
+  const matchesXl = useMediaQuery((theme) => theme.breakpoints.up("xl"));
+
+  const [iconFontSize, setIconFontSize] = useState("large");
+
+  // const servicesWeOffer = [
+  //   "High-Converting Sales Funnel page",
+  //   "Lead Generation Landing Page",
+  //   "Customized Homepage Website for your Business",
+  //   "Content-Management System",
+  // ];
+
+  const listOfServicesData = [
+    {
+      heading: `Landing Page`,
+      description: `Our landing page is designed with the purpose of generating leads for
+      your business.`,
+      icon: <FlightLand fontSize={iconFontSize} />,
+    },
+    {
+      heading: `Sales Funnel Page`,
+      description: `High-converting sales funnel page designed to boost sales of a product
+      or eLearning course.`,
+      icon: <Sell fontSize={iconFontSize} />,
+    },
+    {
+      heading: `Custom Web Page`,
+      description: `Premium service - full blown custom web page.`,
+      icon: <Cottage fontSize={iconFontSize} />,
+    },
+    {
+      heading: `Web page built on CMS`,
+      description: `We can work with CMS software, like WordPress Elementor to develop professionally designed web pages`,
+      icon: <PrecisionManufacturing fontSize={iconFontSize} />,
+    },
+    {
+      heading: `Web page using API and Backend`,
+      description: `Do you have a specific website you want that handles data? Well, this service is for you. APIs are wonderful for displaying data, and there's an API for everything!`,
+      icon: <DataThresholding fontSize={iconFontSize} />,
+    },
+    {
+      heading: `SEO Optimization`,
+      description: `We can perform search engine optimization for your website to rank higher in Google.`,
+      icon: <YoutubeSearchedFor fontSize={iconFontSize} />,
+    },
+  ];
+
+  // const listOfServicesComp = () =>
+  //   listOfServicesData.map(
+  //     (service, i)(
+  //       <Box key={i} maxWidth={"65ch"}>
+  //         <Typography variant="h6" component={"h3"}>
+  //           {service.heading}
+  //         </Typography>
+  //         <Typography variant="body">{service.description}</Typography>
+  //       </Box>
+  //     )
+  //   );
+
+  const listOfServicesComp = () =>
+    listOfServicesData.map((data, i) => (
+      <Paper
+        key={i}
+        sx={{
+          display: "flex",
+          gap: 1,
+          p: 1,
+          alignItems: "center",
+          maxWidth: "65ch",
+        }}
+      >
+        <Box color={"info.dark"}>{data.icon}</Box>
+        <Box>
+          <Typography variant="h6" component={"h3"} color={"info.main"}>
+            {data.heading}
+          </Typography>
+          <Typography variant="body" ml={2}>
+            {data.description}
+          </Typography>
+        </Box>
+      </Paper>
+    ));
+
   return (
     <div className={styles.container}>
       <Head>
@@ -11,11 +114,84 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-       
-      </main>
+      <Box
+        component={"main"}
+        minHeight={"100vh"}
+        flex={1}
+        display={"flex"}
+        flexDirection={"column"}
+        justifyContent={"center"}
+        alignItems={"center"}
+        gap={2}
+        sx={{
+          backgroundImage: `url("/Images/three-computers-coding-lg.jpg")`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: { xs: "center", md: "0 60%" },
+        }}
+      >
+        <Paper
+          elevation={10}
+          sx={{
+            p: 1,
+            mx: 2,
+            backgroundColor: "rgba(245, 245, 255, 0.75)",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Typography
+            variant={
+              (matchesMd && `h1`) || (matchesSm && "h2") || (matchesXs && "h3")
+            }
+            component="h1"
+            color={"info.dark"}
+            textAlign={"center"}
+          >
+            {(matchesSm && "Professional Web Development") ||
+              (matchesXs && "Expert Web Sites")}
+          </Typography>
 
+          <Typography
+            variant={
+              (matchesMd && `h2`) || (matchesSm && "h3") || (matchesXs && "h4")
+            }
+            component="h2"
+            textAlign={"center"}
+            maxWidth={"30ch"}
+            color={"info.main"}
+          >
+            We specialize in developing:
+            <TypewriterComponent
+              options={{
+                strings: servicesWeOffer,
+                autoStart: true,
+                loop: true,
+                pauseFor: "2500ms",
+                skipAddStyles: true,
+              }}
+            />
+          </Typography>
+        </Paper>
+        {getStartedBtn}
+      </Box>
 
+      <SkeleBar />
+
+      <Box>
+        <Box
+          height={"100%"}
+          width={"100%"}
+          backgroundImage={
+            "Images/websiteOnMobileAndDesktopWithBackgroundRemoved.png"
+          }
+        ></Box>
+        <Box display={"flex"} flexDirection={"column"} gap={1}>
+          {listOfServicesComp()}
+        </Box>
+      </Box>
     </div>
-  )
+  );
 }

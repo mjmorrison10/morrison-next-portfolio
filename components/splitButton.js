@@ -12,12 +12,17 @@ import camWords from "./camWords";
 import Link from "next/link";
 
 export default function SplitButton(props) {
+  const activeColor = props.activeColor;
+  const inactiveColor = props.inactiveColor;
+
   const [open, setOpen] = React.useState(false);
+  const [btnColor, setBtnColor] = React.useState(inactiveColor);
+
   const anchorRef = React.useRef(null);
   const [selectedIndex, setSelectedIndex] = React.useState(1);
   let text;
-  const color = props.btnColor;
-  
+  const color = btnColor;
+
   // const variant = props.variant;
   // const setBtnColor = props.setBtnColor;
   // const key = props.key;
@@ -27,7 +32,7 @@ export default function SplitButton(props) {
   // const extMenuLinks = props.extMenuLinks;
 
   // console.log(props.extMenuOptions);
-  
+
   // console.log(
   //   props.setBtnColor
   // );
@@ -43,7 +48,7 @@ export default function SplitButton(props) {
   // };
 
   const handleColorChange = () => {
-    !open ? props.setBtnColor("secondary") : props.setBtnColor("info");
+    !open ? setBtnColor(activeColor) : setBtnColor(inactiveColor);
   };
 
   const handleMenuItemClick = (event, index) => {
@@ -73,17 +78,6 @@ export default function SplitButton(props) {
     // !open ? props.setBtnColor("secondary") : props.setBtnColor("info");
     setOpen(false);
   };
-
-  function renderSwitch(param) {
-    switch(param) {
-      case undefined:
-        return 'br';
-      case undefined:
-        return 'foo';
-        default:
-        return `/${camWords(props.title)}`;
-    }
-  }
 
   return (
     <React.Fragment>

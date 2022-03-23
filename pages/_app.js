@@ -1,15 +1,24 @@
 import Header from "../components/header";
 import "../styles/globals.css";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import { blue, blueGrey, grey, lightGreen, orange } from "@mui/material/colors";
 import Footer from "../components/footer";
-import { Box, Button, Container, Fab, Fade, Tooltip } from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  Fab,
+  Fade,
+  Tooltip,
+  useMediaQuery,
+} from "@mui/material";
 import ActionTooltip from "../components/actionTooltip";
 import { ArrowDropUp } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import TypewriterComponent from "typewriter-effect";
-import { companyName } from "../public/Settings/baseSettings";
+import { companyFullName, companyName } from "../public/Settings/baseSettings";
 
+// console.log(matches);
 const theme = createTheme({
   palette: {
     primary: {
@@ -44,49 +53,29 @@ const theme = createTheme({
   },
 });
 
-
-
-
 function MyApp({ Component, pageProps }) {
+
+  // const matchesXs = useMediaQuery((theme) => theme.breakpoints.up("xs"));
+  // const matchesSm = useMediaQuery((theme) => theme.breakpoints.up("sm"));
+  // const matchesMd = useMediaQuery((theme) => theme.breakpoints.up("md"));
+  // const matchesLg = useMediaQuery((theme) => theme.breakpoints.up("lg"));
+  // const matchesXl = useMediaQuery((theme) => theme.breakpoints.up("xl"));
+
+  // const matches =
+
+  // function matches(screenSize) {
+  //   useMediaQuery((theme) => theme.breakpoints.up(screenSize));
+  // }
+
   // const [opa, setOpa] = useState(0);
   const [welcome, setWelcome] = useState(false);
 
   const [opa, setOpa] = useState(0);
 
-  // useEffect(() => {
-  //   console.log(welcome, '- Welcome has changed');
-  // }, [welcome])
-
   useEffect(() => {
-    console.log("before", opa);
     if (!welcome) return;
     setOpa(100);
-    // setTimeout(() => {
-    //   console.log("set Timeout");
-    //   setOpa(100);
-    // }, 2500);
-    console.log("after", opa);
   }, [welcome]);
-
-  // useEffect(() => {
-  //   console.log("before", opa);
-  //   const timer = setInterval(() => {
-  //     console.log("after", opa);
-  //     setOpa(100);
-  //   }, 1000);
-
-  //   return () => {
-  //     clearInterval(timer);
-  //   };
-
-  // const timer = window.setInterval(() => {
-  //   console.log("test");
-  //   setOpa((prevOpa) => prevOpa + 1); // <-- Change this line!
-  // }, 10000);
-  // return () => {
-  //   window.clearInterval(timer);
-  // };
-  // }, []);
 
   const liteGrnColor = lightGreen["A400"];
   const liteBluColor = blue[50];
@@ -102,6 +91,9 @@ function MyApp({ Component, pageProps }) {
         // Disable once website is finished
         justifyContent={welcome ? "flex-end" : "center"}
         alignItems={!welcome && "center"}
+        onClick={() => {
+          !welcome && setWelcome(true);
+        }}
       >
         {!welcome && (
           <Box
@@ -119,9 +111,6 @@ function MyApp({ Component, pageProps }) {
             <Button
               color="matrix"
               variant="contained"
-              onClick={() => {
-                setWelcome(true);
-              }}
               sx={{
                 position: "absolute",
                 bottom: 10,
@@ -144,16 +133,18 @@ function MyApp({ Component, pageProps }) {
               // }}
               onInit={(typewriter) => {
                 typewriter
-                  .typeString(`Welcome to ${companyName}!`)
-                  .pauseFor(2000)
+                  .typeString(`Welcome to ${companyFullName}!`)
+                  .deleteChars(`${companyFullName.length + 1}`)
+                  .typeString(`${companyName}`)
+                  .pauseFor(1000)
                   .deleteAll()
                   .typeString(
                     "We specialize in developing sales funnel pages for businesses!"
                   )
-                  .pauseFor(2000)
+                  .pauseFor(1000)
                   .deleteAll()
                   .typeString("Please wait while our servers load. :)")
-                  .pauseFor(2000)
+                  .pauseFor(1000)
                   .callFunction(() => {
                     // setWelcome(true);
                     console.log("All strings were deleted");
@@ -165,17 +156,18 @@ function MyApp({ Component, pageProps }) {
         )}
         {welcome && (
           <Container
-            maxWidth={"xl"}
+            maxWidth="xl"
+            disableGutters={true}
             sx={{
               opacity: opa,
               // opacity: welcome ? opa : 0,
-              transition: "all 2500ms",
+              // transition: "all 5000ms",
               // opacity: welcome ? 100 : 0,
             }}
           >
             <Header />
             <Component {...pageProps} />
-            <Fab
+            {/* <Fab
               color="info"
               size="small"
               onClick={() => {
@@ -198,7 +190,7 @@ function MyApp({ Component, pageProps }) {
               >
                 <ArrowDropUp fontSize="large" />
               </Tooltip>
-            </Fab>
+            </Fab> */}
             <Footer />
           </Container>
         )}

@@ -7,9 +7,9 @@ function SkeleBar() {
     <Skeleton
       animation="pulse"
       height={8}
-      width={'90%'}
+      width={'95%'}
       sx={{
-        backgroundColor: 'info.light',
+        backgroundColor: 'secondary.light',
         margin: "0 auto",
         my: 2,
       }}
