@@ -20,7 +20,8 @@ import {
 } from "@mui/material";
 import { height } from "@mui/system";
 import Head from "next/head";
-import Image from "next/image";
+// import Image from "next/image";
+// import Image from 'material-ui-image'
 import { useState } from "react";
 import TypewriterComponent from "typewriter-effect";
 import SkeleBar from "../components/SkeleBar";
@@ -29,10 +30,12 @@ import {
   getStartedBtn,
 } from "../public/Settings/baseSettings";
 import styles from "../styles/Home.module.css";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import styled from "@emotion/styled";
+import {
+  LazyLoadImage,
+  trackWindowScroll,
+} from "react-lazy-load-image-component";
 
-export default function Home(props) {
+export default function Home() {
   const matchesXs = useMediaQuery((theme) => theme.breakpoints.up("xs"));
   const matchesSm = useMediaQuery((theme) => theme.breakpoints.up("sm"));
   const matchesMd = useMediaQuery((theme) => theme.breakpoints.up("md"));
@@ -80,6 +83,30 @@ export default function Home(props) {
       heading: `SEO Optimization`,
       description: `We can perform search engine optimization for your website to rank higher in Google.`,
       icon: <YoutubeSearchedFor fontSize={iconFontSize} />,
+    },
+  ];
+
+  const listOfDevelopmentServices = [
+    {
+      src: "/Images/huddleLandingPage.png",
+      alt: "Huddle Landing Page",
+      height: "auto",
+      width: 300,
+      title: "Website App Development",
+    },
+    {
+      src: "/Images/copyLandingPage.png",
+      alt: "Huddle Landing Page",
+      height: 250,
+      width: "auto",
+      title: "Responsive App Development",
+    },
+    {
+      src: "/Images/websiteOnMobileAndDesktopWithBackgroundRemoved.png",
+      alt: "Huddle Landing Page",
+      height: "auto",
+      width: 300,
+      title: "Web App Development",
     },
   ];
 
@@ -133,28 +160,6 @@ export default function Home(props) {
         </Box>
       </Paper>
     ));
-
-  // const myLoader = ({ source, width, height, quality }) => {
-  //   return `${source}?w=${width}&q=${quality || 75}`;
-  // };
-
-  // const MyImage = (props) => {
-  //   return (
-  //     <Image
-  //       loader={myLoader(props)}
-  //       src={source}
-  //       alt={alt}
-  //       width={width}
-  //       height={height}
-  //     />
-  //   );
-  // };
-
-  const Image = styled("img")({
-    width: "100%",
-  });
-
-  const { loading = false } = props;
 
   return (
     <div className={styles.container}>
@@ -261,61 +266,48 @@ export default function Home(props) {
       </Box>
 
       <SkeleBar />
-
-      <Box>
-        <div>
-          {/* <Box sx={{ display: "flex", alignItems: "center" }}>
-            <Box sx={{ margin: 1 }}>
-              {loading ? (
-                <Skeleton variant="circular">
-                  <Avatar />
-                </Skeleton>
-              ) : (
-                <Avatar  src="https://pbs.twimg.com/profile_images/877631054525472768/Xp5FAPD5_reasonably_small.jpg" />
-              )}
-            </Box>
-            <Box sx={{ width: "100%" }}>
-              {loading ? (
-                <Skeleton width="100%">
-                  <Typography>.</Typography>
-                </Skeleton>
-              ) : (
-                <Typography>Ted</Typography>
-              )}
-            </Box>
-          </Box> */}
-          <Box height={"auto"} width={200}>
-            {loading ? (
-              <Skeleton variant="rectangular" height={500} width={500}>
-                <div style={{ paddingTop: "57%" }} />
-              </Skeleton>
-            ) : (
-              // <LazyLoadImage
-              //   src={`/Images/huddleLandingPage.png`}
-              //   alt={"Huddle Landing Page"} // use normal <img> attributes as props
-              //   height={"100%"}
-              //   width={"100%"}
-              // />
-              <Image
-                src="/Images/huddleLandingPage.png"
-                alt=""
-                height={"100%"}
-                width={"100%"}
+      <Box
+        display={"flex"}
+        justifyContent={"center"}
+        alignItems={"center"}
+        flexDirection={"column"}
+        gap={6}
+      >
+        <Typography variant="h4" component={"h2"} color="info.dark" textAlign={'center'}>
+          Our Work Speaks for Itself
+        </Typography>
+        <Box
+          display={"flex"}
+          flexDirection={matchesMd ? "row" : "column"}
+          gap={matchesMd ? null : 6}
+          justifyContent={"space-around"}
+          width={"100%"}
+          color="info.main"
+        >
+          {listOfDevelopmentServices.map((dev, i) => (
+            <Box
+              flex={1}
+              display={"flex"}
+              justifyContent={"space-between"}
+              alignItems={"center"}
+              flexDirection={"column"}
+            >
+              <LazyLoadImage
+                src={dev.src}
+                alt={dev.alt}
+                height={dev.height}
+                width={dev.width}
               />
-            )}
-          </Box>
-        </div>
-        {/* <Skeleton variant="circular" width={00} height={00}>
-          <LazyLoadImage
-            src={`/Images/huddleLandingPage.png`}
-            alt={"Huddle Landing Page"} // use normal <img> attributes as props
-            height={"100%"}
-            width={"100%"}
-          />
-        </Skeleton> */}
-
-        <Typography>Website App Development</Typography>
+              <Typography variant="h6" component={"h3"} textAlign={'center'}>
+                {dev.title}
+              </Typography>
+            </Box>
+          ))}
+        </Box>
+        {getStartedBtn}
       </Box>
+
+      <SkeleBar />
     </div>
   );
 }

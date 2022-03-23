@@ -73,7 +73,11 @@ export const companyPhoneNumber = "(415)340-0480";
 // const matchesXl = useMediaQuery((theme) => theme.breakpoints.up("xl"));
 
 export const getStartedBtn = (
-  <Button variant="contained" color="secondary">
+  <Button variant="contained" color="secondary" sx={{
+
+    width: "fit-content"
+  }}
+  >
     Get Started Now
   </Button>
 );
