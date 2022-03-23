@@ -92,16 +92,27 @@ export default function Home() {
           p: 1,
           alignItems: "center",
           maxWidth: "65ch",
+          width: "100%",
         }}
       >
         <Box color={"info.dark"}>{data.icon}</Box>
-        <Box>
-          <Typography variant="h6" component={"h3"} color={"info.main"}>
+        <Box width={"100%"}>
+          <Typography
+            variant="h6"
+            component={"h3"}
+            color={"info.main"}
+            textAlign={"center"}
+          >
             {data.heading}
           </Typography>
-          <Typography variant="body" ml={2}>
-            {data.description}
-          </Typography>
+          <SkeleBar
+            clr={"success.main"}
+            h={2}
+            w={"100%"}
+            my={0}
+            animate={"wave"}
+          />
+          <Typography variant="body">{data.description}</Typography>
         </Box>
       </Paper>
     ));
@@ -180,15 +191,26 @@ export default function Home() {
 
       <SkeleBar />
 
-      <Box>
+      <Box display={"flex"} gap={1}>
         <Box
-          height={"100%"}
-          width={"100%"}
-          backgroundImage={
-            "Images/websiteOnMobileAndDesktopWithBackgroundRemoved.png"
-          }
+          flex={1}
+          sx={{
+            // background: `url('/Images/websiteOnMobileAndDesktopWithBackgroundRemoved.png') no-repeat contain`,
+            backgroundSize: `contain`,
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            backgroundImage: `url('/Images/websiteOnMobileAndDesktopWithBackgroundRemoved.png')`,
+          }}
         ></Box>
-        <Box display={"flex"} flexDirection={"column"} gap={1}>
+        <Box
+          flex={1}
+          display={"flex"}
+          flexDirection={"column"}
+          alignItems={"flex-end"}
+          justifyContent={"center"}
+          width={"100%"}
+          gap={1}
+        >
           {listOfServicesComp()}
         </Box>
       </Box>
