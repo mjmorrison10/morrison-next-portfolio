@@ -85,15 +85,13 @@ function MyApp({ Component, pageProps }) {
     <ThemeProvider theme={theme}>
       <Box
         backgroundColor={welcome ? blue[50] : grey[900]}
-        minHeight={"100vh"}
-        display={"flex"}
-        flexDirection={"column"}
+        // minHeight={"100vh"}
+        // display={"flex"}
+        // flexDirection={"column"}
         // Disable once website is finished
-        justifyContent={welcome ? "flex-end" : "center"}
-        alignItems={!welcome && "center"}
-        onClick={() => {
-          !welcome && setWelcome(true);
-        }}
+        // justifyContent={welcome ? "flex-end" : "center"}
+        // alignItems={!welcome && "center"}
+      
       >
         {!welcome && (
           <Box
@@ -106,6 +104,11 @@ function MyApp({ Component, pageProps }) {
               alignItems: "center",
               justifyContent: "center",
               textAlign: "center",
+              minHeight: '100vh',
+              width: '100vw'
+            }}
+            onClick={() => {
+              !welcome && setWelcome(true);
             }}
           >
             <Button

@@ -34,6 +34,7 @@ import {
   LazyLoadImage,
   trackWindowScroll,
 } from "react-lazy-load-image-component";
+import TestimonialsComp from "../components/testimonialsComp";
 
 export default function Home() {
   const matchesXs = useMediaQuery((theme) => theme.breakpoints.up("xs"));
@@ -197,7 +198,7 @@ export default function Home() {
             alignItems: "center",
           }}
         >
-          <Typography
+          {/* <Typography
             variant={
               (matchesMd && `h1`) || (matchesSm && "h2") || (matchesXs && "h3")
             }
@@ -206,8 +207,8 @@ export default function Home() {
             textAlign={"center"}
           >
             {(matchesSm && "Professional Web Development") ||
-              (matchesXs && "Pro Web Design")}
-          </Typography>
+              (matchesXs && "Web Design")}
+          </Typography> */}
 
           <Typography
             variant={
@@ -238,6 +239,7 @@ export default function Home() {
       <Box
         display={"flex"}
         gap={1}
+        minHeight={'50vh'}
         flexDirection={(matchesMd && `row`) || (matchesXs && "column-reverse")}
       >
         <Box
@@ -266,14 +268,21 @@ export default function Home() {
       </Box>
 
       <SkeleBar />
+
       <Box
         display={"flex"}
         justifyContent={"center"}
         alignItems={"center"}
         flexDirection={"column"}
         gap={6}
+        minHeight={'50vh'}
       >
-        <Typography variant="h4" component={"h2"} color="info.dark" textAlign={'center'}>
+        <Typography
+          variant="h4"
+          component={"h2"}
+          color="info.dark"
+          textAlign={"center"}
+        >
           Our Work Speaks for Itself
         </Typography>
         <Box
@@ -287,6 +296,7 @@ export default function Home() {
           {listOfDevelopmentServices.map((dev, i) => (
             <Box
               flex={1}
+              key={i}
               display={"flex"}
               justifyContent={"space-between"}
               alignItems={"center"}
@@ -298,7 +308,7 @@ export default function Home() {
                 height={dev.height}
                 width={dev.width}
               />
-              <Typography variant="h6" component={"h3"} textAlign={'center'}>
+              <Typography variant="h6" component={"h3"} textAlign={"center"}>
                 {dev.title}
               </Typography>
             </Box>
@@ -308,6 +318,10 @@ export default function Home() {
       </Box>
 
       <SkeleBar />
+
+      <Box display={"flex"} alignItems={"center"} justifyContent={"center"} minHeight={'50vh'} >
+        <TestimonialsComp />
+      </Box>
     </div>
   );
 }

@@ -9,7 +9,6 @@ function SkeleBar({
   w = "95%",
   my = 2,
 }) {
-  console.log("props ->", clr, h);
   return (
     <Skeleton
       animation={animate}
