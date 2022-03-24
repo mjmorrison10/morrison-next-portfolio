@@ -76,6 +76,7 @@ export const getStartedBtn = (
   <Button
     variant="contained"
     color="secondary"
+    href="https://forms.gle/weTi6WKt8UVkNBCU7"
     sx={{
       width: "fit-content",
     }}

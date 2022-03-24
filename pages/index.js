@@ -239,7 +239,7 @@ export default function Home() {
       <Box
         display={"flex"}
         gap={1}
-        minHeight={'50vh'}
+        minHeight={"100vh"}
         flexDirection={(matchesMd && `row`) || (matchesXs && "column-reverse")}
       >
         <Box
@@ -275,7 +275,7 @@ export default function Home() {
         alignItems={"center"}
         flexDirection={"column"}
         gap={6}
-        minHeight={'50vh'}
+        minHeight={"75vh"}
       >
         <Typography
           variant="h4"
@@ -319,8 +319,16 @@ export default function Home() {
 
       <SkeleBar />
 
-      <Box display={"flex"} alignItems={"center"} justifyContent={"center"} minHeight={'50vh'} >
+      <Box
+        display={"flex"}
+        alignItems={"center"}
+        justifyContent={"center"}
+        minHeight={"50vh"}
+      >
         <TestimonialsComp />
+      </Box>
+      <Box display={"flex"} justifyContent={"center"}>
+        {getStartedBtn}
       </Box>
     </div>
   );

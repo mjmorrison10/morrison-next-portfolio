@@ -54,7 +54,6 @@ const theme = createTheme({
 });
 
 function MyApp({ Component, pageProps }) {
-
   // const matchesXs = useMediaQuery((theme) => theme.breakpoints.up("xs"));
   // const matchesSm = useMediaQuery((theme) => theme.breakpoints.up("sm"));
   // const matchesMd = useMediaQuery((theme) => theme.breakpoints.up("md"));
@@ -91,7 +90,6 @@ function MyApp({ Component, pageProps }) {
         // Disable once website is finished
         // justifyContent={welcome ? "flex-end" : "center"}
         // alignItems={!welcome && "center"}
-      
       >
         {!welcome && (
           <Box
@@ -104,8 +102,8 @@ function MyApp({ Component, pageProps }) {
               alignItems: "center",
               justifyContent: "center",
               textAlign: "center",
-              minHeight: '100vh',
-              width: '100vw'
+              minHeight: "100vh",
+              width: "100vw",
             }}
             onClick={() => {
               !welcome && setWelcome(true);
@@ -179,6 +177,7 @@ function MyApp({ Component, pageProps }) {
               sx={{
                 position: "sticky",
                 display: "flex",
+                bottom: "1rem",
                 // display: { xs: "none", sm: "flex" },
                 alignItems: "center",
                 justifyContent: "center",
