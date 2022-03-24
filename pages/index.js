@@ -198,7 +198,7 @@ export default function Home() {
             alignItems: "center",
           }}
         >
-          {/* <Typography
+          <Typography
             variant={
               (matchesMd && `h1`) || (matchesSm && "h2") || (matchesXs && "h3")
             }
@@ -208,7 +208,7 @@ export default function Home() {
           >
             {(matchesSm && "Professional Web Development") ||
               (matchesXs && "Web Design")}
-          </Typography> */}
+          </Typography>
 
           <Typography
             variant={

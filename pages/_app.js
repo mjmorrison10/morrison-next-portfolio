@@ -149,7 +149,7 @@ function MyApp({ Component, pageProps }) {
                   .typeString("Please wait while our servers load. :)")
                   .pauseFor(1000)
                   .callFunction(() => {
-                    // setWelcome(true);
+                    setWelcome(true);
                     console.log("All strings were deleted");
                   })
                   .start();
@@ -170,7 +170,7 @@ function MyApp({ Component, pageProps }) {
           >
             <Header />
             <Component {...pageProps} />
-            {/* <Fab
+            <Fab
               color="info"
               size="small"
               onClick={() => {
@@ -178,7 +178,6 @@ function MyApp({ Component, pageProps }) {
               }}
               sx={{
                 position: "sticky",
-                bottom: "1rem",
                 display: "flex",
                 // display: { xs: "none", sm: "flex" },
                 alignItems: "center",
@@ -193,7 +192,7 @@ function MyApp({ Component, pageProps }) {
               >
                 <ArrowDropUp fontSize="large" />
               </Tooltip>
-            </Fab> */}
+            </Fab>
             <Footer />
           </Container>
         )}
