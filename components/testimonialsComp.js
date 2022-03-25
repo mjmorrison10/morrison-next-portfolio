@@ -135,6 +135,73 @@ export default function TestimonialsComp() {
     // setDisplayText(displayText ? panel : false);
   };
 
+  function testimonial() {
+    return (
+      <Paper
+        // onClick={() => {
+        //   console.log(i);
+        //   setDisplayText(!displayText);
+        // }}
+        onClick={handleChange(i)}
+        key={i}
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          padding: 1,
+          gap: 1,
+          width: `${!matchesSm ? "82.5vw" : null}`,
+        }}
+      >
+        <Box
+          display={"flex"}
+          justifyContent={"center"}
+          gap={1}
+          alignItems={"center"}
+        >
+          <Avatar {...stringAvatar(`${list.name}`)} />
+          <Typography>{list.name}</Typography>
+        </Box>
+        <SkeleBar h={2} w={"100%"} my={0} clr={randomColorWithAccent} />
+
+        <Box
+          display={"flex"}
+          flexDirection={"column"}
+          justifyContent={"space-between"}
+          flexGrow={1}
+        >
+          <Typography
+            variant={"body"}
+            noWrap={
+              matchesMd || (!displayText && specificCardToDisplay === i)
+                ? false
+                : true
+            }
+            maxWidth={"65ch"}
+          >
+            {list.testimonial}
+          </Typography>
+          <Box
+            alignSelf={"flex-end"}
+            display={"flex"}
+            alignItems={"center"}
+            justifyContent={"center"}
+          >
+            <Typography variant={"caption"}>Rating:</Typography>
+            <Rating
+              defaultValue={list.starRating}
+              precision={0.5}
+              readOnly
+              sx={{
+                color: randomColorWithAccent,
+                transition: "all 300ms ease-in-out",
+              }}
+            />
+          </Box>
+        </Box>
+      </Paper>
+    );
+  }
+
   function filterTestimonials(list, i) {
     console.log(page);
     if (page === 1)

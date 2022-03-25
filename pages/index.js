@@ -37,7 +37,6 @@ import {
   MuiAccents,
   randomColorWithAccent,
   listOfServicesData,
-  matchesScreenSize,
 } from "../public/Settings/baseSettings";
 import styles from "../styles/Home.module.css";
 import {
@@ -101,56 +100,81 @@ export default function Home() {
   );
 
   const listOfServicesComp = () =>
-    listOfServicesData.map((data, i) =>
-      matchesScreenSize('md') ? (
-        <Paper
-          key={i}
-          sx={{
-            display: "flex",
-            gap: 1,
-            p: 1,
-            alignItems: "center",
-            maxWidth: "65ch",
-            width: "100%",
-          }}
-        >
-          <Box color={"info.dark"}>{data.icon}</Box>
-          <Box width={"100%"}>
-            <Typography
-              variant="h6"
-              component={"h3"}
-              color={"info.main"}
-              textAlign={"center"}
-            >
-              {data.heading}
-            </Typography>
-            <SkeleBar
-              clr={randomColorWithAccent}
-              h={2}
-              w={"100%"}
-              my={0}
-              animate={"wave"}
-            />
-            {displayServiceDetails(data.description)}
-          </Box>
-        </Paper>
-      ) : (
+    listOfServicesData.map(
+      (data, i) => (
+        // !matchesMd ? (
+        //   <Paper
+        //     key={i}
+        //     sx={{
+        //       display: "flex",
+        //       gap: 1,
+        //       p: 1,
+        //       alignItems: "center",
+        //       maxWidth: "65ch",
+        //       width: "100%",
+        //     }}
+        //   >
+        //     <Box color={"info.dark"}>{data.icon}</Box>
+        //     <Box width={"100%"}>
+        //       <Typography
+        //         variant="h6"
+        //         component={"h3"}
+        //         color={"info.main"}
+        //         textAlign={"center"}
+        //       >
+        //         {data.heading}
+        //       </Typography>
+        //       <SkeleBar
+        //         clr={randomColorWithAccent}
+        //         h={2}
+        //         w={"100%"}
+        //         my={0}
+        //         animate={"wave"}
+        //       />
+        //       {displayServiceDetails(data.description)}
+        //     </Box>
+        //   </Paper>
+        // ) : (
         <Box>
           <Accordion>
             <AccordionSummary
               expandIcon={<ExpandMore />}
-              aria-controls="panel1a-content"
-              id="panel1a-header"
+              aria-controls={`panel${i}a-content`}
+              id={`panel${i}a-header`}
             >
-              <Box color={"info.dark"}>{data.icon}</Box>
-              <Typography>{data.heading}</Typography>
+              <Box
+                display={"flex"}
+                gap={1}
+                alignItems={"center"}
+                width={"100%"}
+              >
+                <Box color={"info.dark"}>{data.icon}</Box>
+                <Typography
+                  variant="h6"
+                  component={"h3"}
+                  color={"info.main"}
+                  textAlign={"center"}
+                  alignSelf={"center"}
+                  width={"100%"}
+                >
+                  {data.heading}
+                </Typography>
+              </Box>
             </AccordionSummary>
+            <SkeleBar
+              clr={randomColorWithAccent}
+              h={2}
+              w={"95%"}
+              my={0}
+              animate={"wave"}
+            />
             <AccordionDetails>
               <Typography>{data.description}</Typography>
             </AccordionDetails>
           </Accordion>
         </Box>
       )
+      // )
     );
 
   return (

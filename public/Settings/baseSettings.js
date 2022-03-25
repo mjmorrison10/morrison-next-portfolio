@@ -69,7 +69,7 @@ export const servicesWeOffer = [
   "Complete Homepage Website for your Business",
   "Content Management System",
   "SEO Optimization",
-  "Alpha / Beta Testing and Debugging",
+  'Alpha / Beta Testing and Debugging'
 ];
 
 export const companyName = "Morrison DevOps";
@@ -77,13 +77,8 @@ export const companyFullName = "Morrison Developer Operations";
 export const companyOwner = "Michael Morrison";
 export const companyPhoneNumber = "(415)340-0480";
 
-
-export const matchesScreenSize = (size) => {
-  const matches = useMediaQuery((theme) => theme.breakpoints.up(size));
-  return matches;
-};
-
 // import { useMediaQuery, useTheme } from "@mui/material";
+// const matchesXs = useMediaQuery((theme) => theme.breakpoints.up("xs"));
 // const matchesSm = useMediaQuery((theme) => theme.breakpoints.up("sm"));
 // const matchesMd = useMediaQuery((theme) => theme.breakpoints.up("md"));
 // const matchesLg = useMediaQuery((theme) => theme.breakpoints.up("lg"));
@@ -167,7 +162,7 @@ export const listOfServicesData = [
     icon: <Sell fontSize={iconFontSize} />,
   },
   {
-    heading: `Custom Web Page`,
+    heading: `Complete Custom Web Page`,
     description: `Premium service. Do you want a complete website with multiple pages for your business? This offer is for you! This service is an all in one package, including all of our other services. Includes numerous pages, utilizing an API to display data, and full stack web development with a backend database.`,
     icon: <Cottage fontSize={iconFontSize} />,
   },
@@ -187,7 +182,7 @@ export const listOfServicesData = [
     icon: <YoutubeSearchedFor fontSize={iconFontSize} />,
   },
   {
-    heading: `Bug Fix`,
+    heading: `Debugging Software Code`,
     description: `
     We are here to help you fix errors in code when they arise. We'll identify web development programming bugs and reproduce the issue, then isolate it, research it, develop a hypothesis for what's causing it, and come up with solutions for fixing them before testing them out to make sure they work as expected. Debugging can take some time, but we'll do our best to get things fixed as soon as possible, so no more errors show up!
     `,
