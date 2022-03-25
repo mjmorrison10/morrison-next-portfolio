@@ -84,10 +84,7 @@ function MyApp({ Component, pageProps }) {
     <ThemeProvider theme={theme}>
       <Box
         backgroundColor={welcome ? blue[50] : grey[900]}
-        sx={{
-          overflowY: 'hidden'
-        }}
-        // minHeight={"100vh"}
+        minHeight={"100%"}
         // display={"flex"}
         // flexDirection={"column"}
         // Disable once website is finished
@@ -169,7 +166,7 @@ function MyApp({ Component, pageProps }) {
               // opacity: welcome ? 100 : 0,
             }}
           >
-            {/* <Header /> */}
+            <Header />
             <Component {...pageProps} />
             <Fab
               color="info"
