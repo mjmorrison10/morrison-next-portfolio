@@ -2,6 +2,7 @@ import {
   Circle,
   Cottage,
   DataThresholding,
+  ExpandMore,
   FlightLand,
   LogoutTwoTone,
   PrecisionManufacturing,
@@ -10,6 +11,9 @@ import {
   YoutubeSearchedFor,
 } from "@mui/icons-material";
 import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
   Avatar,
   Box,
   Button,
@@ -32,6 +36,8 @@ import {
   paletteColors,
   MuiAccents,
   randomColorWithAccent,
+  listOfServicesData,
+  matchesScreenSize,
 } from "../public/Settings/baseSettings";
 import styles from "../styles/Home.module.css";
 import {
@@ -47,49 +53,12 @@ export default function Home() {
   const matchesLg = useMediaQuery((theme) => theme.breakpoints.up("lg"));
   const matchesXl = useMediaQuery((theme) => theme.breakpoints.up("xl"));
 
-  const [iconFontSize, setIconFontSize] = useState("large");
-
   // const servicesWeOffer = [
   //   "High-Converting Sales Funnel page",
   //   "Lead Generation Landing Page",
   //   "Customized Homepage Website for your Business",
   //   "Content-Management System",
   // ];
-
-  const listOfServicesData = [
-    {
-      heading: `Landing Page`,
-      description: `Our landing page is designed with the purpose of generating leads for
-      your business.`,
-      icon: <FlightLand fontSize={iconFontSize} />,
-    },
-    {
-      heading: `Sales Funnel Page`,
-      description: `High-converting sales funnel page designed to boost sales of a product
-      or eLearning course.`,
-      icon: <Sell fontSize={iconFontSize} />,
-    },
-    {
-      heading: `Custom Web Page`,
-      description: `Premium service - fullly customized and complete web page.`,
-      icon: <Cottage fontSize={iconFontSize} />,
-    },
-    {
-      heading: `Web page built on CMS`,
-      description: `We can work with CMS software, like WordPress Elementor to develop professionally designed web pages`,
-      icon: <PrecisionManufacturing fontSize={iconFontSize} />,
-    },
-    {
-      heading: `Web page using API and Backend`,
-      description: `Do you have a specific website you want that handles data? Well, this service is for you. APIs are wonderful for displaying data, and there's an API for everything!`,
-      icon: <DataThresholding fontSize={iconFontSize} />,
-    },
-    {
-      heading: `SEO Optimization`,
-      description: `We can perform search engine optimization for your website to rank higher in Google.`,
-      icon: <YoutubeSearchedFor fontSize={iconFontSize} />,
-    },
-  ];
 
   const listOfDevelopmentServices = [
     {
@@ -132,39 +101,57 @@ export default function Home() {
   );
 
   const listOfServicesComp = () =>
-    listOfServicesData.map((data, i) => (
-      <Paper
-        key={i}
-        sx={{
-          display: "flex",
-          gap: 1,
-          p: 1,
-          alignItems: "center",
-          maxWidth: "65ch",
-          width: "100%",
-        }}
-      >
-        <Box color={"info.dark"}>{data.icon}</Box>
-        <Box width={"100%"}>
-          <Typography
-            variant="h6"
-            component={"h3"}
-            color={"info.main"}
-            textAlign={"center"}
-          >
-            {data.heading}
-          </Typography>
-          <SkeleBar
-            clr={randomColorWithAccent}
-            h={2}
-            w={"100%"}
-            my={0}
-            animate={"wave"}
-          />
-          {displayServiceDetails(data.description)}
+    listOfServicesData.map((data, i) =>
+      matchesScreenSize('md') ? (
+        <Paper
+          key={i}
+          sx={{
+            display: "flex",
+            gap: 1,
+            p: 1,
+            alignItems: "center",
+            maxWidth: "65ch",
+            width: "100%",
+          }}
+        >
+          <Box color={"info.dark"}>{data.icon}</Box>
+          <Box width={"100%"}>
+            <Typography
+              variant="h6"
+              component={"h3"}
+              color={"info.main"}
+              textAlign={"center"}
+            >
+              {data.heading}
+            </Typography>
+            <SkeleBar
+              clr={randomColorWithAccent}
+              h={2}
+              w={"100%"}
+              my={0}
+              animate={"wave"}
+            />
+            {displayServiceDetails(data.description)}
+          </Box>
+        </Paper>
+      ) : (
+        <Box>
+          <Accordion>
+            <AccordionSummary
+              expandIcon={<ExpandMore />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Box color={"info.dark"}>{data.icon}</Box>
+              <Typography>{data.heading}</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>{data.description}</Typography>
+            </AccordionDetails>
+          </Accordion>
         </Box>
-      </Paper>
-    ));
+      )
+    );
 
   return (
     <div className={styles.container}>

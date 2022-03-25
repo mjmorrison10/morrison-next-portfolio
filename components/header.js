@@ -20,6 +20,7 @@ import {
   companyPhoneNumber,
   getStartedBtn,
   menuLabels,
+  listOfServicesData,
 } from "../public/Settings/baseSettings";
 
 function HideOnScroll(props) {
@@ -169,8 +170,7 @@ function Header(props) {
                     width: "100%",
                   }}
                 >
-              {getStartedBtn()}
-
+                  {getStartedBtn()}
                   {objButton.map((btn, i) => (
                     <SplitButton
                       // onClick={() => {
@@ -231,7 +231,6 @@ function Header(props) {
                   key={i}
                   title={`${btn.title}`}
                   menuOptions={btn.menuTitle}
-              
                 ></SplitButton>
               ))}
 
@@ -240,7 +239,7 @@ function Header(props) {
                 endIcon={<PhoneCallback />}
                 variant="contained"
                 color="primary"
-                href="/apply"
+                href="ht  tps://docs.google.com/forms/d/e/1FAIpQLSdQaPXLg0daDpEd3QO88JRBJcrquMVQm-G4PIqcd1ehhPj6Bg/viewform?usp=sf_link"
                 sx={{
                   px: 1,
                   py: 0.5,

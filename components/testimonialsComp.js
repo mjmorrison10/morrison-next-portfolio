@@ -207,27 +207,42 @@ export default function TestimonialsComp() {
               <Typography>{list.name}</Typography>
             </Box>
             <SkeleBar h={2} w={"100%"} my={0} clr={randomColorWithAccent} />
-            <Typography
-              variant={"body"}
-              noWrap={
-                matchesMd || (!displayText && specificCardToDisplay === i)
-                  ? false
-                  : true
-              }
-              maxWidth={"65ch"}
+
+            <Box
+              display={"flex"}
+              flexDirection={"column"}
+              justifyContent={"space-between"}
+              flexGrow={1}
             >
-              {list.testimonial}
-            </Typography>
-            <Rating
-              defaultValue={list.starRating}
-              precision={0.5}
-              readOnly
-              sx={{
-                color: randomColorWithAccent,
-                alignSelf: "flex-end",
-                transition: "all 300ms ease-in-out",
-              }}
-            />
+              <Typography
+                variant={"body"}
+                noWrap={
+                  matchesMd || (!displayText && specificCardToDisplay === i)
+                    ? false
+                    : true
+                }
+                maxWidth={"65ch"}
+              >
+                {list.testimonial}
+              </Typography>
+              <Box
+                alignSelf={"flex-end"}
+                display={"flex"}
+                alignItems={"center"}
+                justifyContent={"center"}
+              >
+                <Typography variant={"caption"}>Rating:</Typography>
+                <Rating
+                  defaultValue={list.starRating}
+                  precision={0.5}
+                  readOnly
+                  sx={{
+                    color: randomColorWithAccent,
+                    transition: "all 300ms ease-in-out",
+                  }}
+                />
+              </Box>
+            </Box>
           </Paper>
         ))}
       </Box>

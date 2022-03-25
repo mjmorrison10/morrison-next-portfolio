@@ -166,7 +166,7 @@ function MyApp({ Component, pageProps }) {
               // opacity: welcome ? 100 : 0,
             }}
           >
-            <Header />
+            {/* <Header /> */}
             <Component {...pageProps} />
             <Fab
               color="info"
