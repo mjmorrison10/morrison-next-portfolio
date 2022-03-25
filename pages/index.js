@@ -135,7 +135,7 @@ export default function Home() {
         //     </Box>
         //   </Paper>
         // ) : (
-        <Box>
+        <Box key={i}>
           <Accordion>
             <AccordionSummary
               expandIcon={<ExpandMore />}
