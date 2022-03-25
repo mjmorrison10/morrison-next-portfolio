@@ -84,6 +84,9 @@ function MyApp({ Component, pageProps }) {
     <ThemeProvider theme={theme}>
       <Box
         backgroundColor={welcome ? blue[50] : grey[900]}
+        sx={{
+          overflowY: 'hidden'
+        }}
         // minHeight={"100vh"}
         // display={"flex"}
         // flexDirection={"column"}
