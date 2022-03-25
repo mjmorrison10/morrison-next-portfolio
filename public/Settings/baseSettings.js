@@ -79,10 +79,8 @@ export const getStartedBtn = (label = "Get Started Now") => {
     <Button
       variant="contained"
       color="secondary"
-      href="https://forms.gle/weTi6WKt8UVkNBCU7"
-      sx={{
-        width: "fit-content",
-      }}
+      href="https://docs.google.com/forms/d/e/1FAIpQLSdQaPXLg0daDpEd3QO88JRBJcrquMVQm-G4PIqcd1ehhPj6Bg/viewform?usp=sf_link"
+  
     >
       {label}
     </Button>

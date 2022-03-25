@@ -8,6 +8,7 @@ import {
   MuiAccents,
   paletteColors,
   randomColorWithAccent,
+  randomColor,
   randomItemFromAnArray,
   testimonialsList,
 } from "../public/Settings/baseSettings";
@@ -97,7 +98,7 @@ function stringAvatar(name) {
   };
 }
 
-export default function TestimonialsComp(props) {
+export default function TestimonialsComp() {
   const matchesXs = useMediaQuery((theme) => theme.breakpoints.up("xs"));
   const matchesSm = useMediaQuery((theme) => theme.breakpoints.up("sm"));
   const matchesMd = useMediaQuery((theme) => theme.breakpoints.up("md"));
@@ -160,89 +161,82 @@ export default function TestimonialsComp(props) {
   // console.log(test);
 
   return (
-    <Box {...props}>
+    <Box
+      display={"flex"}
+      // flexWrap={"wrap"}
+      // flexWrap={{xs: 'no-wrap', md: "wrap"}}
+      flexDirection={"column"}
+      alignItems={"center"}
+      justifyContent={"center"}
+      gap={1}
+    >
       <Pagination
         count={Math.ceil(testimonialsList.length / slidesPerPage)}
         page={page}
         onChange={handlePaginationChange}
       />
-      {test.map((list, i) => (
-        <Paper
-          // onClick={() => {
-          //   console.log(i);
-          //   setDisplayText(!displayText);
-          // }}
-          onClick={handleChange(i)}
-          key={i}
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            padding: 1,
-            gap: 1,
-            width: `${!matchesSm ? "82.5vw" : null}`,
-          }}
-        >
-          <Box
-            display={"flex"}
-            justifyContent={"center"}
-            gap={1}
-            alignItems={"center"}
-          >
-            <Avatar {...stringAvatar(`${list.name}`)} />
-            <Typography>{list.name}</Typography>
-          </Box>
-          <SkeleBar h={2} w={"100%"} my={0} clr={randomColorWithAccent} />
-          <Typography
-            variant={"body"}
-            noWrap={
-              matchesMd || (!displayText && specificCardToDisplay === i)
-                ? false
-                : true
-            }
-            maxWidth={"65ch"}
-          >
-            {list.testimonial}
-          </Typography>
-          <Rating
-            defaultValue={list.starRating}
-            precision={0.5}
-            readOnly
-            sx={{
-              alignSelf: "flex-end",
-            }}
-          />
-        </Paper>
-      ))}
-    </Box>
-    // <Box
-    //   sx={{
-    //     flexGrow: 1,
-    //     bgcolor: "background.paper",
-    //     display: "flex",
-    //     height: 224,
-    //     maxWidth: "fit-content",
-    //   }}
-    // >
-    //   <Tabs
-    //     orientation={"vertical"}
-    //     variant="scrollable"
-    //     value={value}
-    //     onChange={handleChange}
-    //     aria-label="Vertical tabs example"
-    //     sx={{ borderRight: 1, borderColor: "divider", maxWidth: "fit-content" }}
-    //   >
-    //     {testimonialsList.map((list, i) => (
-    //       <Tab label={list.name} {...a11yProps(i)} key={i} />
-    //     ))}
-    //   </Tabs>
 
-    //   {testimonialsList.map((list, i) => (
-    //     <TabPanel variant="scrollable" value={value} index={i} key={i}>
-    //       <Typography>{list.testimonial}</Typography>
-    //       <SkeleBar h={4} my={1} />
-    //       <Rating defaultValue={list.starRating} precision={0.5} readOnly />
-    //     </TabPanel>
-    //   ))}
-    // </Box>
+      <Box
+        display={"flex"}
+        gap={1}
+        flexDirection={!matchesMd ? "column" : "row"}
+      >
+        {test.map((list, i) => (
+          <Paper
+            // onClick={() => {
+            //   console.log(i);
+            //   setDisplayText(!displayText);
+            // }}
+            onClick={handleChange(i)}
+            key={i}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              padding: 1,
+              gap: 1,
+              width: `${!matchesSm ? "82.5vw" : null}`,
+            }}
+          >
+            <Box
+              display={"flex"}
+              justifyContent={"center"}
+              gap={1}
+              alignItems={"center"}
+            >
+              <Avatar {...stringAvatar(`${list.name}`)} />
+              <Typography>{list.name}</Typography>
+            </Box>
+            <SkeleBar h={2} w={"100%"} my={0} clr={randomColorWithAccent} />
+            <Typography
+              variant={"body"}
+              noWrap={
+                matchesMd || (!displayText && specificCardToDisplay === i)
+                  ? false
+                  : true
+              }
+              maxWidth={"65ch"}
+            >
+              {list.testimonial}
+            </Typography>
+            <Rating
+              defaultValue={list.starRating}
+              precision={0.5}
+              readOnly
+              sx={{
+                color: randomColorWithAccent,
+                alignSelf: "flex-end",
+                transition: "all 300ms ease-in-out",
+              }}
+            />
+          </Paper>
+        ))}
+      </Box>
+
+      <Pagination
+        count={Math.ceil(testimonialsList.length / slidesPerPage)}
+        page={page}
+        onChange={handlePaginationChange}
+      />
+    </Box>
   );
 }

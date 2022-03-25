@@ -174,6 +174,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      {/* Heading Section */}
       <Box
         component={"main"}
         minHeight={"100vh"}
@@ -240,6 +241,7 @@ export default function Home() {
 
       <SkeleBar />
 
+      {/* Services Section */}
       <Box
         display={"flex"}
         gap={1}
@@ -273,6 +275,7 @@ export default function Home() {
 
       <SkeleBar />
 
+      {/* Development */}
       <Box
         display={"flex"}
         justifyContent={"center"}
@@ -323,6 +326,7 @@ export default function Home() {
 
       <SkeleBar />
 
+      {/* Testimonials */}
       <Box
         display={"flex"}
         alignItems={"center"}
@@ -340,12 +344,7 @@ export default function Home() {
         >
           Testimonials
         </Typography>
-        <TestimonialsComp
-          display={"flex"}
-          flexWrap={"wrap"}
-          justifyContent={"center"}
-          gap={1}
-        />
+        <TestimonialsComp />
         <Box display={"flex"} justifyContent={"center"}>
           {getStartedBtn("Contact Us Now!")}
         </Box>

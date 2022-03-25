@@ -162,7 +162,7 @@ function MyApp({ Component, pageProps }) {
             sx={{
               opacity: opa,
               // opacity: welcome ? opa : 0,
-              // transition: "all 5000ms",
+              transition: "all 5000ms ease",
               // opacity: welcome ? 100 : 0,
             }}
           >

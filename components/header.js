@@ -169,6 +169,8 @@ function Header(props) {
                     width: "100%",
                   }}
                 >
+              {getStartedBtn()}
+
                   {objButton.map((btn, i) => (
                     <SplitButton
                       // onClick={() => {
