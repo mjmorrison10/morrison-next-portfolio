@@ -28,6 +28,10 @@ import SkeleBar from "../components/SkeleBar";
 import {
   servicesWeOffer,
   getStartedBtn,
+  randomItemFromAnArray,
+  paletteColors,
+  MuiAccents,
+  randomColorWithAccent,
 } from "../public/Settings/baseSettings";
 import styles from "../styles/Home.module.css";
 import {
@@ -151,7 +155,7 @@ export default function Home() {
             {data.heading}
           </Typography>
           <SkeleBar
-            clr={"success.main"}
+            clr={randomColorWithAccent}
             h={2}
             w={"100%"}
             my={0}
@@ -225,13 +229,13 @@ export default function Home() {
                 strings: servicesWeOffer,
                 autoStart: true,
                 loop: true,
-                pauseFor: "2500ms",
+                pauseFor: "2000ms",
                 skipAddStyles: true,
               }}
             />
           </Typography>
         </Paper>
-        {getStartedBtn}
+        {getStartedBtn()}
       </Box>
 
       <SkeleBar />
@@ -314,7 +318,7 @@ export default function Home() {
             </Box>
           ))}
         </Box>
-        {getStartedBtn}
+        {getStartedBtn("Ask about our services")}
       </Box>
 
       <SkeleBar />
@@ -324,11 +328,27 @@ export default function Home() {
         alignItems={"center"}
         justifyContent={"center"}
         minHeight={"50vh"}
+        flexDirection={"column"}
+        gap={1}
       >
-        <TestimonialsComp />
-      </Box>
-      <Box display={"flex"} justifyContent={"center"}>
-        {getStartedBtn}
+        <Typography
+          variant="h4"
+          component={"h2"}
+          color="info.dark"
+          textAlign={"center"}
+          mt={5}
+        >
+          Testimonials
+        </Typography>
+        <TestimonialsComp
+          display={"flex"}
+          flexWrap={"wrap"}
+          justifyContent={"center"}
+          gap={1}
+        />
+        <Box display={"flex"} justifyContent={"center"}>
+          {getStartedBtn("Contact Us Now!")}
+        </Box>
       </Box>
     </div>
   );

@@ -57,7 +57,8 @@ export const servicesWeOffer = [
   "High-Converting Sales Funnel page",
   "Lead Generation Landing Page",
   "Customized Homepage Website for your Business",
-  "Content-Management System",
+  "Content Management System",
+  "SEO Optimization",
 ];
 
 export const companyName = "Morrison DevOps";
@@ -72,18 +73,21 @@ export const companyPhoneNumber = "(415)340-0480";
 // const matchesLg = useMediaQuery((theme) => theme.breakpoints.up("lg"));
 // const matchesXl = useMediaQuery((theme) => theme.breakpoints.up("xl"));
 
-export const getStartedBtn = (
-  <Button
-    variant="contained"
-    color="secondary"
-    href="https://forms.gle/weTi6WKt8UVkNBCU7"
-    sx={{
-      width: "fit-content",
-    }}
-  >
-    Get Started Now
-  </Button>
-);
+// export const getStartedBtn = (
+export const getStartedBtn = (label = "Get Started Now") => {
+  return (
+    <Button
+      variant="contained"
+      color="secondary"
+      href="https://forms.gle/weTi6WKt8UVkNBCU7"
+      sx={{
+        width: "fit-content",
+      }}
+    >
+      {label}
+    </Button>
+  );
+};
 
 export const testimonialsList = [
   {
@@ -97,7 +101,7 @@ export const testimonialsList = [
     starRating: 5,
   },
   {
-    name: `Kelvin Davidson`,
+    name: `Rome Artwork`,
     testimonial: `MorrisonDevOps has been an integral part of our development team. They have helped us create a landing page that generates leads and has increased my email list, impressions, and viewers by 300%. I cannot recommend their work enough.`,
     starRating: 5,
   },
@@ -112,3 +116,26 @@ export const testimonialsList = [
     starRating: 5,
   },
 ];
+
+export const randomItemFromAnArray = (arr) =>
+  arr[Math.floor(Math.random() * arr.length)];
+
+export const paletteColors = [
+  "primary",
+  "secondary",
+  "error",
+  "warning",
+  "info",
+  "success",
+];
+
+export const MuiAccents = ["light", "main", "dark"];
+
+export const randomColorWithAccent = () =>
+  `${randomItemFromAnArray(paletteColors)}.${randomItemFromAnArray(
+    MuiAccents
+  )}`;
+
+export const randomColor = () => randomItemFromAnArray(paletteColors);
+
+export const randomAccent = () => randomItemFromAnArray(MuiAccents);

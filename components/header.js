@@ -218,7 +218,7 @@ function Header(props) {
                 alignItems: "center",
               }}
             >
-              {getStartedBtn}
+              {getStartedBtn()}
               {objButton.map((btn, i) => (
                 <SplitButton
                   variant={`contained`}

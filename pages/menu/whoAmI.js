@@ -1,11 +1,12 @@
+import { Box } from "@mui/material";
 import React from "react";
 import PageComingSoon from "../../components/pageComingSoon";
 
 function WhoAmI() {
   return (
-    <div>
+    <Box minHeight={"100vh"}>
       <PageComingSoon />
-    </div>
+    </Box>
   );
 }
 
