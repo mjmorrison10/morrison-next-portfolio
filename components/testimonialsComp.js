@@ -256,7 +256,7 @@ export default function TestimonialsComp() {
         />
       </Typography>
       <Typography variant={"caption"}>
-        There's been a total of {testimonialsList.length} testimonials
+        {`There's been a total of ${testimonialsList.length} testimonials`}
       </Typography>
 
       <Pagination
