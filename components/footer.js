@@ -7,6 +7,7 @@ function Footer() {
 
   return (
     <Box
+    component={'footer'}
       bgcolor="info.dark"
       mt={2}
       borderRadius={"8px 8px 0 0"}

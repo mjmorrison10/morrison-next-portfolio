@@ -11,6 +11,7 @@ import {
   randomColor,
   randomItemFromAnArray,
   testimonialsList,
+  testimonialsAverageRating,
 } from "../public/Settings/baseSettings";
 import {
   Avatar,
@@ -121,16 +122,16 @@ export default function TestimonialsComp() {
     // setDisplayText(displayText ? true : false)
     setDisplayText(!displayText);
     setSpecificCardToDisplay(card);
-    console.log(
-      "card -->",
-      card,
-      "Specific Card -->",
-      specificCardToDisplay === card,
-      "displayText -->",
-      displayText,
-      "matchesMd ->",
-      matchesMd
-    );
+    // console.log(
+    //   "card -->",
+    //   card,
+    //   "Specific Card -->",
+    //   specificCardToDisplay === card,
+    //   "displayText -->",
+    //   displayText,
+    //   "matchesMd ->",
+    //   matchesMd
+    // );
 
     // setDisplayText(displayText ? panel : false);
   };
@@ -203,7 +204,6 @@ export default function TestimonialsComp() {
   }
 
   function filterTestimonials(list, i) {
-    console.log(page);
     if (page === 1)
       return (
         i === page * page - 1 || i === page * page || i === page * page + 1
@@ -237,6 +237,28 @@ export default function TestimonialsComp() {
       justifyContent={"center"}
       gap={1}
     >
+      <Typography
+        variant={"body"}
+        sx={{
+          display: "flex",
+        }}
+      >
+        Average Approval Rating:
+        <Rating
+          defaultValue={testimonialsAverageRating}
+          precision={0.5}
+          readOnly
+          sx={{
+            mr: 1,
+            color: randomColorWithAccent,
+            transition: "all 300ms ease-in-out",
+          }}
+        />
+      </Typography>
+      <Typography variant={"caption"}>
+        There's been a total of {testimonialsList.length} testimonials
+      </Typography>
+
       <Pagination
         count={Math.ceil(testimonialsList.length / slidesPerPage)}
         page={page}
@@ -258,6 +280,7 @@ export default function TestimonialsComp() {
             key={i}
             sx={{
               display: "flex",
+              flex: 1,
               flexDirection: "column",
               padding: 1,
               gap: 1,
@@ -283,6 +306,7 @@ export default function TestimonialsComp() {
             >
               <Typography
                 variant={"body"}
+                textAlign={"center"}
                 noWrap={
                   matchesMd || (!displayText && specificCardToDisplay === i)
                     ? false

@@ -69,7 +69,7 @@ export const servicesWeOffer = [
   "Complete Homepage Website for your Business",
   "Content Management System",
   "SEO Optimization",
-  'Alpha / Beta Testing and Debugging'
+  "Alpha / Beta Testing and Debugging",
 ];
 
 export const companyName = "Morrison DevOps";
@@ -123,7 +123,14 @@ export const testimonialsList = [
     testimonial: `I'm so happy with my website. It's a very clean, professional looking site. The customer service has been great too. I'm still new to the Instagram game and MorrisonDevOps was able to develop an awesome landing page for my bio and I got more followers in just a few days!`,
     starRating: 5,
   },
+  {
+    name: `Bee Anna`,
+    testimonial: `Highly recommend! 5 stars`,
+    starRating: 5,
+  },
 ];
+
+export const testimonialsAverageRating = Object.entries(testimonialsList).map(testimonial => testimonial[1].starRating).reduce((a,c) => a + c) / testimonialsList.length
 
 export const randomItemFromAnArray = (arr) =>
   arr[Math.floor(Math.random() * arr.length)];
