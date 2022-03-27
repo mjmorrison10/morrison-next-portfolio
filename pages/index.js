@@ -28,7 +28,7 @@ import Head from "next/head";
 // import Image from 'material-ui-image'
 import { useState } from "react";
 import TypewriterComponent from "typewriter-effect";
-import SkeleBar from "../components/SkeleBar";
+import Skelebar from "../components/SkeleBar";
 import {
   servicesWeOffer,
   getStartedBtn,
@@ -161,7 +161,7 @@ export default function Home() {
                 </Typography>
               </Box>
             </AccordionSummary>
-            <SkeleBar
+            <Skelebar
               clr={randomColorWithAccent}
               h={2}
               w={"95%"}
@@ -225,6 +225,7 @@ export default function Home() {
             component="h1"
             color={"info.dark"}
             textAlign={"center"}
+            gutterBottom
           >
             {(matchesSm && "Professional Web Development") ||
               (matchesXs && "Web Design")}
@@ -238,6 +239,7 @@ export default function Home() {
             textAlign={"center"}
             maxWidth={"30ch"}
             color={"info.main"}
+            gutterBottom
           >
             We specialize in developing:
             <TypewriterComponent
@@ -254,13 +256,14 @@ export default function Home() {
         {getStartedBtn()}
       </Box>
 
-      <SkeleBar />
+      <Skelebar />
 
       {/* Services Section */}
       <Box
         display={"flex"}
         gap={1}
         minHeight={"100vh"}
+        px={1}
         flexDirection={(matchesMd && `row`) || (matchesXs && "column-reverse")}
       >
         <Box
@@ -274,7 +277,7 @@ export default function Home() {
             backgroundImage: `url('/Images/websiteOnMobileAndDesktopWithBackgroundRemoved.png')`,
           }}
         ></Box>
-        {!matchesMd && <SkeleBar />}
+        {!matchesMd && <Skelebar />}
         <Box
           flex={1}
           display={"flex"}
@@ -288,7 +291,7 @@ export default function Home() {
         </Box>
       </Box>
 
-      <SkeleBar />
+      <Skelebar />
 
       {/* Development */}
       <Box
@@ -304,6 +307,7 @@ export default function Home() {
           component={"h2"}
           color="info.dark"
           textAlign={"center"}
+          gutterBottom
         >
           Our Work Speaks for Itself
         </Typography>
@@ -330,7 +334,12 @@ export default function Home() {
                 height={dev.height}
                 width={dev.width}
               />
-              <Typography variant="h6" component={"h3"} textAlign={"center"}>
+              <Typography
+                variant="h6"
+                component={"h3"}
+                textAlign={"center"}
+                gutterBottom
+              >
                 {dev.title}
               </Typography>
             </Box>
@@ -339,7 +348,7 @@ export default function Home() {
         {getStartedBtn("Ask about our services")}
       </Box>
 
-      <SkeleBar />
+      <Skelebar />
 
       {/* Testimonials */}
       <Box
@@ -356,6 +365,7 @@ export default function Home() {
           color="info.dark"
           textAlign={"center"}
           mt={5}
+          gutterBottom
         >
           Testimonials
         </Typography>

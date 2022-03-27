@@ -20,7 +20,7 @@ import {
   Rating,
   useMediaQuery,
 } from "@mui/material";
-import SkeleBar from "./SkeleBar";
+import Skelebar from "./SkeleBar";
 
 // function TabPanel(props) {
 //   const matchesXs = useMediaQuery((theme) => theme.breakpoints.up("xs"));
@@ -99,7 +99,7 @@ function stringAvatar(name) {
   };
 }
 
-export default function TestimonialsComp() {
+export default function TestimonialsComp(props) {
   const matchesXs = useMediaQuery((theme) => theme.breakpoints.up("xs"));
   const matchesSm = useMediaQuery((theme) => theme.breakpoints.up("sm"));
   const matchesMd = useMediaQuery((theme) => theme.breakpoints.up("md"));
@@ -239,6 +239,7 @@ export default function TestimonialsComp() {
     >
       <Typography
         variant={"body"}
+        gutterBottom
         sx={{
           display: "flex",
         }}
@@ -255,7 +256,7 @@ export default function TestimonialsComp() {
           }}
         />
       </Typography>
-      <Typography variant={"caption"}>
+      <Typography variant={"caption"} gutterBottom>
         {`There's been a total of ${testimonialsList.length} testimonials`}
       </Typography>
 
@@ -294,9 +295,9 @@ export default function TestimonialsComp() {
               alignItems={"center"}
             >
               <Avatar {...stringAvatar(`${list.name}`)} />
-              <Typography>{list.name}</Typography>
+              <Typography >{list.name}</Typography>
             </Box>
-            <SkeleBar h={2} w={"100%"} my={0} clr={randomColorWithAccent} />
+            <Skelebar h={2} w={"100%"} my={0} clr={randomColorWithAccent} />
 
             <Box
               display={"flex"}
@@ -307,6 +308,7 @@ export default function TestimonialsComp() {
               <Typography
                 variant={"body"}
                 textAlign={"center"}
+                gutterBottom
                 noWrap={
                   matchesMd || (!displayText && specificCardToDisplay === i)
                     ? false

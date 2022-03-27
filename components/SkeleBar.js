@@ -2,7 +2,7 @@ import { Skeleton } from "@mui/material";
 import { blue } from "@mui/material/colors";
 import React from "react";
 
-function SkeleBar({
+function Skelebar({
   animate = "pulse",
   clr = "secondary.light",
   h = 8,
@@ -23,4 +23,4 @@ function SkeleBar({
   );
 }
 
-export default SkeleBar;
+export default Skelebar;

@@ -160,6 +160,7 @@ function MyApp({ Component, pageProps }) {
             maxWidth="xl"
             disableGutters={true}
             sx={{
+              flexGrow: 1,
               opacity: opa,
               // opacity: welcome ? opa : 0,
               transition: "all 5000ms ease",
