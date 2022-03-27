@@ -84,7 +84,7 @@ function MyApp({ Component, pageProps }) {
     <ThemeProvider theme={theme}>
       <Box
         backgroundColor={welcome ? blue[50] : grey[900]}
-        minHeight={"100%"}
+        minHeight={"100vh"}
         // display={"flex"}
         // flexDirection={"column"}
         // Disable once website is finished
