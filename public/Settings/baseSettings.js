@@ -207,6 +207,7 @@ export const ProjectsWorkedOn = [
     description: `RuneScape holds a special place in my heart, especially in my web development journey. Huge compliments to JaGeX for developing this incredible game years ago. This game got me started with programming by creating an IRC bot using mIRC Scripting Language. This website was one of my first projects developed using HTML and CSS.`,
     languages: ["html", "css"],
     website: `https://osrsclone.netlify.app/`,
+    image: `../Images/Projects/OldSchoolRuneScape.png`,
   },
   {
     name: `Tic Tac Toe`,
@@ -214,6 +215,7 @@ export const ProjectsWorkedOn = [
     description: `Tic Tac Toe is a paper and pencil game for two players who take turns marking the spaces in a three by three grid with X or O. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner. It is a solved game, with a forced draw assuming best play from both players.`,
     languages: ["html", "css", "javascript"],
     website: `https://morrison-tictactoe.netlify.app/`,
+    image: `../Images/Projects/TicTacToe.png`,
   },
   {
     name: `Michael Jobs`,
@@ -221,6 +223,7 @@ export const ProjectsWorkedOn = [
     description: `A Software Development Job Board. Michael Jobs allows a user to search through a small database of software opportunities.`,
     languages: ["html", "css", "javascript"],
     website: `https://livedeveloperjobs.netlify.app/`,
+    image: `../Images/Projects/MichaelJobs.png`,
   },
   {
     name: `JavaScript Challenges`,
@@ -228,6 +231,7 @@ export const ProjectsWorkedOn = [
     description: `A set of JavaScript challenges designed to teach the absolute basics of JavaScript. 1) Age Calculator. 2) Generate HTML elements. 3) Rock, Paper, Scissors game. 4) Change the color of all buttons. 5) Finale! Blackjack game!`,
     languages: ["html", "css", "javascript"],
     website: ``,
+    image: `../Images/Projects/javaScriptChallenges.png`,
   },
   // Frontend Mentor
   // FEM x
@@ -358,9 +362,9 @@ export const ProjectsWorkedOn = [
     languages: ["html", "css", "javascript"],
     website: `https://fem-14-time-tracking-dashboard-main.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/responsive-design-using-grid-8hCaPcVE3`,
-  image: `../Images/Projects/TimeTrackingDashboardDesktop.jpg`,
-},
-// FEM 15
+    image: `../Images/Projects/TimeTrackingDashboardDesktop.jpg`,
+  },
+  // FEM 15
   {
     name: `Tip calculator app`,
     description: `This small app is perfect for anyone starting to get to grips with JavaScript. The calculator functionality will be a nice test!`,
@@ -378,9 +382,9 @@ export const ProjectsWorkedOn = [
     languages: ["html", "css", "javascript"],
     website: `https://fem-16-sunnyside-agency-landing-page-main.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/responsive-landing-page-using-css-grid-and-flexbox-CtMWPfmzL`,
-  image: `../Images/Projects/SunnysideAgencyLandingPageDesktop.jpg`,
-},
-// FEM 17
+    image: `../Images/Projects/SunnysideAgencyLandingPageDesktop.jpg`,
+  },
+  // FEM 17
   {
     name: `Blogr landing page`,
     description: `Flex your layout muscles with this landing page challenge. You'll mostly be working with HTML & CSS for this project with a tiny bit of JS for the mobile menu.`,
@@ -418,9 +422,9 @@ export const ProjectsWorkedOn = [
     languages: ["html", "css"],
     website: `https://fem-21-testimonials-grid-section-main.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/responsive-design-using-css-grid-qR4_b1_WD`,
-  image: `../Images/Projects/TestimonialsGridSectionDesktop.jpg`,
-},
-// FEM 22
+    image: `../Images/Projects/TestimonialsGridSectionDesktop.jpg`,
+  },
+  // FEM 22
   {
     name: `Fylo data storage component`,
     description: `This component has some interesting CSS challenges in the design. If you're looking to test your CSS skills, this will be a great project for you!`,
@@ -438,9 +442,9 @@ export const ProjectsWorkedOn = [
     languages: ["html", "css", "javascript"],
     website: `https://fem-23-coding-bootcamp-testimonials.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/responsive-design-using-flexbox-48xiDBnvj`,
-  image: `../Images/Projects/CodingBootcampTestimonialsSliderDesktop.jpg`,
-},
-// FEM 24
+    image: `../Images/Projects/CodingBootcampTestimonialsSliderDesktop.jpg`,
+  },
+  // FEM 24
   {
     name: `Social media dashboard with theme switcher`,
     description: `This challenge will be a perfect chance to practice your Grid skills. The color theme switcher also adds a nice additional test.`,
@@ -537,55 +541,62 @@ export const ProjectsWorkedOn = [
     lastPublishedDate: `Nov 28, 2021`,
     languages: ["html", "css", "javascript"],
     website: `https://guess-my-number-mjm.netlify.app`,
+    image: `../Images/Projects/guessMyNumber.png`,
   },
-
+  
   {
     name: `Pig Game`,
     description: `Pig (dice game) is a simple dice game first described in 1945. Players take turns to roll a single dice as many times as they wish, adding all roll results to a running total, but losing their gained score for the turn if they roll a one.`,
     lastPublishedDate: `Dec 6, 2021`,
     languages: ["html", "css", "javascript"],
     website: `https://pig-game-mjm.netlify.app/`,
+    image: `../Images/Projects/pigGame.png`,
   },
-
+  
   {
     name: `Whichbank - Banking Application`,
     description: `Finally, we're getting somewhere in web development. After learning HTML and CSS and the basics of JavaScript, I took this opportunity to expand my web development skills further. Basic banking application utilizing many JavaScript methods.`,
     lastPublishedDate: `Dec 13, 2021`,
     languages: ["html", "css", "javascript"],
     website: `https://whichbank.netlify.app/`,
+    image: `../Images/Projects/whichbank.png`,
   },
-
+  
   {
     name: `Landing page for Whichbank`,
     description: `In this project, we learned many DOM manipulation tactics, such as Intersectional Observer API and many others.`,
     lastPublishedDate: `Dec 16, 2021`,
     languages: ["html", "css", "javascript"],
     website: `https://whichbank-landing.netlify.app/`,
+    image: `../Images/Projects/whichbankLanding.png`,
   },
-
+  
   {
     name: `Mapty - Log Your Workout`,
     description: `Mapty is a web application where you can log various workouts and their start locations. Log running or cycling as a work activity, and store the information in local storage.`,
     lastPublishedDate: `Dec 20, 2021`,
     languages: ["html", "css", "javascript"],
     website: `https://mapty-ss.netlify.app/`,
+    image: `../Images/Projects/mapty.png`,
   },
-
+  
   {
     name: `Forkify - Recipe Search`,
     description: `Search over 1 million different recipes by ingredient or name and store your favorite recipes in local storage! In addition, you can push your personal recipe to the API we've developed for this web application!`,
     lastPublishedDate: `Dec 28, 2021`,
     languages: ["html", "css", "javascript"],
     website: `https://forkify-ss.netlify.app/`,
+    image: `../Images/Projects/forkify.png`,
   },
-
+  
   {
     name: `Concentration Game`,
     description: `Concentration or Memory Game is a card game in which all of the cards are laid face down on a surface and two cards are flipped face up over each turn. The object of the game is to turn over pairs of matching cards.`,
     lastPublishedDate: `Jan 18 2022`,
     languages: ["html", "css", "javascript"],
     website: `https://memory-game-mdo.netlify.app/`,
-  },
+  image: `../Images/Projects/memoryGame.png`,
+},
 
   {
     name: `Whack a Mole`,
@@ -593,7 +604,8 @@ export const ProjectsWorkedOn = [
     lastPublishedDate: `Jan 21, 2022`,
     languages: ["html", "css", "javascript"],
     website: `https://whack-a-mole-mdo.netlify.app/`,
-  },
+image: `../Images/Projects/whackAMole.png`,
+},
 
   {
     name: `Connect Four`,
@@ -601,37 +613,61 @@ export const ProjectsWorkedOn = [
     lastPublishedDate: `Jan 22, 2022`,
     languages: ["html", "css", "javascript"],
     website: `https://connect-four-mdo.netlify.app/`,
+    image: `../Images/Projects/connectFour.png`,
   },
-
+  
   {
     name: `Snake Game`,
     description: `Snake is a video game genre where the player maneuvers a growing line that becomes a primary obstacle to itself. The concept originated in the 1976 two-player arcade game Blockade from Gremlin Industries, and the ease of implementation has led to hundreds of versions (some of which have the word snake or worm in the title) for many platforms. 1982's Tron arcade game, based on the film, includes snake gameplay for the single-player Light Cycles segment. After a variant was preloaded on Nokia mobile phones in 1998, there was a resurgence of interest in snake games as it found a larger audience. There are several hundred snake games for iOS alone.`,
     lastPublishedDate: `Jan 28, 2022`,
     languages: ["html", "css", "javascript"],
     website: `https://snake-mdo.netlify.app/`,
+    image: `../Images/Projects/snakeGame.png`,
   },
-
+  
   {
     name: `Rome Artwork Portfolio`,
     description: `My first client! He wanted me to develop this landing page website for his digital artist business. He was very appreciative of the work, and rated me 5 out of 5 stars.`,
     lastPublishedDate: `Feb 24, 2022`,
     languages: ["html", "css", "javascript"],
     website: `https://rome-fly-artwork.netlify.app/`,
+    image: `../Images/Projects/rome.png`,
   },
-
+  
   {
     name: `Tax Company`,
     description: `My second client! He hired me to develop this complete website package for his tax company. It's still a work in progress, as we are working together to get his business up the ground. I learned a lot developing this project on React.`,
     lastPublishedDate: ``,
     languages: ["html", "css", "javascript", "react", "next"],
     website: `https://tax-mdo.netlify.app/`,
+    image: `../Images/Projects/taxCompany.png`,
   },
-
+  
   {
     name: `My first React Portfolio`,
     description: `My first attempt at React on my own. I had learned how to use React from Clever Programmer, then wanted to update my portfolio to React. Well, here it is. It's better than my previous portfolio, but could be improved upon big time!`,
     lastPublishedDate: `Nov 6, 2021`,
-    languages: ["html", "css", "javascript", "React"],
+    languages: ["html", "css", "javascript", "react"],
     website: `https://portfolio-mjm-react.netlify.app/`,
+    image: `../Images/Projects/firstReactPortfolio.png`,
   },
 ];
+
+// export const projectsWorkedOnHtmlCssJavaScript = ProjectsWorkedOn.filter(
+//   (project) => (project.languages = ["html", "css", "javascript"])
+// );
+
+export const projectsFilterByLanguages = (search) => {
+  return ProjectsWorkedOn.filter(
+    (project) => (project.languages.includes(search))
+  );
+};
+
+// export const projectsFilterByLanguages = ProjectsWorkedOn.filter(
+//   (project, search) => project.languages.includes(search)
+// );
+
+// export const projectsFilter = ProjectsWorkedOn.filter(
+//   (project, objProp, filterType, search) => project.objProp.filterType(search)
+//   );
+

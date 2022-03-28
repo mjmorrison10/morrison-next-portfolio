@@ -15,6 +15,7 @@ import {
 } from "../public/Settings/baseSettings";
 import {
   Avatar,
+  Grow,
   Pagination,
   Paper,
   Rating,
@@ -110,10 +111,22 @@ export default function TestimonialsComp(props) {
   const [specificCardToDisplay, setSpecificCardToDisplay] =
     React.useState(true);
 
+  const [checked, setChecked] = React.useState(false);
+
+  React.useEffect(() => {
+    setChecked(true);
+  }, []);
+
   const [page, setPage] = React.useState(1);
   const handlePaginationChange = (event, value) => {
     setPage(value);
+
+    setChecked(false);
+    setTimeout(() => {
+      setChecked(true);
+    }, 600);
   };
+
   const slidesPerPage = 3;
   const [displayPage, setDisplayPage] = React.useState([]);
 
@@ -122,6 +135,7 @@ export default function TestimonialsComp(props) {
     // setDisplayText(displayText ? true : false)
     setDisplayText(!displayText);
     setSpecificCardToDisplay(card);
+
     // console.log(
     //   "card -->",
     //   card,
@@ -272,71 +286,77 @@ export default function TestimonialsComp(props) {
         flexDirection={!matchesMd ? "column" : "row"}
       >
         {test.map((list, i) => (
-          <Paper
-            // onClick={() => {
-            //   console.log(i);
-            //   setDisplayText(!displayText);
-            // }}
-            onClick={handleChange(i)}
+          <Grow
             key={i}
-            sx={{
-              display: "flex",
-              flex: 1,
-              flexDirection: "column",
-              padding: 1,
-              gap: 1,
-              width: `${!matchesSm ? "82.5vw" : null}`,
-            }}
+            in={checked}
+            style={{ transformOrigin: "0 0 0" }}
+            {...(checked ? { timeout: 1000 * i } : {})}
           >
-            <Box
-              display={"flex"}
-              justifyContent={"center"}
-              gap={1}
-              alignItems={"center"}
+            <Paper
+              // onClick={() => {
+              //   console.log(i);
+              //   setDisplayText(!displayText);
+              // }}
+              onClick={handleChange(i)}
+              sx={{
+                display: "flex",
+                flex: 1,
+                flexDirection: "column",
+                padding: 1,
+                gap: 1,
+                width: `${!matchesSm ? "82.5vw" : null}`,
+              }}
             >
-              <Avatar {...stringAvatar(`${list.name}`)} />
-              <Typography >{list.name}</Typography>
-            </Box>
-            <Skelebar h={2} w={"100%"} my={0} clr={randomColorWithAccent} />
-
-            <Box
-              display={"flex"}
-              flexDirection={"column"}
-              justifyContent={"space-between"}
-              flexGrow={1}
-            >
-              <Typography
-                variant={"body"}
-                textAlign={"center"}
-                gutterBottom
-                noWrap={
-                  matchesMd || (!displayText && specificCardToDisplay === i)
-                    ? false
-                    : true
-                }
-                maxWidth={"65ch"}
-              >
-                {list.testimonial}
-              </Typography>
               <Box
-                alignSelf={"flex-end"}
                 display={"flex"}
-                alignItems={"center"}
                 justifyContent={"center"}
+                gap={1}
+                alignItems={"center"}
               >
-                <Typography variant={"caption"}>Rating:</Typography>
-                <Rating
-                  defaultValue={list.starRating}
-                  precision={0.5}
-                  readOnly
-                  sx={{
-                    color: randomColorWithAccent,
-                    transition: "all 300ms ease-in-out",
-                  }}
-                />
+                <Avatar {...stringAvatar(`${list.name}`)} />
+                <Typography>{list.name}</Typography>
               </Box>
-            </Box>
-          </Paper>
+              <Skelebar h={2} w={"100%"} my={0} clr={randomColorWithAccent} />
+
+              <Box
+                display={"flex"}
+                flexDirection={"column"}
+                justifyContent={"space-between"}
+                flexGrow={1}
+              >
+                <Typography
+                  variant={"body"}
+                  textAlign={"center"}
+                  gutterBottom
+                  noWrap={
+                    matchesMd || (!displayText && specificCardToDisplay === i)
+                      ? false
+                      : true
+                  }
+                  maxWidth={"65ch"}
+                >
+                  {list.testimonial}
+                </Typography>
+                <Box
+                  alignSelf={"flex-end"}
+                  display={"flex"}
+                  alignItems={"center"}
+                  justifyContent={"center"}
+                >
+                  <Typography variant={"caption"}>Rating:</Typography>
+                  <Rating
+                    defaultValue={list.starRating}
+                    precision={0.5}
+                    readOnly
+                    sx={{
+                      color: randomColorWithAccent,
+                      transition: "all 300ms ease-in-out",
+                    }}
+                  />
+                </Box>
+              </Box>
+            </Paper>
+          </Grow>
         ))}
       </Box>
 
