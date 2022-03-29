@@ -56,14 +56,17 @@ export default function ImageListOfProjects({ projects }) {
     const clickedProject = e.target
       .closest(".MuiSvgIcon-root")
       .getAttribute("dataid");
-    project = ProjectsWorkedOn[clickedProject].image;
-    projectName = ProjectsWorkedOn[clickedProject].name;
-    projectDate = ProjectsWorkedOn[clickedProject].lastPublishedDate;
-    projectDescription = ProjectsWorkedOn[clickedProject].description;
-    projectLanguages = ProjectsWorkedOn[clickedProject].languages;
-    projectWebsite = ProjectsWorkedOn[clickedProject].website;
+
+    // console.log(projects[clickedProject])
+
+    project = projects[clickedProject].image;
+    projectName = projects[clickedProject].name;
+    projectDate = projects[clickedProject].lastPublishedDate;
+    projectDescription = projects[clickedProject].description;
+    projectLanguages = projects[clickedProject].languages;
+    projectWebsite = projects[clickedProject].website;
     projectFrontEndMentorWebsite =
-      ProjectsWorkedOn[clickedProject].frontEndMentorWebsite;
+      projects[clickedProject].frontEndMentorWebsite;
 
     setOpen(true);
     setModalDesc(true);
