@@ -12,9 +12,12 @@ import PageComingSoon from "../../components/pageComingSoon";
 import Skelebar from "../../components/SkeleBar";
 import {
   ProjectAllCategories,
+  ProjectAllLanguages,
+  ProjectAllName,
   projectsFilter,
   projectsFilterByCategories,
   projectsFilterByLanguages,
+  projectsFilterByName,
   ProjectsWorkedOn,
   projectsWorkedOnHtmlCssJavaScript,
   projectsWorkedOnReact,
@@ -28,17 +31,22 @@ import CarouselOfProjects from "../../components/carouselOfProjects";
 import ImageListOfProjects from "../../components/imageListOfProjects";
 
 function HtmlCssAndJavascript() {
-  const projectsWorkedOnNew = ProjectsWorkedOn.filter((project) =>
-    project.name.includes("Fylo dark theme")
-  );
+  const [categoryValue, setCategoryValue] = React.useState(null);
+  const [categoryInputValue, setCategoryInputValue] = React.useState(null);
 
-  const [value, setValue] = React.useState(ProjectAllCategories[0]);
-  const [inputValue, setInputValue] = React.useState("");
+  const [nameValue, setNameValue] = React.useState(null);
+  const [nameInputValue, setNameInputValue] = React.useState(null);
 
-  const [searchByLanguages, setSearchByLanguages] = React.useState("html");
-  const [searchByCategory, setSearchByCategory] = React.useState("");
+  const [languagesValue, setLanguagesValue] = React.useState(null);
+  const [languagesInputValue, setLanguagesInputValue] = React.useState(null);
 
-  console.log(searchByCategory);
+  const [searchByName, setSearchByName] = React.useState(null);
+  const [searchByLanguages, setSearchByLanguages] = React.useState(null);
+  const [searchByCategory, setSearchByCategory] = React.useState(null);
+
+  // console.log(searchByLanguages);
+  // console.log(searchByCategory);
+  // console.log(searchByName);
   // const handleModal = (e) => (
   //   setOpen(!open ? true : false),
   //   // open ? setOpen(false) : setOpen(true),
@@ -47,6 +55,29 @@ function HtmlCssAndJavascript() {
 
   // console.log(ProjectsWorkedOn.filter(el => el.name = 'Old School RuneScape'))
   // console.log(ProjectsWorkedOn[0].image)
+
+  const resetCategoryValues = () => {
+    setCategoryValue(null);
+    setCategoryInputValue(null);
+    setSearchByCategory(null);
+  };
+  const resetNameValues = () => {
+    setNameValue(null);
+    setNameInputValue(null);
+    setSearchByName(null);
+  };
+
+  const resetLanguageValues = () => {
+    setLanguagesValue(null);
+    setLanguagesInputValue(null);
+    setSearchByLanguages(null);
+  };
+
+  const resetValues = () => {
+    resetLanguageValues;
+    resetNameValues;
+    resetCategoryValues;
+  };
 
   return (
     <Box minHeight={"100vh"}>
@@ -76,21 +107,55 @@ function HtmlCssAndJavascript() {
         Check out all my projects below!
       </Typography>
 
-      <Autocomplete
-        value={value}
-        onChange={(event, newValue) => {
-          setValue(newValue);
-          setSearchByCategory(newValue);
-        }}
-        inputValue={inputValue}
-        onInputChange={(event, newInputValue) => {
-          setInputValue(newInputValue);
-        }}
-        id="controllable-states-demo"
-        options={ProjectAllCategories}
-        sx={{ width: 300, margin: "0 auto", my: 1 }}
-        renderInput={(params) => <TextField {...params} label="Category" />}
-      />
+      <Box display={"flex"} justifyContent={"space-around"}>
+        <Autocomplete
+          value={categoryValue}
+          onChange={(event, newValue) => {
+            setCategoryValue(newValue);
+            setSearchByCategory(newValue);
+          }}
+          inputValue={categoryInputValue}
+          onInputChange={(event, newInputValue) => {
+            setCategoryInputValue(newInputValue);
+          }}
+          id="controllable-states-demo"
+          options={ProjectAllCategories}
+          sx={{ width: 300, margin: "0 auto", my: 1 }}
+          renderInput={(params) => <TextField {...params} label="Category" />}
+        />
+
+        <Autocomplete
+          value={languagesValue}
+          onChange={(event, newValue) => {
+            setLanguagesValue(newValue);
+            setSearchByLanguages(newValue);
+          }}
+          inputValue={languagesInputValue}
+          onInputChange={(event, newInputValue) => {
+            setLanguagesInputValue(newInputValue);
+          }}
+          id="controllable-states-demo"
+          options={ProjectAllLanguages}
+          sx={{ width: 300, margin: "0 auto", my: 1 }}
+          renderInput={(params) => <TextField {...params} label="Languages" />}
+        />
+
+        <Autocomplete
+          value={nameValue}
+          onChange={(event, newValue) => {
+            setNameValue(newValue);
+            setSearchByName(newValue);
+          }}
+          inputValue={nameInputValue}
+          onInputChange={(event, newInputValue) => {
+            setNameInputValue(newInputValue);
+          }}
+          id="controllable-states-demo"
+          options={ProjectAllName}
+          sx={{ width: 300, margin: "0 auto", my: 1 }}
+          renderInput={(params) => <TextField {...params} label="Name" />}
+        />
+      </Box>
 
       {/* <Autocomplete 
          disablePortal
@@ -100,8 +165,20 @@ function HtmlCssAndJavascript() {
          renderInput={(params) => <TextField {...params} label="Category" />}
       /> */}
 
+      {searchByCategory && <Typography variant='h4' textAlign={'center'} color={'info.dark'}  component={'h3'} >Searching by Category: {categoryValue}</Typography>}
+
       <ImageListOfProjects
         projects={projectsFilterByCategories(searchByCategory)}
+      />
+
+      {searchByName && <Typography variant='h4' textAlign={'center'} color={'info.dark'}  component={'h3'} >Searching by Name: {nameValue}</Typography>}
+
+      <ImageListOfProjects projects={projectsFilterByName(searchByName)} />
+
+      {searchByLanguages && <Typography variant='h4' textAlign={'center'} color={'info.dark'}  component={'h3'} >Searching by Languages: {languagesValue}</Typography>}
+
+      <ImageListOfProjects
+        projects={projectsFilterByLanguages(searchByLanguages)}
       />
 
       {/* {ProjectsWorkedOn.map((project, i) => (

@@ -700,27 +700,43 @@ export const ProjectsWorkedOn = [
   },
 ];
 
-export const ProjectAllCategories = [
-  "website",
-  "landing page",
-  "video game",
-  "javascript",
-  "component",
-  "section",
-  "front end mentor",
-  "dashboard",
-  "client work",
-  "portfolio",
-  'react',
+export const ProjectAllName = [
+  ...new Set(ProjectsWorkedOn.flatMap(({ name }) => name).sort()),
 ];
+
+export const ProjectAllCategories = [
+  ...new Set(ProjectsWorkedOn.flatMap(({ category }) => category).sort()),
+];
+
+export const ProjectAllLanguages = [
+  ...new Set(ProjectsWorkedOn.flatMap(({ languages }) => languages).sort()),
+];
+
+// console.log(ProjectAllName);
+
+// it's a string
+// it's something else
 
 // export const projectsWorkedOnHtmlCssJavaScript = ProjectsWorkedOn.filter(
 //   (project) => (project.languages = ["html", "css", "javascript"])
 // );
 
+export const projectsFilter = (search) => {
+  console.log("base settings --> ", search[0], search[1]);
+  return ProjectsWorkedOn.filter((project) =>
+   search && project.search[0].includes(search[1])
+  );
+};
+
 export const projectsFilterByLanguages = (search) => {
   return ProjectsWorkedOn.filter((project) =>
     project.languages.includes(search)
+  );
+};
+
+export const projectsFilterByName = (search) => {
+  return ProjectsWorkedOn.filter((project) =>
+    project.name.includes(search)
   );
 };
 
