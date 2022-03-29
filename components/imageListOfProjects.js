@@ -8,15 +8,20 @@ import {
   Modal,
   useMediaQuery,
 } from "@mui/material";
+import Image from "next/image";
 import * as React from "react";
 import {
   ProjectsWorkedOn,
   projectsWorkedOnNew,
 } from "../public/Settings/baseSettings";
+import {
+  LazyLoadImage,
+  trackWindowScroll,
+} from "react-lazy-load-image-component";
 
 let project, projectName;
 
-export default function ImageListOfProjects({projects}) {
+export default function ImageListOfProjects({ projects }) {
   const matchesXs = useMediaQuery((theme) => theme.breakpoints.up("xs"));
   const matchesSm = useMediaQuery((theme) => theme.breakpoints.up("sm"));
   const matchesMd = useMediaQuery((theme) => theme.breakpoints.up("md"));
@@ -26,12 +31,11 @@ export default function ImageListOfProjects({projects}) {
   const [open, setOpen] = React.useState(false);
   const [clickedProject, setClickedProject] = React.useState(null);
   const [checked, setChecked] = React.useState(false);
-  const [imageListCols, setImageListCols] = React.useState(3);
 
   //   const [testClickedProject, setTestClickedProject] = React.useState(null);
   React.useEffect(() => {
     setChecked(true);
-  });
+  }, []);
 
   const handleOpen = (e) => {
     const clickedProject = e.target
@@ -39,6 +43,7 @@ export default function ImageListOfProjects({projects}) {
       .getAttribute("dataid");
     project = ProjectsWorkedOn[clickedProject].image;
     projectName = ProjectsWorkedOn[clickedProject].name;
+
     setOpen(true);
   };
 
@@ -48,6 +53,8 @@ export default function ImageListOfProjects({projects}) {
 
   return (
     <Box paddingX={{ xs: 1, md: 0 }}>
+      {/* <Image layout="fill" src="/../Images/Projects/OldSchoolRuneScape.png" /> */}
+
       <ImageList
         variant="masonry"
         cols={matchesLg ? 3 : 2}
@@ -67,11 +74,16 @@ export default function ImageListOfProjects({projects}) {
             <ImageListItem
               sx={{ border: "1px solid black", p: 1, margin: "0 auto" }}
             >
-              <img
-                src={`${item.image}?w=248&fit=crop&auto=format`}
-                srcSet={`${item.image}?w=248&fit=crop&auto=format&dpr=2 2x`}
+              <LazyLoadImage
+                // srcSet={`/${item.image}`}
+                // src={`/${item.image}?w=248&fit=crop&auto=format`}
+                // srcSet={`/${item.image}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                src={item.image}
                 alt={item.name}
-                loading="lazy"
+                width={"100%"}
+                height={"100%"}
+                // layout="fill"
+                // loading="lazy"
               />
               <ImageListItemBar
                 position="below"
@@ -95,7 +107,34 @@ export default function ImageListOfProjects({projects}) {
         ))}
       </ImageList>
 
-      <Modal
+      <Modal open={open} onClick={handleClose}>
+        <Box
+          display={"flex"}
+          justifyContent={"center"}
+          alignItems={"center"}
+          height={"100%"}
+          sx={{ cursor: "pointer" }}
+        >
+          <LazyLoadImage
+            src={project}
+            //   layout="fill"
+            // height={"100%"}
+            // width={"100%"}
+            //   src={`${project}`}
+            //   srcSet={`/${project}`}
+            alt={projectName}
+            //   loading="lazy"
+            //   layout="fill"
+            //   sx={{
+            //     height: "100%",
+            //     width: "100%",
+            //     objectFit: "contain",
+            //   }}
+          />
+        </Box>
+      </Modal>
+
+      {/* <Modal
         open={open}
         onClick={handleClose}
         sx={{
@@ -107,17 +146,23 @@ export default function ImageListOfProjects({projects}) {
           width: "100vw",
         }}
       >
-        <img
-          src={`${project}`}
+        <LazyLoadImage
+          src={project}
+          //   layout="fill"
+          height={"100%"}
+          width={"100%"}
+          //   src={`${project}`}
+          //   srcSet={`/${project}`}
           alt={projectName}
-          loading="lazy"
-          style={{
-            height: "100%",
-            width: "100%",
-            objectFit: "contain",
-          }}
+          //   loading="lazy"
+          //   layout="fill"
+          //   sx={{
+          //     height: "100%",
+          //     width: "100%",
+          //     objectFit: "contain",
+          //   }}
         />
-      </Modal>
+      </Modal> */}
     </Box>
   );
 }

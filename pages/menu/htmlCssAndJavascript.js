@@ -2,7 +2,13 @@ import { Box, Button, Typography, Modal, Dialog } from "@mui/material";
 import React from "react";
 import PageComingSoon from "../../components/pageComingSoon";
 import Skelebar from "../../components/SkeleBar";
-import { projectsFilter, projectsFilterByLanguages, ProjectsWorkedOn, projectsWorkedOnHtmlCssJavaScript, projectsWorkedOnReact } from "../../public/Settings/baseSettings";
+import {
+  projectsFilter,
+  projectsFilterByLanguages,
+  ProjectsWorkedOn,
+  projectsWorkedOnHtmlCssJavaScript,
+  projectsWorkedOnReact,
+} from "../../public/Settings/baseSettings";
 import {
   LazyLoadImage,
   trackWindowScroll,
@@ -15,7 +21,7 @@ function HtmlCssAndJavascript() {
   const projectsWorkedOnNew = ProjectsWorkedOn.filter((project) =>
     project.name.includes("Fylo dark theme")
   );
-  const [searchByLanguages, setSearchByLanguages] = React.useState('html');
+  const [searchByLanguages, setSearchByLanguages] = React.useState("html");
 
   // const handleModal = (e) => (
   //   setOpen(!open ? true : false),
@@ -42,7 +48,10 @@ function HtmlCssAndJavascript() {
       </Carousel> */}
 
       {/* <CarouselOfProjects /> */}
-      <ImageListOfProjects projects={projectsFilterByLanguages(searchByLanguages)} />
+
+      <ImageListOfProjects
+        projects={projectsFilterByLanguages(searchByLanguages)}
+      />
 
       {/* {ProjectsWorkedOn.map((project, i) => (
         <Box key={i} display={"flex"} mt={2}>

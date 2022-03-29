@@ -534,7 +534,7 @@ export const ProjectsWorkedOn = [
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/responsive-landing-page-using-flexbox-EyCLNfT94`,
     image: `../Images/Projects/HuddleLandingPageWithCurvedSectionsDesktop.jpg`,
   },
-  
+
   {
     name: `Guess My Number!`,
     description: `The website is thinking about a number between 1 - 20. Guess the number! If you guess wrong, it'll tell you "too low" or "too high" and decrease by a point. Once you find the correct number, it'll flash green and you win!`,
@@ -543,7 +543,7 @@ export const ProjectsWorkedOn = [
     website: `https://guess-my-number-mjm.netlify.app`,
     image: `../Images/Projects/guessMyNumber.png`,
   },
-  
+
   {
     name: `Pig Game`,
     description: `Pig (dice game) is a simple dice game first described in 1945. Players take turns to roll a single dice as many times as they wish, adding all roll results to a running total, but losing their gained score for the turn if they roll a one.`,
@@ -552,7 +552,7 @@ export const ProjectsWorkedOn = [
     website: `https://pig-game-mjm.netlify.app/`,
     image: `../Images/Projects/pigGame.png`,
   },
-  
+
   {
     name: `Whichbank - Banking Application`,
     description: `Finally, we're getting somewhere in web development. After learning HTML and CSS and the basics of JavaScript, I took this opportunity to expand my web development skills further. Basic banking application utilizing many JavaScript methods.`,
@@ -561,7 +561,7 @@ export const ProjectsWorkedOn = [
     website: `https://whichbank.netlify.app/`,
     image: `../Images/Projects/whichbank.png`,
   },
-  
+
   {
     name: `Landing page for Whichbank`,
     description: `In this project, we learned many DOM manipulation tactics, such as Intersectional Observer API and many others.`,
@@ -570,7 +570,7 @@ export const ProjectsWorkedOn = [
     website: `https://whichbank-landing.netlify.app/`,
     image: `../Images/Projects/whichbankLanding.png`,
   },
-  
+
   {
     name: `Mapty - Log Your Workout`,
     description: `Mapty is a web application where you can log various workouts and their start locations. Log running or cycling as a work activity, and store the information in local storage.`,
@@ -579,7 +579,7 @@ export const ProjectsWorkedOn = [
     website: `https://mapty-ss.netlify.app/`,
     image: `../Images/Projects/mapty.png`,
   },
-  
+
   {
     name: `Forkify - Recipe Search`,
     description: `Search over 1 million different recipes by ingredient or name and store your favorite recipes in local storage! In addition, you can push your personal recipe to the API we've developed for this web application!`,
@@ -588,15 +588,15 @@ export const ProjectsWorkedOn = [
     website: `https://forkify-ss.netlify.app/`,
     image: `../Images/Projects/forkify.png`,
   },
-  
+
   {
     name: `Concentration Game`,
     description: `Concentration or Memory Game is a card game in which all of the cards are laid face down on a surface and two cards are flipped face up over each turn. The object of the game is to turn over pairs of matching cards.`,
     lastPublishedDate: `Jan 18 2022`,
     languages: ["html", "css", "javascript"],
     website: `https://memory-game-mdo.netlify.app/`,
-  image: `../Images/Projects/memoryGame.png`,
-},
+    image: `../Images/Projects/memoryGame.png`,
+  },
 
   {
     name: `Whack a Mole`,
@@ -604,8 +604,8 @@ export const ProjectsWorkedOn = [
     lastPublishedDate: `Jan 21, 2022`,
     languages: ["html", "css", "javascript"],
     website: `https://whack-a-mole-mdo.netlify.app/`,
-image: `../Images/Projects/whackAMole.png`,
-},
+    image: `../Images/Projects/whackAMole.png`,
+  },
 
   {
     name: `Connect Four`,
@@ -615,7 +615,7 @@ image: `../Images/Projects/whackAMole.png`,
     website: `https://connect-four-mdo.netlify.app/`,
     image: `../Images/Projects/connectFour.png`,
   },
-  
+
   {
     name: `Snake Game`,
     description: `Snake is a video game genre where the player maneuvers a growing line that becomes a primary obstacle to itself. The concept originated in the 1976 two-player arcade game Blockade from Gremlin Industries, and the ease of implementation has led to hundreds of versions (some of which have the word snake or worm in the title) for many platforms. 1982's Tron arcade game, based on the film, includes snake gameplay for the single-player Light Cycles segment. After a variant was preloaded on Nokia mobile phones in 1998, there was a resurgence of interest in snake games as it found a larger audience. There are several hundred snake games for iOS alone.`,
@@ -624,7 +624,7 @@ image: `../Images/Projects/whackAMole.png`,
     website: `https://snake-mdo.netlify.app/`,
     image: `../Images/Projects/snakeGame.png`,
   },
-  
+
   {
     name: `Rome Artwork Portfolio`,
     description: `My first client! He wanted me to develop this landing page website for his digital artist business. He was very appreciative of the work, and rated me 5 out of 5 stars.`,
@@ -633,7 +633,7 @@ image: `../Images/Projects/whackAMole.png`,
     website: `https://rome-fly-artwork.netlify.app/`,
     image: `../Images/Projects/rome.png`,
   },
-  
+
   {
     name: `Tax Company`,
     description: `My second client! He hired me to develop this complete website package for his tax company. It's still a work in progress, as we are working together to get his business up the ground. I learned a lot developing this project on React.`,
@@ -642,7 +642,7 @@ image: `../Images/Projects/whackAMole.png`,
     website: `https://tax-mdo.netlify.app/`,
     image: `../Images/Projects/taxCompany.png`,
   },
-  
+
   {
     name: `My first React Portfolio`,
     description: `My first attempt at React on my own. I had learned how to use React from Clever Programmer, then wanted to update my portfolio to React. Well, here it is. It's better than my previous portfolio, but could be improved upon big time!`,
@@ -658,8 +658,8 @@ image: `../Images/Projects/whackAMole.png`,
 // );
 
 export const projectsFilterByLanguages = (search) => {
-  return ProjectsWorkedOn.filter(
-    (project) => (project.languages.includes(search))
+  return ProjectsWorkedOn.filter((project) =>
+    project.languages.includes(search)
   );
 };
 
@@ -670,4 +670,3 @@ export const projectsFilterByLanguages = (search) => {
 // export const projectsFilter = ProjectsWorkedOn.filter(
 //   (project, objProp, filterType, search) => project.objProp.filterType(search)
 //   );
-
