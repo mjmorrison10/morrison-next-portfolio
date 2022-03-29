@@ -1,11 +1,15 @@
-import { InfoOutlined } from "@mui/icons-material";
+import { Close, InfoOutlined } from "@mui/icons-material";
 import {
   Box,
+  Button,
+  ClickAwayListener,
   Grow,
   ImageList,
   ImageListItem,
   ImageListItemBar,
   Modal,
+  Paper,
+  Typography,
   useMediaQuery,
 } from "@mui/material";
 import Image from "next/image";
@@ -19,7 +23,13 @@ import {
   trackWindowScroll,
 } from "react-lazy-load-image-component";
 
-let project, projectName;
+let project,
+  projectName,
+  projectWebsite,
+  projectDescription,
+  projectLanguages,
+  projectDate,
+  projectFrontEndMentorWebsite;
 
 export default function ImageListOfProjects({ projects }) {
   const matchesXs = useMediaQuery((theme) => theme.breakpoints.up("xs"));
@@ -32,6 +42,11 @@ export default function ImageListOfProjects({ projects }) {
   const [clickedProject, setClickedProject] = React.useState(null);
   const [checked, setChecked] = React.useState(false);
 
+  const [modalDesc, setModalDesc] = React.useState(false);
+  const handleModalDesc = () => {
+    modalDesc ? setModalDesc(false) : setModalDesc(true);
+  };
+
   //   const [testClickedProject, setTestClickedProject] = React.useState(null);
   React.useEffect(() => {
     setChecked(true);
@@ -43,8 +58,15 @@ export default function ImageListOfProjects({ projects }) {
       .getAttribute("dataid");
     project = ProjectsWorkedOn[clickedProject].image;
     projectName = ProjectsWorkedOn[clickedProject].name;
+    projectDate = ProjectsWorkedOn[clickedProject].lastPublishedDate;
+    projectDescription = ProjectsWorkedOn[clickedProject].description;
+    projectLanguages = ProjectsWorkedOn[clickedProject].languages;
+    projectWebsite = ProjectsWorkedOn[clickedProject].website;
+    projectFrontEndMentorWebsite =
+      ProjectsWorkedOn[clickedProject].frontEndMentorWebsite;
 
     setOpen(true);
+    setModalDesc(true);
   };
 
   const handleClose = () => {
@@ -72,7 +94,12 @@ export default function ImageListOfProjects({ projects }) {
             {...(checked ? { timeout: 250 * i } : {})}
           >
             <ImageListItem
-              sx={{ border: "1px solid black", p: 1, margin: "0 auto" }}
+              sx={{
+                border: "1px solid black",
+                p: 1,
+                margin: "0 auto",
+                width: "100%",
+              }}
             >
               <LazyLoadImage
                 // srcSet={`/${item.image}`}
@@ -107,30 +134,116 @@ export default function ImageListOfProjects({ projects }) {
         ))}
       </ImageList>
 
-      <Modal open={open} onClick={handleClose}>
+      <Modal open={open}>
         <Box
           display={"flex"}
           justifyContent={"center"}
           alignItems={"center"}
           height={"100%"}
-          sx={{ cursor: "pointer" }}
+          position={"relative"}
         >
-          <LazyLoadImage
-            src={project}
-            //   layout="fill"
-            // height={"100%"}
-            // width={"100%"}
-            //   src={`${project}`}
-            //   srcSet={`/${project}`}
-            alt={projectName}
-            //   loading="lazy"
-            //   layout="fill"
-            //   sx={{
-            //     height: "100%",
-            //     width: "100%",
-            //     objectFit: "contain",
-            //   }}
-          />
+          {modalDesc && (
+            <Paper
+              sx={{
+                position: "absolute",
+                top: 0,
+                mt: 1,
+                p: 0.5,
+                maxWidth: "65ch",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexDirection: "column",
+                zIndex: 10,
+              }}
+            >
+              <Box
+                display={"flex"}
+                justifyContent={"space-between"}
+                alignItems={"center"}
+                width={"100%"}
+              >
+                <Button
+                  color={"info"}
+                  href={projectWebsite}
+                  variant={"contained"}
+                  sx={{
+                    textAlign: "center",
+                    height: "fit-content",
+                    flex: 1,
+                  }}
+                >
+                  Visit Website
+                </Button>
+
+                <Typography
+                  variant={"h6"}
+                  component={"div"}
+                  textAlign={"center"}
+                  color={"info.dark"}
+                  flex={4}
+                >
+                  {projectName}
+                </Typography>
+
+                {projectFrontEndMentorWebsite ? (
+                  <Button
+                    color={"secondary"}
+                    href={projectFrontEndMentorWebsite}
+                    variant={"contained"}
+                    sx={{
+                      textAlign: "center",
+                      height: "fit-content",
+                      flex: 1,
+                    }}
+                  >
+                    Visit Frontend Mentor
+                  </Button>
+                ) : (
+                  <Box flex={1}></Box>
+                )}
+              </Box>
+
+              <Typography
+                variant={"body2"}
+                component={"div"}
+                textAlign={"center"}
+                color={"text.primary"}
+              >
+                {projectDescription}
+              </Typography>
+
+              <Button
+                onClick={handleModalDesc}
+                color={"success"}
+                startIcon={<Close />}
+                sx={{
+                  position: "absolute",
+                  bottom: 0,
+                  right: 0,
+                }}
+              />
+              {/* </Box> */}
+            </Paper>
+          )}
+          <Box onClick={handleClose} sx={{ cursor: "pointer" }}>
+            <LazyLoadImage
+              src={project}
+              //   layout="fill"
+              height={"100%"}
+              width={"100%"}
+              //   src={`${project}`}
+              //   srcSet={`/${project}`}
+              alt={projectName}
+              //   loading="lazy"
+              //   layout="fill"
+              sx={{
+                // height: "100%",
+                // width: "100%",
+                objectFit: "contain",
+              }}
+            />
+          </Box>
         </Box>
       </Modal>
 
