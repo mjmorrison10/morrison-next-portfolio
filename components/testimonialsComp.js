@@ -176,7 +176,7 @@ export default function TestimonialsComp(props) {
           <Avatar {...stringAvatar(`${list.name}`)} />
           <Typography>{list.name}</Typography>
         </Box>
-        <SkeleBar h={2} w={"100%"} my={0} clr={randomColorWithAccent} />
+        <Skelebar h={2} w={"100%"} my={0} clr={randomColorWithAccent} />
 
         <Box
           display={"flex"}
