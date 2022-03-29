@@ -65,6 +65,17 @@ function HtmlCssAndJavascript() {
 
       <CarouselOfProjects />
 
+      <Typography
+        color={"info.dark"}
+        textAlign={"center"}
+        variant="h3"
+        component={"h2"}
+        gutterBottom
+        mt={4}
+      >
+        Check out all my projects below!
+      </Typography>
+
       <Autocomplete
         value={value}
         onChange={(event, newValue) => {
@@ -77,7 +88,7 @@ function HtmlCssAndJavascript() {
         }}
         id="controllable-states-demo"
         options={ProjectAllCategories}
-        sx={{ width: 300, margin: "0 auto", my: 1, }}
+        sx={{ width: 300, margin: "0 auto", my: 1 }}
         renderInput={(params) => <TextField {...params} label="Category" />}
       />
 
