@@ -32,7 +32,6 @@ export default CarouselOfProjects;
 function Project(props) {
   const image = props.project.name;
 
-  console.log(image);
   return (
     <Box
       minHeight={"100vh"}
@@ -79,27 +78,41 @@ function Project(props) {
           flexDirection={{ xs: "column", md: "row" }}
           alignItems={"flex-end"}
         >
-          <Button
-            color={"info"}
-            href={props.project.website}
-            variant={"contained"}
-          >
-            Visit Website
-          </Button>
-          <Paper sx={{ width: "fit-content", p: 1 }}>
-            <Typography variant="body2" maxWidth={"25ch"}>
-              {props.project.description}
-            </Typography>
-          </Paper>
-
-          {props.project.frontEndMentorWebsite && (
+          <Box display={"flex"} justifyContent={"flex-start"} flex={1}>
             <Button
-              color={"secondary"}
-              href={props.project.frontEndMentorWebsite}
+              color={"info"}
+              href={props.project.website}
               variant={"contained"}
             >
-              Visit Frontend Mentor
+              Visit Website
             </Button>
+          </Box>
+
+          <Box
+            flex={4}
+            display={"flex"}
+            justifyContent={"center"}
+            alignItems={"center"}
+          >
+            <Paper sx={{ p: 1 }}>
+              <Typography variant="body2" maxWidth={"65ch"}>
+                {props.project.description}
+              </Typography>
+            </Paper>
+          </Box>
+
+          {props.project.frontEndMentorWebsite ? (
+            <Box display={"flex"} justifyContent={"flex-end"} flex={1}>
+              <Button
+                color={"secondary"}
+                href={props.project.frontEndMentorWebsite}
+                variant={"contained"}
+              >
+                Visit Frontend Mentor
+              </Button>
+            </Box>
+          ) : (
+            <Box flex={1}></Box>
           )}
         </Box>
       </Box>

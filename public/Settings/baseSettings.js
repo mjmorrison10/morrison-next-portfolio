@@ -208,6 +208,7 @@ export const ProjectsWorkedOn = [
     languages: ["html", "css"],
     website: `https://osrsclone.netlify.app/`,
     image: `../Images/Projects/OldSchoolRuneScape.png`,
+    category: ["website", "landing page"],
   },
   {
     name: `Tic Tac Toe`,
@@ -216,6 +217,7 @@ export const ProjectsWorkedOn = [
     languages: ["html", "css", "javascript"],
     website: `https://morrison-tictactoe.netlify.app/`,
     image: `../Images/Projects/TicTacToe.png`,
+    category: ["website", "video game"],
   },
   {
     name: `Michael Jobs`,
@@ -224,6 +226,7 @@ export const ProjectsWorkedOn = [
     languages: ["html", "css", "javascript"],
     website: `https://livedeveloperjobs.netlify.app/`,
     image: `../Images/Projects/MichaelJobs.png`,
+    category: ["website", "dashboard", "javascript", "landing page"],
   },
   {
     name: `JavaScript Challenges`,
@@ -232,6 +235,7 @@ export const ProjectsWorkedOn = [
     languages: ["html", "css", "javascript"],
     website: ``,
     image: `../Images/Projects/javaScriptChallenges.png`,
+    category: ["website", "javascript"],
   },
   // Frontend Mentor
   // FEM x
@@ -243,6 +247,7 @@ export const ProjectsWorkedOn = [
     website: `https://fem-stats-preview-card-mjm.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/flexbox-LAC2l36oJ`,
     image: `../Images/Projects/StatsPreviewCardComponentDesktop.jpg`,
+    category: ["website", "component", "front end mentor"],
   },
   // FEM 3
   {
@@ -253,6 +258,7 @@ export const ProjectsWorkedOn = [
     website: `https://fem-3-column-preview-card-component-mjm.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/using-tailwind-cdn-MpV5-lgtg`,
     image: `../Images/Projects/3ColumnPreviewCardComponentDesktop.jpg`,
+    category: ["website", "component", "front end mentor"],
   },
   // FEM x
   {
@@ -263,6 +269,7 @@ export const ProjectsWorkedOn = [
     website: `https://mjm-order-summary-fem.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/hsl-variables-used-wqlWJwE9A`,
     image: `../Images/Projects/OrderSummaryComponentDesktop.jpg`,
+    category: ["website", "component", "front end mentor"],
   },
   // FEM 5
   {
@@ -273,6 +280,7 @@ export const ProjectsWorkedOn = [
     website: `https://fem-5-faq-accordion-card-main-mjm.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/regular-html-css-and-javascript-WpDMeGENP`,
     image: `../Images/Projects/FAQAccordionCardDesktop.jpg`,
+    category: ["website", "component", "front end mentor", "javascript"],
   },
   // FEM 4
   {
@@ -283,6 +291,7 @@ export const ProjectsWorkedOn = [
     website: `https://fem-4-profile-card-component-main-mjm.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/using-tailwind-J8Ivj8EUH`,
     image: `../Images/Projects/ProfileCardComponentDesktop.jpg`,
+    category: ["website", "component", "front end mentor"],
   },
   // FEM 6
   {
@@ -293,6 +302,7 @@ export const ProjectsWorkedOn = [
     website: `https://fem-6-social-proof-section-master-mjm.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/flexbox-8rbqTAHpj`,
     image: `../Images/Projects/SocialProofSectionDesktop.jpg`,
+    category: ["website", "section", "front end mentor"],
   },
   // FEM 8
   {
@@ -303,6 +313,7 @@ export const ProjectsWorkedOn = [
     website: `https://fem-8-four-card-feature-section-master.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/responsive-design-using-regular-html-and-css-CfREhUjbj`,
     image: `../Images/Projects/FourCardFeatureSectionDesktop.jpg`,
+    category: ["website", "section", "front end mentor"],
   },
   // FEM 9
   {
@@ -313,6 +324,7 @@ export const ProjectsWorkedOn = [
     website: `https://fem-9-base-apparel-coming-soon.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/responsive-design-using-flexbox-QCQqEF41u`,
     image: `../Images/Projects/BaseApparelComingSoonPageDesktop.jpg`,
+    category: ["website", "landing page", "front end mentor"],
   },
   // FEM 10
   {
@@ -323,6 +335,7 @@ export const ProjectsWorkedOn = [
     website: `https://fem-10-intro-component-with-signup-form-master.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/responsive-design-using-flexbox-and-javascript-gmDcEEBy3`,
     image: `../Images/Projects/IntroComponentWithSignupFormDesktop.jpg`,
+    category: ["website", "component", "front end mentor"],
   },
   // FEM 11
   {
@@ -333,6 +346,7 @@ export const ProjectsWorkedOn = [
     website: `https://fem-11-single-price-grid-component-master.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/responsive-design-using-flexbox-BaugkVbN-`,
     image: `../Images/Projects/SinglePriceGridComponentDesktop.jpg`,
+    category: ["website", "component", "front end mentor"],
   },
   // FEM 12
   {
@@ -343,6 +357,7 @@ export const ProjectsWorkedOn = [
     website: `https://fem-12-ping-coming-soon-page-master.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/responsive-design-using-flexbox-Q7-jH_Cmb`,
     image: `../Images/Projects/PingSingleColumnComingSoonPageDesktop.jpg`,
+    category: ["website", "component", "front end mentor"],
   },
   // FEM 13
   {
@@ -353,6 +368,7 @@ export const ProjectsWorkedOn = [
     website: `https://fem-13-huddle-landing-page-with-single-introductory.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/responsive-design-using-flexbox-kvwmDBs5A`,
     image: `../Images/Projects/HuddleLandingPageWithASingleIntroductorySectionDesktop.jpg`,
+    category: ["website", "landing page", "front end mentor"],
   },
   // FEM 14
   {
@@ -363,6 +379,7 @@ export const ProjectsWorkedOn = [
     website: `https://fem-14-time-tracking-dashboard-main.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/responsive-design-using-grid-8hCaPcVE3`,
     image: `../Images/Projects/TimeTrackingDashboardDesktop.jpg`,
+    category: ["website", "dashboard", "front end mentor"],
   },
   // FEM 15
   {
@@ -373,6 +390,7 @@ export const ProjectsWorkedOn = [
     website: `https://fem-15-tip-calculator-app-main.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/responsive-tip-calculator-using-css-flexbox-_L3pNhTrI`,
     image: `../Images/Projects/TipCalculatorAppDesktop.jpg`,
+    category: ["website", "javascript", "front end mentor"],
   },
   // FEM 16
   {
@@ -383,6 +401,7 @@ export const ProjectsWorkedOn = [
     website: `https://fem-16-sunnyside-agency-landing-page-main.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/responsive-landing-page-using-css-grid-and-flexbox-CtMWPfmzL`,
     image: `../Images/Projects/SunnysideAgencyLandingPageDesktop.jpg`,
+    category: ["website", "landing page", "front end mentor"],
   },
   // FEM 17
   {
@@ -393,6 +412,7 @@ export const ProjectsWorkedOn = [
     website: `https://fem-17-blogr-landing-page-main.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/responsive-landing-page-using-flexbox-jpysNzKmW`,
     image: `../Images/Projects/BlogrLandingPageDesktop.jpg`,
+    category: ["website", "landing page", "front end mentor"],
   },
   // FEM 18
   {
@@ -403,6 +423,7 @@ export const ProjectsWorkedOn = [
     website: `https://fem-18-crowdfunding-product-page-main.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/responsive-landing-page-using-flexbox-G2jB4fQ1g`,
     image: `../Images/Projects/CrowdfundingProductPageDesktop.jpg`,
+    category: ["website", "landing page", "front end mentor"],
   },
   // FEM 20
   {
@@ -413,6 +434,7 @@ export const ProjectsWorkedOn = [
     website: `https://fem-20-loopstudios-landing-page-main.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/responsive-landing-page-using-grid-and-flexbox-wK49t7bh0`,
     image: `../Images/Projects/LoopstudiosLandingPageDesktop.jpg`,
+    category: ["website", "landing page", "front end mentor"],
   },
   // FEM 21
   {
@@ -423,6 +445,7 @@ export const ProjectsWorkedOn = [
     website: `https://fem-21-testimonials-grid-section-main.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/responsive-design-using-css-grid-qR4_b1_WD`,
     image: `../Images/Projects/TestimonialsGridSectionDesktop.jpg`,
+    category: ["website", "section", "front end mentor"],
   },
   // FEM 22
   {
@@ -433,6 +456,7 @@ export const ProjectsWorkedOn = [
     website: `https://fem-22-fylo-data-storage-component-master.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/responsive-design-using-flexbox-IciKr779i`,
     image: `../Images/Projects/FyloDataStorageComponentDesktop.jpg`,
+    category: ["website", "component", "front end mentor"],
   },
   // FEM 23
   {
@@ -443,6 +467,7 @@ export const ProjectsWorkedOn = [
     website: `https://fem-23-coding-bootcamp-testimonials.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/responsive-design-using-flexbox-48xiDBnvj`,
     image: `../Images/Projects/CodingBootcampTestimonialsSliderDesktop.jpg`,
+    category: ["website", "landing page", "front end mentor"],
   },
   // FEM 24
   {
@@ -453,6 +478,7 @@ export const ProjectsWorkedOn = [
     website: `https://fem-24-social-media-dashboard-with-theme-switcher-master.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/responsive-design-using-css-grid-DsyZ77F0R`,
     image: `../Images/Projects/SocialMediaDashboardWithThemeSwitcherDesktop.jpg`,
+    category: ["website", "dashboard", "front end mentor"],
   },
   // FEM 25
   {
@@ -463,6 +489,7 @@ export const ProjectsWorkedOn = [
     website: `https://fem-25-insure-landing-page-master.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/responsive-landing-page-using-flexbox-T-bL1p9Wt`,
     image: `../Images/Projects/InsureLandingPageDesktop.jpg`,
+    category: ["website", "landing page", "front end mentor"],
   },
   // FEM 26
   {
@@ -473,6 +500,7 @@ export const ProjectsWorkedOn = [
     website: `https://fem-26-pricing-component-with-toggle-master.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/responsive-design-using-flexbox-Wo2YfpRYz`,
     image: `../Images/Projects/PricingComponentWithToggleDesktop.jpg`,
+    category: ["website", "component", "front end mentor"],
   },
   // FEM 27
   {
@@ -483,6 +511,7 @@ export const ProjectsWorkedOn = [
     website: `https://fem-27-project-tracking-intro-component-master.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/responsive-landing-page-using-flexbox-qoqRJYQR5`,
     image: `../Images/Projects/ProjectTrackingIntroComponentDesktop.jpg`,
+    category: ["website", "component", "front end mentor"],
   },
   // FEM 28
   {
@@ -493,6 +522,7 @@ export const ProjectsWorkedOn = [
     website: `https://fem-28-clipboard-landing-page-master.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/responsive-landing-page-using-flexbox-and-css-grid-WTUeyp3NT`,
     image: `../Images/Projects/ClipboardLandingPageDesktop.jpg`,
+    category: ["website", "landing page", "front end mentor"],
   },
   // FEM 29
   {
@@ -503,6 +533,7 @@ export const ProjectsWorkedOn = [
     website: `https://fem-29-huddle-landing-page.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/responsive-landing-page-using-flexbox-nw7bXz278`,
     image: `../Images/Projects/HuddleLandingPageWithAlternatingFeatureBlocksDesktop.jpg`,
+    category: ["website", "landing page", "front end mentor"],
   },
   // FEM 30
   {
@@ -513,6 +544,7 @@ export const ProjectsWorkedOn = [
     website: `https://fem-30-fylo-dark-theme-landing-page-master.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/responsive-landing-page-using-css-flexbox-ovFEmk8EF`,
     image: `../Images/Projects/FyloDarkThemeLandingPageDesktop.jpg`,
+    category: ["website", "landing page", "front end mentor"],
   },
   // FEM 31
   {
@@ -523,6 +555,7 @@ export const ProjectsWorkedOn = [
     website: `https://fem-31-fylo-landing-page-with-two-column-layout-master.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/responsive-landing-page-using-flexbox-wzIwHxYAL`,
     image: `../Images/Projects/FyloLandingPageWithTwoColumnLayoutDesktop.jpg`,
+    category: ["website", "landing page", "front end mentor"],
   },
   // FEM 32
   {
@@ -533,6 +566,7 @@ export const ProjectsWorkedOn = [
     website: `https://fem-32-huddle-landing-page-with-curved-sections-master.netlify.app/`,
     frontEndMentorWebsite: `https://www.frontendmentor.io/solutions/responsive-landing-page-using-flexbox-EyCLNfT94`,
     image: `../Images/Projects/HuddleLandingPageWithCurvedSectionsDesktop.jpg`,
+    category: ["website", "landing page", "front end mentor"],
   },
 
   {
@@ -542,6 +576,7 @@ export const ProjectsWorkedOn = [
     languages: ["html", "css", "javascript"],
     website: `https://guess-my-number-mjm.netlify.app`,
     image: `../Images/Projects/guessMyNumber.png`,
+    category: ["website", "video game", "javascript"],
   },
 
   {
@@ -551,6 +586,7 @@ export const ProjectsWorkedOn = [
     languages: ["html", "css", "javascript"],
     website: `https://pig-game-mjm.netlify.app/`,
     image: `../Images/Projects/pigGame.png`,
+    category: ["website", "video game", "javascript"],
   },
 
   {
@@ -560,6 +596,7 @@ export const ProjectsWorkedOn = [
     languages: ["html", "css", "javascript"],
     website: `https://whichbank.netlify.app/`,
     image: `../Images/Projects/whichbank.png`,
+    category: ["website", "dashboard", "javascript"],
   },
 
   {
@@ -569,6 +606,7 @@ export const ProjectsWorkedOn = [
     languages: ["html", "css", "javascript"],
     website: `https://whichbank-landing.netlify.app/`,
     image: `../Images/Projects/whichbankLanding.png`,
+    category: ["website", "javascript", "landing page"],
   },
 
   {
@@ -578,6 +616,7 @@ export const ProjectsWorkedOn = [
     languages: ["html", "css", "javascript"],
     website: `https://mapty-ss.netlify.app/`,
     image: `../Images/Projects/mapty.png`,
+    category: ["website", "javascript"],
   },
 
   {
@@ -587,6 +626,7 @@ export const ProjectsWorkedOn = [
     languages: ["html", "css", "javascript"],
     website: `https://forkify-ss.netlify.app/`,
     image: `../Images/Projects/forkify.png`,
+    category: ["website", "javascript"],
   },
 
   {
@@ -596,6 +636,7 @@ export const ProjectsWorkedOn = [
     languages: ["html", "css", "javascript"],
     website: `https://memory-game-mdo.netlify.app/`,
     image: `../Images/Projects/memoryGame.png`,
+    category: ["website", "javascript", "video game"],
   },
 
   {
@@ -605,6 +646,7 @@ export const ProjectsWorkedOn = [
     languages: ["html", "css", "javascript"],
     website: `https://whack-a-mole-mdo.netlify.app/`,
     image: `../Images/Projects/whackAMole.png`,
+    category: ["website", "javascript", "video game"],
   },
 
   {
@@ -614,6 +656,7 @@ export const ProjectsWorkedOn = [
     languages: ["html", "css", "javascript"],
     website: `https://connect-four-mdo.netlify.app/`,
     image: `../Images/Projects/connectFour.png`,
+    category: ["website", "javascript", "video game"],
   },
 
   {
@@ -623,6 +666,7 @@ export const ProjectsWorkedOn = [
     languages: ["html", "css", "javascript"],
     website: `https://snake-mdo.netlify.app/`,
     image: `../Images/Projects/snakeGame.png`,
+    category: ["website", "javascript", "video game"],
   },
 
   {
@@ -632,6 +676,7 @@ export const ProjectsWorkedOn = [
     languages: ["html", "css", "javascript"],
     website: `https://rome-fly-artwork.netlify.app/`,
     image: `../Images/Projects/rome.png`,
+    category: ["website", "landing page", "client work", "portfolio"],
   },
 
   {
@@ -641,6 +686,7 @@ export const ProjectsWorkedOn = [
     languages: ["html", "css", "javascript", "react", "next"],
     website: `https://tax-mdo.netlify.app/`,
     image: `../Images/Projects/taxCompany.png`,
+    category: ["website", "landing page", "client work", "react"],
   },
 
   {
@@ -650,7 +696,22 @@ export const ProjectsWorkedOn = [
     languages: ["html", "css", "javascript", "react"],
     website: `https://portfolio-mjm-react.netlify.app/`,
     image: `../Images/Projects/firstReactPortfolio.png`,
+    category: ["website", "landing page", "react", "portfolio"],
   },
+];
+
+export const ProjectAllCategories = [
+  "website",
+  "landing page",
+  "video game",
+  "javascript",
+  "component",
+  "section",
+  "front end mentor",
+  "dashboard",
+  "client work",
+  "portfolio",
+  'react',
 ];
 
 // export const projectsWorkedOnHtmlCssJavaScript = ProjectsWorkedOn.filter(
@@ -660,6 +721,12 @@ export const ProjectsWorkedOn = [
 export const projectsFilterByLanguages = (search) => {
   return ProjectsWorkedOn.filter((project) =>
     project.languages.includes(search)
+  );
+};
+
+export const projectsFilterByCategories = (search) => {
+  return ProjectsWorkedOn.filter((project) =>
+    project.category.includes(search)
   );
 };
 

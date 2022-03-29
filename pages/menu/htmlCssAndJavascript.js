@@ -1,9 +1,19 @@
-import { Box, Button, Typography, Modal, Dialog } from "@mui/material";
+import {
+  Box,
+  Button,
+  Typography,
+  Modal,
+  Dialog,
+  Autocomplete,
+  TextField,
+} from "@mui/material";
 import React from "react";
 import PageComingSoon from "../../components/pageComingSoon";
 import Skelebar from "../../components/SkeleBar";
 import {
+  ProjectAllCategories,
   projectsFilter,
+  projectsFilterByCategories,
   projectsFilterByLanguages,
   ProjectsWorkedOn,
   projectsWorkedOnHtmlCssJavaScript,
@@ -21,8 +31,14 @@ function HtmlCssAndJavascript() {
   const projectsWorkedOnNew = ProjectsWorkedOn.filter((project) =>
     project.name.includes("Fylo dark theme")
   );
-  const [searchByLanguages, setSearchByLanguages] = React.useState("html");
 
+  const [value, setValue] = React.useState(ProjectAllCategories[0]);
+  const [inputValue, setInputValue] = React.useState("");
+
+  const [searchByLanguages, setSearchByLanguages] = React.useState("html");
+  const [searchByCategory, setSearchByCategory] = React.useState("");
+
+  console.log(searchByCategory);
   // const handleModal = (e) => (
   //   setOpen(!open ? true : false),
   //   // open ? setOpen(false) : setOpen(true),
@@ -47,10 +63,34 @@ function HtmlCssAndJavascript() {
         {ProjectsWorkedOn.map((project, i)) => <Project key={i} project={project} />}
       </Carousel> */}
 
-      {/* <CarouselOfProjects /> */}
+      <CarouselOfProjects />
+
+      <Autocomplete
+        value={value}
+        onChange={(event, newValue) => {
+          setValue(newValue);
+          setSearchByCategory(newValue);
+        }}
+        inputValue={inputValue}
+        onInputChange={(event, newInputValue) => {
+          setInputValue(newInputValue);
+        }}
+        id="controllable-states-demo"
+        options={ProjectAllCategories}
+        sx={{ width: 300, margin: "0 auto", my: 1, }}
+        renderInput={(params) => <TextField {...params} label="Category" />}
+      />
+
+      {/* <Autocomplete 
+         disablePortal
+         id="combo-box-demo"
+         options={ProjectAllCategories}
+         sx={{ width: 300 }}
+         renderInput={(params) => <TextField {...params} label="Category" />}
+      /> */}
 
       <ImageListOfProjects
-        projects={projectsFilterByLanguages(searchByLanguages)}
+        projects={projectsFilterByCategories(searchByCategory)}
       />
 
       {/* {ProjectsWorkedOn.map((project, i) => (
