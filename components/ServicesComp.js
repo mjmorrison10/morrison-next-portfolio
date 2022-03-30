@@ -1,5 +1,5 @@
 import { Box, Typography, useMediaQuery } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { Writings } from "../public/Settings/WriteSettings";
 import PageComingSoon from "./pageComingSoon";
 import {
@@ -33,6 +33,17 @@ function ServicesComp({ page }) {
       </Typography>
 
       <Box
+        width={"100%"}
+        display={"flex"}
+        justifyContent={"center"}
+        alignItems={"center"}
+        maxWidth={"85ch"}
+        margin={"0 auto"}
+      >
+        {pageData.sub}
+      </Box>
+
+      <Box
         display={"flex"}
         sx={{
           flexDirection: { xs: "column", md: "row" },
@@ -58,9 +69,16 @@ function ServicesComp({ page }) {
           >
             {pageData.h2}
           </Typography>
+
           <Typography variant={"body1"} gutterBottom>
             {pageData.h2body}
           </Typography>
+
+          {pageData.h2bodya && (
+            <Typography variant={"body1"} gutterBottom>
+              {pageData.h2bodya}
+            </Typography>
+          )}
 
           {pageData.listHeader1 && (
             <Box>
@@ -155,11 +173,13 @@ function ServicesComp({ page }) {
         <Box flex={1} position={"relative"} minHeight={"100vh"}>
           <Box
             position={"absolute"}
-            top={"5%"}
-            right={"5%"}
+            sx={{
+              top: { xs: "1%" },
+              right: { xs: "1%" },
+            }}
             zIndex={3}
-            height={350}
-            maxWidth={450}
+            height={matchesMd ? 350 : 250}
+            maxWidth={matchesMd ? 450 : 350}
             display={"flex"}
             alignItems={"center"}
             justifyContent={"center"}
@@ -181,10 +201,12 @@ function ServicesComp({ page }) {
 
           <Box
             position={"absolute"}
-            left={"5%"}
-            bottom={"35%"}
-            height={350}
-            maxWidth={450}
+            sx={{
+              left: { xs: "1%" },
+              bottom: { xs: "32%" },
+            }}
+            height={matchesMd ? 350 : 250}
+            maxWidth={matchesMd ? 450 : 350}
             display={"flex"}
             alignItems={"center"}
             justifyContent={"center"}
@@ -206,10 +228,12 @@ function ServicesComp({ page }) {
 
           <Box
             position={"absolute"}
-            bottom={"10%"}
-            right={"5%"}
-            height={350}
-            maxWidth={450}
+            sx={{
+              bottom: { xs: "1%" },
+              right: { xs: "1%" },
+            }}
+            height={matchesMd ? 350 : 250}
+            maxWidth={matchesMd ? 450 : 350}
             display={"flex"}
             alignItems={"center"}
             justifyContent={"center"}

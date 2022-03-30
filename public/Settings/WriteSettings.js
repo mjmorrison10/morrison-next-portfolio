@@ -1,3 +1,7 @@
+import { Typography } from "@mui/material";
+import React from "react";
+import Typewriter from "typewriter-effect";
+
 export const Writings = {
   apiAndBackend: {
     header: `Build a powerful website`,
@@ -35,8 +39,8 @@ export const Writings = {
     img1: `/Images/codeTechnologySoftwareInternet.jpg`,
     img2: `/Images/iosUsageAroundWorld.jpg`,
     img3: `/Images/androidOnTabletComputers.jpg`,
-},
-debuggingAndBugFix: {
+  },
+  debuggingAndBugFix: {
     header: `Your Website, Our Mission`,
     subheader: `We understand how frustrating it can be when your website isn't performing as it should. We offer a wide range of services to make debugging and fixing bugs on your website an easy process.`,
     feature: `Features section:`,
@@ -47,8 +51,7 @@ debuggingAndBugFix: {
     img1: `/Images/workTypingComputerNotebook.jpg`,
     img2: `/Images/programmingDevelopingStartup.jpg`,
     img3: `/Images/ussNormandyCg606.jpg`,
-  
-},
+  },
   landingPage: {
     header: `Generate Leads and Grow Your Business`,
     subheader: `With our landing page service, you can generate leads for your business with a single click, grow your social media presence, and help build your email list. With time-saving features, a simple design, and a focus on conversion, you'll be launching successful campaigns in no time.`,
@@ -100,4 +103,73 @@ debuggingAndBugFix: {
     img2: `/Images/profitsBoomEconomyStock.jpg`,
     img3: `/Images/goldDistrictThreeDimensional.jpg`,
   },
+  whoAmI: {
+    header: `Michael Morrison. Your friendly neighborhood web developer! I...`,
+    sub: (
+      <Typography
+        variant={"h3"}
+        component={"div"}
+        textAlign={"center"}
+        color={"info.main"}
+        gutterBottom
+      >
+        {WriteSettingsTypewriter()}
+      </Typography>
+    ),
+    feature: "A little bit about myself...",
+    h2: `Beginning of a Journey`,
+    h2body: `As a teenager playing RuneScape, I started programming an IRC bot using mIRC Scripting Language (MSL) to bring value to my community and entertain our friends. The IRC bot retrieved data from an online source and displayed them in chat while offering text-based video games. After a couple of years of maintaining the bot, we had to discontinue its use as I left school. As a hobby, it was enjoyable, but I had other priorities in which I did not seek out web development as a career.`,
+    h2bodya: `Fast forward to 2020, and life changed. The pandemic started and gave me an excellent opportunity to focus my attention on programming again. I would study docs, watch videos, and entertainment by other programmers and web developers. Eventually, I purchased my laptop and started learning hands-on. I have developed multiple landing pages and software on the web, primarily using HTML, CSS, and JavaScript, and recently started educating myself on React.`,
+    h3: `A little about my experience...`,
+    h3body: `I have developed over 30 different web applications, from small components, sections to landing pages and full multi-page websites, to gain experience in development. I prefer reading documentation, toying around with the code, and watching videos to learn how to code. And now, I am focused on creating high converting sales funnel pages and generating leads for small business owners and social media influencers to continue my education in web development and help others. I want to help you and your business thrive in this competitive online marketplace.`,
+
+},
 };
+
+export function WriteSettingsTypewriter() {
+  return (
+    <div>
+      <Typewriter
+        onInit={(typewriter) => {
+          typewriter
+            .typeString(
+              "can help you by developing a modern website for your business or brand!"
+            )
+            .pauseFor(2500)
+            .deleteAll()
+
+            .typeString(
+              "love Web Development and creating websites from scratch!"
+            )
+            .pauseFor(2500)
+            .deleteAll()
+
+            .typeString(
+              "enjoy teaching web development to people around the world"
+            )
+            .pauseFor(2500)
+            .deleteAll()
+
+            .typeString(
+              "thrive investigating code, solving problems, and debugging software bugs."
+            )
+            .pauseFor(2500)
+            .deleteAll()
+
+            .typeString(
+              "am dedicated to learning as much as possible about programming!"
+            )
+            .pauseFor(2500)
+            .deleteAll()
+          
+            .typeString(
+                "Contact now for a quote!"
+                    )
+            .pauseFor(2500)
+
+            .start();
+        }}
+      />
+    </div>
+  );
+}
