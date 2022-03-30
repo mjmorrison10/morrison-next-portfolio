@@ -26,10 +26,7 @@ function DebuggingAndBugFix() {
         <Box flex={1}>
           <PageComingSoon />
           <Typography variant={"body2"} gutterBottom>
-            We understand how frustrating it can be when your website isn't
-            performing as it should. That's why we offer a wide range of
-            services to make debugging and fixing bugs on your website an easy
-            process.
+            {`We understand how frustrating it can be when your website isn't performing as it should. That's why we offer a wide range of services to make debugging and fixing bugs on your website an easy process.`}
           </Typography>
           <Typography variant={"h4"} color={"info.dark"} component={"div"}>
             Features section:
@@ -47,11 +44,7 @@ function DebuggingAndBugFix() {
             Bugs in sight
           </Typography>
           <Typography variant={"body1"} gutterBottom>
-            Whether you're looking for a quick fix or something more in depth,
-            MorrisonDevOps has the solution needed. We diagnose your website and
-            fix any errors that are found with our fast, affordable and easy to
-            use service — all while keeping you in the loop with regular
-            updates.
+            {`Whether you're looking for a quick fix or something more in depth, MorrisonDevOps has the solution needed. We diagnose your website and fix any errors that are found with our fast, affordable and easy to use service — all while keeping you in the loop with regular updates.`}
           </Typography>
           <Typography
             variant={
@@ -66,10 +59,7 @@ function DebuggingAndBugFix() {
             Thoughtful service
           </Typography>
           <Typography variant={"body1"} gutterBottom>
-            We give you all the information you need upfront so that there are
-            no surprises or hidden fees. We'll provide an honest quote after a
-            thorough analysis of your site, and then just as important - we'll
-            stick to it!
+            {`We give you all the information you need upfront so that there are no surprises or hidden fees. We'll provide an honest quote after a thorough analysis of your site, and then just as important - we'll stick to it!`}
           </Typography>
         </Box>
         <Box flex={1}></Box>

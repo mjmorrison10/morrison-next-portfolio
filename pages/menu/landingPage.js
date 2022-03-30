@@ -26,11 +26,7 @@ function LandingPage() {
         <Box flex={1}>
           <PageComingSoon />
           <Typography variant={"body2"} gutterBottom>
-            With our landing page service, you can generate leads for your
-            business with a single click, grow your social media presence, and
-            help build your email list. With time-saving features, a simple
-            design, and a focus on conversion, you'll be launching successful
-            campaigns in no time.
+            {`With our landing page service, you can generate leads for your business with a single click, grow your social media presence, and help build your email list. With time-saving features, a simple design, and a focus on conversion, you'll be launching successful campaigns in no time.`}
           </Typography>
           <Typography variant={"h4"} color={"info.dark"} component={"div"}>
             Features section:
@@ -48,10 +44,7 @@ function LandingPage() {
             Lead generating landing page
           </Typography>
           <Typography variant={"body1"} gutterBottom>
-            We specialize in lead generation landing pages that will increase
-            the number of leads and sales for any business. With our intuitive
-            design and powerful features, it's never been easier to create a
-            landing page for any occasion.
+            {`We specialize in lead generation landing pages that will increase the number of leads and sales for any business. With our intuitive design and powerful features, it's never been easier to create a landing page for any occasion.`}
           </Typography>
           <Typography variant={"h4"} color={"info.dark"} component={"div"}>
             Features
@@ -94,11 +87,7 @@ function LandingPage() {
             All-inclusive marketing tools
           </Typography>
           <Typography variant={"body1"} gutterBottom>
-            Our landing pages come with everything you need for success:
-            responsive design, copywriting formulas (FAB), A/B testing
-            capabilities, and more - at an affordable price that can't be beat!
-            We'll even do the heavy lifting of creating high-converting
-            templates for you.
+            {`Our landing pages come with everything you need for success: responsive design, copywriting formulas (FAB), A/B testing capabilities, and more - at an affordable price that can't be beat! We'll even do the heavy lifting of creating high-converting templates for you.`}
           </Typography>
           <Typography
             variant={
@@ -113,10 +102,7 @@ function LandingPage() {
             Everything you need to launch a campaign in minutes
           </Typography>
           <Typography variant={"body1"} gutterBottom>
-            No matter what type of campaign you're running - from affiliate to
-            lead generation - we have the perfect template waiting for you. From
-            responsive design to copywriting formulas (FAB) to A/B testing
-            capabilities - we've got it all!
+            {`No matter what type of campaign you're running - from affiliate to lead generation - we have the perfect template waiting for you. From responsive design to copywriting formulas (FAB) to A/B testing capabilities - we've got it all!`}
           </Typography>
         </Box>
         <Box flex={1}></Box>
