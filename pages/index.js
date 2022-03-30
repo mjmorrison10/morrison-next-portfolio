@@ -52,12 +52,6 @@ export default function Home() {
   const matchesLg = useMediaQuery((theme) => theme.breakpoints.up("lg"));
   const matchesXl = useMediaQuery((theme) => theme.breakpoints.up("xl"));
 
-  // const servicesWeOffer = [
-  //   "High-Converting Sales Funnel page",
-  //   "Lead Generation Landing Page",
-  //   "Customized Homepage Website for your Business",
-  //   "Content-Management System",
-  // ];
 
   const listOfDevelopmentServices = [
     {
@@ -83,21 +77,6 @@ export default function Home() {
     },
   ];
 
-  // const listOfServicesComp = () =>
-  //   listOfServicesData.map(
-  //     (service, i)(
-  //       <Box key={i} maxWidth={"65ch"}>
-  //         <Typography variant="h6" component={"h3"}>
-  //           {service.heading}
-  //         </Typography>
-  //         <Typography variant="body">{service.description}</Typography>
-  //       </Box>
-  //     )
-  //   );
-
-  const displayServiceDetails = (desc) => (
-    <Typography variant="body">{desc}</Typography>
-  );
 
   const listOfServicesComp = () =>
     listOfServicesData.map(

@@ -250,35 +250,6 @@ export default function ImageListOfProjects({ projects }) {
         </Box>
       </Modal>
 
-      {/* <Modal
-        open={open}
-        onClick={handleClose}
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          cursor: "pointer",
-          height: "100vh",
-          width: "100vw",
-        }}
-      >
-        <LazyLoadImage
-          src={project}
-          //   layout="fill"
-          height={"100%"}
-          width={"100%"}
-          //   src={`${project}`}
-          //   srcSet={`/${project}`}
-          alt={projectName}
-          //   loading="lazy"
-          //   layout="fill"
-          //   sx={{
-          //     height: "100%",
-          //     width: "100%",
-          //     objectFit: "contain",
-          //   }}
-        />
-      </Modal> */}
     </Box>
   );
 }

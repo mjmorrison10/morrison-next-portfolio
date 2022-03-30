@@ -185,7 +185,7 @@ function Header(props) {
                       // setBtnColor={setBtnColor}
                       key={i}
                       title={`${btn.title}`}
-                      menuOptions={btn.menuTitle}
+                      menuOptions={btn.menuTitle.sort()}
                       sx={{
                         width: "100%",
                       }}
@@ -230,7 +230,7 @@ function Header(props) {
                   // setBtnColor={setBtnColor}
                   key={i}
                   title={`${btn.title}`}
-                  menuOptions={btn.menuTitle}
+                  menuOptions={btn.menuTitle.sort()}
                 ></SplitButton>
               ))}
 
