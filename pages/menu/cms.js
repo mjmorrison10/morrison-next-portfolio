@@ -46,9 +46,7 @@ function Cms() {
             Features section:
           </Typography>
           <Typography variant={"body1"} gutterBottom>
-            Want a professional website but don't want to pay thousands of
-            dollars for it? We make it easy with our affordable and hassle-free
-            websites. With no contracts, you're free to cancel anytime.
+            {`Want a professional website but don't want to pay thousands of dollars for it? We make it easy with our affordable and hassle-free websites. With no contracts, you're free to cancel anytime.`}
           </Typography>
         </Box>
         <Box flex={1}></Box>

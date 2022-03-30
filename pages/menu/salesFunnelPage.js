@@ -25,8 +25,7 @@ function SalesFunnelPage() {
       <Box display={"flex"} sx={{ flexDirection: { xs: "column", md: "row" } }}>
         <Box flex={1}>
           <Typography variant={"body2"} gutterBottom>
-            MorrisonDevOps is an all-in-one web development company that
-            provides best-in-class services for today's savvy business owners.
+            {`MorrisonDevOps is an all-in-one web development company that provides best-in-class services for today's savvy business owners.`}
           </Typography>
           <Typography variant={"h4"} color={"info.dark"} component={"div"}>
             Features section:
@@ -66,10 +65,7 @@ function SalesFunnelPage() {
             Your one stop shop for all things digital
           </Typography>
           <Typography variant={"body1"} gutterBottom>
-            At MorrisonDevOps, we offer our clients a wide array of web
-            development and design services—from website design to content
-            creation to marketing campaigns. We're your one stop shop for all
-            things digital!
+            {`At MorrisonDevOps, we offer our clients a wide array of web development and design services—from website design to content creation to marketing campaigns. We're your one stop shop for all things digital!`}
           </Typography>
           <Typography variant={"body1"} gutterBottom>
             SEO website design service - Looking for a new website? Contact the

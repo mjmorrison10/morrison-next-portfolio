@@ -69,9 +69,7 @@ function CustomWebsite() {
             A complete package at an affordable price
           </Typography>
           <Typography variant={"body1"} gutterBottom>
-            Don't waste money on individual small websites or services when you
-            can get them all in one package with us. We offer unbeatable prices
-            that will save you tons of money if not hundreds of hours.
+            {`Don't waste money on individual small websites or services when you can get them all in one package with us. We offer unbeatable prices that will save you tons of money if not hundreds of hours.`}
           </Typography>
           <Typography
             variant={
@@ -86,11 +84,7 @@ function CustomWebsite() {
             Your perfect web partner
           </Typography>
           <Typography variant={"body1"} gutterBottom>
-            We thrive on the idea of working with you to provide a personalized
-            experience. This means that not only will we be there for you every
-            step of the way, but we'll be there to listen and make your vision
-            come true. We work hard to have an open line of communication with
-            every client.
+            {`We thrive on the idea of working with you to provide a personalized experience. This means that not only will we be there for you every step of the way, but we'll be there to listen and make your vision come true. We work hard to have an open line of communication with every client.`}
           </Typography>
           <PageComingSoon />
         </Box>
