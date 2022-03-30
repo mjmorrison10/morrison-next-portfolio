@@ -12,6 +12,10 @@ function PageComingSoon({ label = "Page coming soon!" }) {
     setOpen(!open);
   }; 
 
+  setTimeout(() => {
+    setOpen(false)
+  }, 2500);
+
   // Snackbar
   const [state, setState] = React.useState({
     // sbOpen: false,
