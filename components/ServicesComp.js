@@ -1,7 +1,6 @@
 import { Box, Typography, useMediaQuery } from "@mui/material";
 import React, { useEffect } from "react";
 import { Writings } from "../public/Settings/WriteSettings";
-import PageComingSoon from "./pageComingSoon";
 import {
   LazyLoadImage,
   trackWindowScroll,
@@ -50,7 +49,6 @@ function ServicesComp({ page }) {
         }}
       >
         <Box flex={1} height={"100%"}>
-          <PageComingSoon />
           <Typography variant={"body2"} gutterBottom>
             {pageData.subheader}
           </Typography>

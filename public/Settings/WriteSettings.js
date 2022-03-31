@@ -5,7 +5,7 @@ import Typewriter from "typewriter-effect";
 export const Writings = {
   apiAndBackend: {
     header: `Build a powerful website`,
-    subheader: `We have over eight years of experience in delivering quality-driven websites that are fully responsive and SEO friendly. We also pride ourselves on providing a fast turnaround time and competitive prices.`,
+    subheader: `We have over eight months of experience in delivering quality-driven websites that are fully responsive and SEO friendly. We also pride ourselves on providing a fast turnaround time and competitive prices.`,
     feature: `Features section:`,
     h2: `Customized solutions for our clients`,
     h2body: `We understand that each business is unique, so we offer custom solutions to suit your needs. Our services range from backend web development to full-stack websites with interactive data points. You're guaranteed to find something perfect for you right here!`,
@@ -122,8 +122,20 @@ export const Writings = {
     h2bodya: `Fast forward to 2020, and life changed. The pandemic started and gave me an excellent opportunity to focus my attention on programming again. I would study docs, watch videos, and entertainment by other programmers and web developers. Eventually, I purchased my laptop and started learning hands-on. I have developed multiple landing pages and software on the web, primarily using HTML, CSS, and JavaScript, and recently started educating myself on React.`,
     h3: `A little about my experience...`,
     h3body: `I have developed over 30 different web applications, from small components, sections to landing pages and full multi-page websites, to gain experience in development. I prefer reading documentation, toying around with the code, and watching videos to learn how to code. And now, I am focused on creating high converting sales funnel pages and generating leads for small business owners and social media influencers to continue my education in web development and help others. I want to help you and your business thrive in this competitive online marketplace.`,
-
-},
+    listHeader1: `Front End Web Development`,
+    list1a: `HTML, CSS, and JavaScript`,
+    list1b: `Bootstrap, and Tailwind CSS`,
+    list1c: `React Library with Next Framework`,
+    list1d: `Material UI component library`,
+    list1e: `Functional Programming JavaScript`,
+    listHeader2: `Back End Web Development`,
+    list2a: `Google Authenticator, Firestore and Firebase`,
+    list2b: `Mongo DB Database`,
+    list2c: `Node.js and Express`,
+    img1: `/Images/motoimg.jpg`,
+    img2: `/Images/michael-icon.png`,
+    img3: `/Images/meandbaby.jpg`,
+  },
 };
 
 export function WriteSettingsTypewriter() {
@@ -161,10 +173,8 @@ export function WriteSettingsTypewriter() {
             )
             .pauseFor(2500)
             .deleteAll()
-          
-            .typeString(
-                "Contact now for a quote!"
-                    )
+
+            .typeString("Contact now for a quote!")
             .pauseFor(2500)
 
             .start();

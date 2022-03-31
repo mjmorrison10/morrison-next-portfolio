@@ -26,8 +26,8 @@ export const menuLabels = [
     title: "About Us",
     menuTitle: [
       "Who Am I",
-      "Why you should hire me",
-      "Frequently Asked Questions",
+      // "Why you should hire me",
+      // "Frequently Asked Questions",
       "Testimonials",
     ],
   },

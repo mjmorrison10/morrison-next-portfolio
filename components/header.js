@@ -197,7 +197,7 @@ function Header(props) {
                     onClick={() => {
                       activateModal();
                     }}
-                    href="/apply"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSdQaPXLg0daDpEd3QO88JRBJcrquMVQm-G4PIqcd1ehhPj6Bg/viewform?usp=sf_link"
                     endIcon={<PhoneCallback />}
                     variant="contained"
                     color="primary"
@@ -239,7 +239,7 @@ function Header(props) {
                 endIcon={<PhoneCallback />}
                 variant="contained"
                 color="primary"
-                href="ht  tps://docs.google.com/forms/d/e/1FAIpQLSdQaPXLg0daDpEd3QO88JRBJcrquMVQm-G4PIqcd1ehhPj6Bg/viewform?usp=sf_link"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdQaPXLg0daDpEd3QO88JRBJcrquMVQm-G4PIqcd1ehhPj6Bg/viewform?usp=sf_link"
                 sx={{
                   px: 1,
                   py: 0.5,
