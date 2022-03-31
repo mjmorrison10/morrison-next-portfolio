@@ -132,11 +132,16 @@ function MyApp({ Component, pageProps }) {
               //   autoStart: true,
               //   loop: false,
               // }}
+              options={{
+                delay: 30,
+                delay: 30,
+                deleteSpeed: 30,
+              }}
               onInit={(typewriter) => {
                 typewriter
                   .typeString(`Welcome to ${companyFullName}!`)
                   .deleteChars(`${companyFullName.length + 1}`)
-                  .typeString(`${companyName}`)
+                  .typeString(`${companyName}`) 
                   .pauseFor(1000)
                   .deleteAll()
                   .typeString(
