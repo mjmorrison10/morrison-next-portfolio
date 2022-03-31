@@ -225,6 +225,8 @@ export default function Home() {
                 strings: servicesWeOffer,
                 autoStart: true,
                 loop: true,
+                delay: 30,
+                deleteSpeed: 30,
                 pauseFor: "2000ms",
                 skipAddStyles: true,
               }}
