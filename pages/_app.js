@@ -1,5 +1,6 @@
 import Header from "../components/header";
 import "../styles/globals.css";
+import "../styles/fonts.css";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import { blue, blueGrey, grey, lightGreen, orange } from "@mui/material/colors";
 import Footer from "../components/footer";
@@ -18,8 +19,34 @@ import { useEffect, useState } from "react";
 import TypewriterComponent from "typewriter-effect";
 import { companyFullName, companyName } from "../public/Settings/baseSettings";
 
-// console.log(matches);
 const theme = createTheme({
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          fontFamily: "Share Tech Mono",
+          letterSpacing: "0.05rem",
+        },
+      },
+    },
+  },
+
+  typography: {
+    fontFamily: ["Roboto", "Bangers", "Montserrat", "Share Tech Mono"].join(
+      ","
+    ),
+
+    primary: {
+      fontFamily: "Bangers",
+    },
+    secondary: {
+      fontFamily: "Montserrat",
+    },
+    accent: {
+      fontFamily: "Share Tech Mono",
+    },
+  },
+
   palette: {
     primary: {
       light: blueGrey[50],
@@ -33,7 +60,9 @@ const theme = createTheme({
       contrastText: grey[50],
     },
     info: {
-      main: blue[500],
+      light: `hsl(239, 85%, 61%)`,
+      main: `hsl(239, 85%, 46%)`,
+      dark: `hsl(239, 90%, 31%)`,
     },
 
     // primary: {
@@ -58,6 +87,8 @@ const theme = createTheme({
 //   fontSize: '1.5rem',
 // },
 theme.typography.h1 = {
+  fontFamily: "Bangers",
+  letterSpacing: "0.185rem",
   [theme.breakpoints.up("xs")]: {
     fontSize: "2.5rem",
     fontWeight: 600,
@@ -73,11 +104,13 @@ theme.typography.h1 = {
 };
 
 theme.typography.h2 = {
+  fontFamily: "Montserrat",
+  fontWeight: 600,
   [theme.breakpoints.up("xs")]: {
     fontSize: "2rem",
   },
   [theme.breakpoints.up("sm")]: {
-    fontSize: "3.5rem",
+    fontSize: "3rem",
   },
   [theme.breakpoints.up("lg")]: {
     fontSize: "5rem",
@@ -85,16 +118,37 @@ theme.typography.h2 = {
 };
 
 theme.typography.h3 = {
+  fontFamily: "Share Tech Mono",
   [theme.breakpoints.up("xs")]: {
     fontSize: "1.5rem",
   },
   [theme.breakpoints.up("sm")]: {
-    fontSize: "3rem",
+    fontSize: "2rem",
   },
   [theme.breakpoints.up("lg")]: {
-    fontSize: "4.5rem",
+    fontSize: "4rem",
   },
 };
+
+theme.typography.body1 = {
+  fontFamily: "Montserrat",
+};
+
+theme.typography.body2 = {
+  fontFamily: "Montserrat",
+};
+
+// theme.typography.h4 = {
+//   fontFamily: "Montserrat",
+// };
+
+// theme.typography.h5 = {
+//   fontFamily: "Montserrat",
+// };
+
+// theme.typography.h6 = {
+//   fontFamily: "Montserrat",
+// };
 
 function MyApp({ Component, pageProps }) {
   // const matchesXs = useMediaQuery((theme) => theme.breakpoints.up("xs"));
@@ -147,6 +201,7 @@ function MyApp({ Component, pageProps }) {
               textAlign: "center",
               minHeight: "100vh",
               width: "100vw",
+              fontFamily: "Share Tech Mono",
             }}
             onClick={() => {
               !welcome && setWelcome(true);
@@ -165,6 +220,7 @@ function MyApp({ Component, pageProps }) {
             >
               Skip
             </Button>
+
             <TypewriterComponent
               // options={{
               //   strings: [
@@ -176,8 +232,8 @@ function MyApp({ Component, pageProps }) {
               //   loop: false,
               // }}
               options={{
-                delay: 30,
-                deleteSpeed: 30,
+                delay: 25,
+                deleteSpeed: 25,
               }}
               onInit={(typewriter) => {
                 typewriter

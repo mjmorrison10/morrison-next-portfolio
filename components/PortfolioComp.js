@@ -4,7 +4,6 @@ import PageComingSoon from "./pageComingSoon";
 import { portfolioWritings } from "../public/Settings/WriteSettings";
 import {
   LazyLoadImage,
-  trackWindowScroll,
 } from "react-lazy-load-image-component";
 
 function PortfolioComp({ portfolio }) {

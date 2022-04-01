@@ -22,6 +22,8 @@ import {
   menuLabels,
   listOfServicesData,
 } from "../public/Settings/baseSettings";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import Logo from "./logo";
 
 function HideOnScroll(props) {
   const { children, window } = props;
@@ -99,40 +101,50 @@ function Header(props) {
           sx={{
             backgroundColor: "primary.light",
             borderRadius: "0 0 5% 25%",
+            pb: 2,
           }}
         >
           <Toolbar
             sx={{
               display: "flex",
               justifyContent: "space-between",
-              gap: 1,
+              gap: 2,
             }}
           >
             <Link href="/" passHref>
               <Box
-                minWidth={"fit-content"}
                 display={"flex"}
-                flexDirection={"column"}
+                gap={1}
+                alignItems={"center"}
+                sx={{
+                  cursor: "pointer",
+                }}
               >
-                <Typography
-                  variant="h6"
-                  component="div"
-                  sx={{
-                    minWidth: "fit-content",
-                    cursor: "pointer",
-                  }}
+                <Logo size={75} />
+
+                <Box
+                  minWidth={"fit-content"}
+                  display={"flex"}
+                  flexDirection={"column"}
                 >
-                  {companyName}
-                </Typography>
-                <Typography
-                  variant="caption"
-                  sx={{
-                    minWidth: "fit-content",
-                    cursor: "pointer",
-                  }}
-                >
-                  {companyOwner}
-                </Typography>
+                  <Typography
+                    variant="primary"
+                    component="div"
+                    sx={{
+                      minWidth: "fit-content",
+                    }}
+                  >
+                    {companyName}
+                  </Typography>
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      minWidth: "fit-content",
+                    }}
+                  >
+                    {companyOwner}
+                  </Typography>
+                </Box>
               </Box>
             </Link>
 
@@ -247,17 +259,10 @@ function Header(props) {
                 }}
               >
                 <Box display={"flex"} flexDirection={"column"}>
-                  <Typography variant="button" component="div" mb={-0.5}>
+                  <Box fontWeight={"bold"} mb={-0.5}>
                     Free Consultation
-                  </Typography>
-                  <Typography
-                    variant="caption"
-                    component="div"
-                    mt={-0.5}
-                    textAlign={"center"}
-                  >
-                    {companyPhoneNumber}
-                  </Typography>
+                  </Box>
+                  <Box mt={-0.5}>{companyPhoneNumber}</Box>
                 </Box>
               </Button>
               {/* </Link> */}

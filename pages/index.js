@@ -1,50 +1,30 @@
-import {
-  Circle,
-  Cottage,
-  DataThresholding,
-  ExpandMore,
-  FlightLand,
-  LogoutTwoTone,
-  PrecisionManufacturing,
-  PropaneSharp,
-  Sell,
-  YoutubeSearchedFor,
-} from "@mui/icons-material";
+import { ExpandMore, MiscellaneousServices } from "@mui/icons-material";
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  Avatar,
   Box,
-  Button,
+  Grow,
   Paper,
-  Skeleton,
   Typography,
   useMediaQuery,
 } from "@mui/material";
-import { height } from "@mui/system";
 import Head from "next/head";
-// import Image from "next/image";
-// import Image from 'material-ui-image'
-import { useState } from "react";
 import TypewriterComponent from "typewriter-effect";
 import Skelebar from "../components/SkeleBar";
 import {
   servicesWeOffer,
   getStartedBtn,
-  randomItemFromAnArray,
-  paletteColors,
-  MuiAccents,
   randomColorWithAccent,
   listOfServicesData,
 } from "../public/Settings/baseSettings";
 import styles from "../styles/Home.module.css";
-import {
-  LazyLoadImage,
-  trackWindowScroll,
-} from "react-lazy-load-image-component";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import TestimonialsComp from "../components/testimonialsComp";
 import Hyphenated from "react-hyphen";
+import React, { useState } from "react";
+import { blue } from "@mui/material/colors";
+import { useInView } from "react-intersection-observer";
 
 export default function Home() {
   const matchesXs = useMediaQuery((theme) => theme.breakpoints.up("xs"));
@@ -52,6 +32,17 @@ export default function Home() {
   const matchesMd = useMediaQuery((theme) => theme.breakpoints.up("md"));
   const matchesLg = useMediaQuery((theme) => theme.breakpoints.up("lg"));
   const matchesXl = useMediaQuery((theme) => theme.breakpoints.up("xl"));
+  
+  const { ref, inView, entry } = useInView({
+    /* Optional options */
+    threshold: 0.25,
+    rootMargin: "150px",
+  });
+  const [checked, setChecked] = useState(false);
+
+  const handleChange = () => {
+    setChecked((prev) => !prev);
+  };
 
   const listOfDevelopmentServices = [
     {
@@ -78,82 +69,90 @@ export default function Home() {
   ];
 
   const listOfServicesComp = () =>
-    listOfServicesData.map(
-      (data, i) => (
-        // !matchesMd ? (
-        //   <Paper
-        //     key={i}
-        //     sx={{
-        //       display: "flex",
-        //       gap: 1,
-        //       p: 1,
-        //       alignItems: "center",
-        //       maxWidth: "65ch",
-        //       width: "100%",
-        //     }}
-        //   >
-        //     <Box color={"info.dark"}>{data.icon}</Box>
-        //     <Box width={"100%"}>
-        //       <Typography
-        //         variant="h6"
-        //         component={"h3"}
-        //         color={"info.main"}
-        //         textAlign={"center"}
-        //       >
-        //         {data.heading}
-        //       </Typography>
-        //       <SkeleBar
-        //         clr={randomColorWithAccent}
-        //         h={2}
-        //         w={"100%"}
-        //         my={0}
-        //         animate={"wave"}
-        //       />
-        //       {displayServiceDetails(data.description)}
-        //     </Box>
-        //   </Paper>
-        // ) : (
-        <Box key={i}>
-          <Accordion>
-            <AccordionSummary
-              expandIcon={<ExpandMore />}
-              aria-controls={`panel${i}a-content`}
-              id={`panel${i}a-header`}
-            >
-              <Box
-                display={"flex"}
-                gap={1}
-                alignItems={"center"}
+    listOfServicesData.map((data, i) => (
+      // !matchesMd ? (
+      //   <Paper
+      //     key={i}
+      //     sx={{
+      //       display: "flex",
+      //       gap: 1,
+      //       p: 1,
+      //       alignItems: "center",
+      //       maxWidth: "65ch",
+      //       width: "100%",
+      //     }}
+      //   >
+      //     <Box color={"info.dark"}>{data.icon}</Box>
+      //     <Box width={"100%"}>
+      //       <Typography
+      //         variant="h6"
+      //         component={"h3"}
+      //         color={"info.main"}
+      //         textAlign={"center"}
+      //       >
+      //         {data.heading}
+      //       </Typography>
+      //       <SkeleBar
+      //         clr={randomColorWithAccent}
+      //         h={2}
+      //         w={"100%"}
+      //         my={0}
+      //         animate={"wave"}
+      //       />
+      //       {displayServiceDetails(data.description)}
+      //     </Box>
+      //   </Paper>
+      // ) : (
+
+      <Grow
+        ref={ref}
+        key={i}
+        in={inView}
+        style={{ transformOrigin: "0 0 0" }}
+        {...(checked ? { timeout: 1000 * i } : {})}
+      >
+        <Accordion
+          sx={{
+            backgroundColor: "transparent",
+            boxShadow: "none",
+            border: `1px solid ${blue[900]}`,
+            boxShadow: 1,
+          }}
+        >
+          <AccordionSummary
+            expandIcon={<ExpandMore color={"info"} />}
+            aria-controls={`panel${i}a-content`}
+            id={`panel${i}a-header`}
+          >
+            <Box display={"flex"} gap={1} alignItems={"center"} width={"100%"}>
+              <Box color={"info.dark"}>{data.icon}</Box>
+              <Typography
+                variant="accent"
+                component={"h3"}
+                color={"info.main"}
+                textAlign={"center"}
+                alignSelf={"center"}
                 width={"100%"}
+                sx={{ fontSize: 30 }}
               >
-                <Box color={"info.dark"}>{data.icon}</Box>
-                <Typography
-                  variant="h6"
-                  component={"h3"}
-                  color={"info.main"}
-                  textAlign={"center"}
-                  alignSelf={"center"}
-                  width={"100%"}
-                >
-                  {data.heading}
-                </Typography>
-              </Box>
-            </AccordionSummary>
-            <Skelebar
-              clr={randomColorWithAccent}
-              h={2}
-              w={"95%"}
-              my={0}
-              animate={"wave"}
-            />
-            <AccordionDetails>
-              <Typography>{data.description}</Typography>
-            </AccordionDetails>
-          </Accordion>
-        </Box>
-      )
-      // )
-    );
+                {data.heading + " " + inView}
+              </Typography>
+            </Box>
+          </AccordionSummary>
+          <Skelebar
+            clr={randomColorWithAccent}
+            h={2}
+            w={"95%"}
+            my={0}
+            animate={"wave"}
+          />
+          <AccordionDetails>
+            <Typography>{data.description}</Typography>
+          </AccordionDetails>
+        </Accordion>
+      </Grow>
+    ));
+  // )
 
   return (
     <div className={styles.container}>
@@ -209,6 +208,7 @@ export default function Home() {
 
             <Typography
               variant={"h2"}
+              component={"div"}
               textAlign={"center"}
               maxWidth={"30ch"}
               color={"info.main"}
@@ -235,35 +235,54 @@ export default function Home() {
       <Skelebar />
 
       {/* Services Section */}
-      <Box
-        display={"flex"}
-        gap={1}
-        minHeight={"100vh"}
-        px={1}
-        flexDirection={(matchesMd && `row`) || (matchesXs && "column-reverse")}
-      >
-        <Box
-          flex={1}
-          minHeight={300}
+      <Box position={"relative"}>
+        <Typography
+          variant={"h2"}
+          color={"info.main"}
+          textAlign={"center"}
           sx={{
-            // background: `url('/Images/websiteOnMobileAndDesktopWithBackgroundRemoved.png') no-repeat contain`,
-            backgroundSize: `contain`,
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            backgroundImage: `url('/Images/websiteOnMobileAndDesktopWithBackgroundRemoved.png')`,
+            fontSize: "1rem !important",
+            textDecoration: "underline",
+            position: "absolute",
+            left: "10%",
+            top: "10%",
+            zIndex: 10,
+            transform: "rotateY(0deg) rotate(-45deg)",
           }}
-        ></Box>
-        {!matchesMd && <Skelebar />}
-        <Box
-          flex={1}
-          display={"flex"}
-          flexDirection={"column"}
-          alignItems={(matchesMd && `flex-end`) || (matchesXs && "center")}
-          justifyContent={"center"}
-          width={"100%"}
-          gap={1}
         >
-          {listOfServicesComp()}
+          List of Services <MiscellaneousServices />
+        </Typography>
+
+        <Box
+          display={"flex"}
+          gap={1}
+          minHeight={"100vh"}
+          px={1}
+          flexDirection={(matchesMd && `row`) || (matchesXs && "column")}
+        >
+          <Box
+            flex={1}
+            minHeight={300}
+            sx={{
+              // background: `url('/Images/websiteOnMobileAndDesktopWithBackgroundRemoved.png') no-repeat contain`,
+              backgroundSize: `contain`,
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              backgroundImage: `url('/Images/websiteOnMobileAndDesktopWithBackgroundRemoved.png')`,
+            }}
+          ></Box>
+          {!matchesMd && <Skelebar />}
+          <Box
+            flex={1}
+            display={"flex"}
+            flexDirection={"column"}
+            alignItems={(matchesMd && `flex-end`) || (matchesXs && "center")}
+            justifyContent={"center"}
+            width={"100%"}
+            gap={1}
+          >
+            {listOfServicesComp()}
+          </Box>
         </Box>
       </Box>
 
