@@ -62,10 +62,11 @@
 
 import React from 'react'
 import PortfolioComp from '../../components/PortfolioComp'
+import { portfolioWritings } from '../../public/Settings/WriteSettings'
 
 function FirstPortfolio() {
   return (
-    <PortfolioComp />
+    <PortfolioComp portfolio={portfolioWritings.firstPortfolio} />
     )
 }
 

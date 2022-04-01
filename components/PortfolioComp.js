@@ -7,8 +7,8 @@ import {
   trackWindowScroll,
 } from "react-lazy-load-image-component";
 
-function PortfolioComp({portfolio}) {
-  const [base, setBase] = React.useState(portfolioWritings.firstPortfolio);
+function PortfolioComp({ portfolio }) {
+  const base = portfolio;
 
   // console.log(base.firstDate.getDate());
   const options = { month: "long" };
@@ -29,7 +29,13 @@ function PortfolioComp({portfolio}) {
   const lastDateTotal = `${lastDateMonth}, ${lastDateDay} ${lastDateYear}`;
 
   return (
-    <Box minHeight={"100vh"} display={"flex"}>
+    <Box
+      minHeight={"100vh"}
+      display={"flex"}
+      sx={{
+        flexDirection: { xs: "column", md: "row" },
+      }}
+    >
       <Box flex={1}>
         <PageComingSoon />
         <Typography variant={"h1"} color={"info.dark"}>

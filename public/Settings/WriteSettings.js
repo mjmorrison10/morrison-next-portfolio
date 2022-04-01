@@ -199,4 +199,18 @@ export const portfolioWritings = {
     desc1: `In September of 2021, I started a 5-day boot camp with Clever Programmer. We developed this portfolio website during this short online boot camp, which utilized bootstrap and jQuery on the first day. On the second day, we created a Starbucks clone. We built a Tic Tac Toe game with JavaScript on the third day. We made a SaaS website similar to Indeed jobs on the fourth day.`,
     img1: `/Images/Portfolios/firstPortfolioBgRemoved.png`,
   },
+  secondPortfolio: {
+    header: `React Portfolio`,
+    firstDate: new Date("September 17, 2021"),
+    lastDate: new Date("October 27, 2021"),
+    desc1: `Information to be added`,
+    img1: `/Images/Portfolios/secondPortfolioBgRemoved.png`,
+  },
+  wordPressPortfolio: {
+    header: `WordPress Portfolio`,
+    firstDate: new Date("September 17, 2021"),
+    lastDate: new Date("October 27, 2021"),
+    desc1: `Information to be added`,
+    img1: `/Images/Portfolios/wordPressBgRemoved.png`,
+  },
 };
