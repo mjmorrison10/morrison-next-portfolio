@@ -32,11 +32,12 @@ export default function Home() {
   const matchesMd = useMediaQuery((theme) => theme.breakpoints.up("md"));
   const matchesLg = useMediaQuery((theme) => theme.breakpoints.up("lg"));
   const matchesXl = useMediaQuery((theme) => theme.breakpoints.up("xl"));
-  
+
   const { ref, inView, entry } = useInView({
     /* Optional options */
     threshold: 0.25,
     rootMargin: "150px",
+    triggerOnce: true,
   });
   const [checked, setChecked] = useState(false);
 
