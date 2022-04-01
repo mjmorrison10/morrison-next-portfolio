@@ -12,6 +12,7 @@ import {
   randomItemFromAnArray,
   testimonialsList,
   testimonialsAverageRating,
+  getStartedBtn,
 } from "../public/Settings/baseSettings";
 import {
   Avatar,
@@ -250,6 +251,7 @@ export default function TestimonialsComp(props) {
       alignItems={"center"}
       justifyContent={"center"}
       gap={1}
+      mx={1}
     >
       <Typography
         variant={"body"}
@@ -365,6 +367,8 @@ export default function TestimonialsComp(props) {
         page={page}
         onChange={handlePaginationChange}
       />
+
+      <Box mt={10} mb={5}>{getStartedBtn("Contact us now!")}</Box>
     </Box>
   );
 }

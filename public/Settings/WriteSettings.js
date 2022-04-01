@@ -1,5 +1,6 @@
 import { Typography } from "@mui/material";
 import React from "react";
+import Hyphenated from "react-hyphen";
 import Typewriter from "typewriter-effect";
 
 export const Writings = {
@@ -106,15 +107,17 @@ export const Writings = {
   whoAmI: {
     header: `Michael Morrison. Your friendly neighborhood web developer! I...`,
     sub: (
-      <Typography
-        variant={"h3"}
-        component={"div"}
-        textAlign={"center"}
-        color={"info.main"}
-        gutterBottom
-      >
-        {WriteSettingsTypewriter()}
-      </Typography>
+      <Hyphenated>
+        <Typography
+          variant={"h3"}
+          component={"div"}
+          textAlign={"center"}
+          color={"info.main"}
+          gutterBottom
+        >
+          {WriteSettingsTypewriter()}
+        </Typography>
+      </Hyphenated>
     ),
     feature: "A little bit about myself...",
     h2: `Beginning of a Journey`,
@@ -142,6 +145,10 @@ export function WriteSettingsTypewriter() {
   return (
     <div>
       <Typewriter
+        options={{
+          delay: 30,
+          deleteSpeed: 30,
+        }}
         onInit={(typewriter) => {
           typewriter
             .typeString(
@@ -183,3 +190,13 @@ export function WriteSettingsTypewriter() {
     </div>
   );
 }
+
+export const portfolioWritings = {
+  firstPortfolio: {
+    header: `First Portfolio`,
+    firstDate: new Date("September 17, 2021"),
+    lastDate: new Date("October 27, 2021"),
+    desc1: `In September of 2021, I started a 5-day boot camp with Clever Programmer. We developed this portfolio website during this short online boot camp, which utilized bootstrap and jQuery on the first day. On the second day, we created a Starbucks clone. We built a Tic Tac Toe game with JavaScript on the third day. We made a SaaS website similar to Indeed jobs on the fourth day.`,
+    img1: `/Images/Portfolios/firstPortfolioBgRemoved.png`,
+  },
+};

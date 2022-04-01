@@ -1,6 +1,7 @@
 import { Box, Button, Typography } from "@mui/material";
 import { blue } from "@mui/material/colors";
 import React from "react";
+import Hyphenated from "react-hyphen";
 
 function Footer() {
   const curYear = new Date().getFullYear();
@@ -35,7 +36,7 @@ function Footer() {
         size={"small"}
         href="https://mjmorrison10.wordpress.com/"
       >
-        MorrisonDevOps
+        <Hyphenated>MorrisonDevOps</Hyphenated>
       </Button>
     </Box>
   );

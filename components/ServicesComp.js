@@ -5,6 +5,9 @@ import {
   LazyLoadImage,
   trackWindowScroll,
 } from "react-lazy-load-image-component";
+import { blue } from "@mui/material/colors";
+import { getStartedBtn } from "../public/Settings/baseSettings";
+import Hyphenated from "react-hyphen";
 
 function ServicesComp({ page }) {
   const [pageData, setPageData] = React.useState(Writings[page]);
@@ -19,28 +22,31 @@ function ServicesComp({ page }) {
 
   return (
     <Box minHeight={"100vh"} display={"flex"} flexDirection={"column"} px={1}>
-      <Typography
-        variant={
-          (matchesMd && `h1`) || (matchesSm && "h2") || (matchesXs && "h3")
-        }
-        component="h1"
-        color={"info.dark"}
-        textAlign={"center"}
-        gutterBottom
-      >
-        {pageData.header}
-      </Typography>
+      <Hyphenated>
+        <Typography
+          variant={"h1"}
+          component="h1"
+          color={"info.dark"}
+          textAlign={"center"}
+          gutterBottom
+          sx={{
+            mt: { xs: 5, md: 10 },
+          }}
+        >
+          {pageData.header}
+        </Typography>
 
-      <Box
-        width={"100%"}
-        display={"flex"}
-        justifyContent={"center"}
-        alignItems={"center"}
-        maxWidth={"85ch"}
-        margin={"0 auto"}
-      >
-        {pageData.sub}
-      </Box>
+        <Box
+          width={"100%"}
+          display={"flex"}
+          justifyContent={"center"}
+          alignItems={"center"}
+          maxWidth={"85ch"}
+          margin={"0 auto"}
+        >
+          {pageData.sub}
+        </Box>
+      </Hyphenated>
 
       <Box
         display={"flex"}
@@ -55,10 +61,9 @@ function ServicesComp({ page }) {
           <Typography variant={"h4"} color={"info.dark"} component={"div"}>
             {pageData.feature}
           </Typography>
+
           <Typography
-            variant={
-              (matchesMd && `h2`) || (matchesSm && "h3") || (matchesXs && "h4")
-            }
+            variant={"h2"}
             component="h2"
             textAlign={"center"}
             maxWidth={"30ch"}
@@ -105,6 +110,15 @@ function ServicesComp({ page }) {
                   </Typography>
                 )}
               </Box>
+              <Box
+                display={"flex"}
+                alignItems={"center"}
+                mt={10}
+                mb={5}
+                justifyContent={"center"}
+              >
+                {getStartedBtn("Request a Free Quote Today")}
+              </Box>
             </Box>
           )}
 
@@ -128,10 +142,7 @@ function ServicesComp({ page }) {
           )}
 
           <Typography
-            variant={
-              (matchesMd && `h2`) || (matchesSm && "h3") || (matchesXs && "h4")
-            }
-            component="h2"
+            variant={"h2"}
             textAlign={"center"}
             maxWidth={"30ch"}
             color={"info.main"}
@@ -144,10 +155,7 @@ function ServicesComp({ page }) {
           </Typography>
 
           <Typography
-            variant={
-              (matchesMd && `h2`) || (matchesSm && "h3") || (matchesXs && "h4")
-            }
-            component="h2"
+            variant={"h2"}
             textAlign={"center"}
             maxWidth={"30ch"}
             color={"info.main"}
@@ -168,12 +176,14 @@ function ServicesComp({ page }) {
             {pageData.h6body}
           </Typography>
         </Box>
+
         <Box flex={1} position={"relative"} minHeight={"100vh"}>
           <Box
             position={"absolute"}
             sx={{
               top: { xs: "1%" },
               right: { xs: "1%" },
+              border: `5px outset ${blue[900]}`,
             }}
             zIndex={3}
             height={matchesMd ? 350 : 250}
@@ -181,8 +191,7 @@ function ServicesComp({ page }) {
             display={"flex"}
             alignItems={"center"}
             justifyContent={"center"}
-            borderRadius={"50%"}
-            backgroundColor={"blue"}
+            borderRadius={"45% 15%"}
             boxShadow={3}
           >
             <LazyLoadImage
@@ -192,7 +201,7 @@ function ServicesComp({ page }) {
               width={"100%"}
               style={{
                 objectFit: "cover",
-                borderRadius: "50%",
+                borderRadius: "45% 15%",
               }}
             />
           </Box>
@@ -201,15 +210,16 @@ function ServicesComp({ page }) {
             position={"absolute"}
             sx={{
               left: { xs: "1%" },
-              bottom: { xs: "32%" },
+              top: { xs: "50%" },
+              transform: "translateY(-50%)",
+              border: `5px outset ${blue[800]}`,
             }}
             height={matchesMd ? 350 : 250}
             maxWidth={matchesMd ? 450 : 350}
             display={"flex"}
             alignItems={"center"}
             justifyContent={"center"}
-            borderRadius={"50%"}
-            backgroundColor={"blue"}
+            borderRadius={"15% 45%"}
             boxShadow={3}
           >
             <LazyLoadImage
@@ -219,7 +229,7 @@ function ServicesComp({ page }) {
               width={"100%"}
               style={{
                 objectFit: "cover",
-                borderRadius: "50%",
+                borderRadius: "15% 45%",
               }}
             />
           </Box>
@@ -229,14 +239,14 @@ function ServicesComp({ page }) {
             sx={{
               bottom: { xs: "1%" },
               right: { xs: "1%" },
+              border: `5px outset ${blue[900]}`,
             }}
             height={matchesMd ? 350 : 250}
             maxWidth={matchesMd ? 450 : 350}
             display={"flex"}
             alignItems={"center"}
             justifyContent={"center"}
-            borderRadius={"50%"}
-            backgroundColor={"blue"}
+            borderRadius={"45% 15%"}
             boxShadow={3}
           >
             <LazyLoadImage
@@ -246,7 +256,7 @@ function ServicesComp({ page }) {
               width={"100%"}
               style={{
                 objectFit: "cover",
-                borderRadius: "50%",
+                borderRadius: "45% 15%",
               }}
             />
           </Box>

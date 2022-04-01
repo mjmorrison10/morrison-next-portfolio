@@ -23,6 +23,7 @@ import {
   trackWindowScroll,
 } from "react-lazy-load-image-component";
 
+
 let project,
   projectName,
   projectWebsite,

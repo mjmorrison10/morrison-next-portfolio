@@ -53,6 +53,49 @@ const theme = createTheme({
   },
 });
 
+// fontSize: '1.2rem',
+// '@media (min-width:600px)': {
+//   fontSize: '1.5rem',
+// },
+theme.typography.h1 = {
+  [theme.breakpoints.up("xs")]: {
+    fontSize: "2.5rem",
+    fontWeight: 600,
+  },
+  [theme.breakpoints.up("sm")]: {
+    fontSize: "4rem",
+    fontWeight: 600,
+  },
+  [theme.breakpoints.up("lg")]: {
+    fontSize: "6rem",
+    fontWeight: 600,
+  },
+};
+
+theme.typography.h2 = {
+  [theme.breakpoints.up("xs")]: {
+    fontSize: "2rem",
+  },
+  [theme.breakpoints.up("sm")]: {
+    fontSize: "3.5rem",
+  },
+  [theme.breakpoints.up("lg")]: {
+    fontSize: "5rem",
+  },
+};
+
+theme.typography.h3 = {
+  [theme.breakpoints.up("xs")]: {
+    fontSize: "1.5rem",
+  },
+  [theme.breakpoints.up("sm")]: {
+    fontSize: "3rem",
+  },
+  [theme.breakpoints.up("lg")]: {
+    fontSize: "4.5rem",
+  },
+};
+
 function MyApp({ Component, pageProps }) {
   // const matchesXs = useMediaQuery((theme) => theme.breakpoints.up("xs"));
   // const matchesSm = useMediaQuery((theme) => theme.breakpoints.up("sm"));
@@ -134,14 +177,13 @@ function MyApp({ Component, pageProps }) {
               // }}
               options={{
                 delay: 30,
-                delay: 30,
                 deleteSpeed: 30,
               }}
               onInit={(typewriter) => {
                 typewriter
                   .typeString(`Welcome to ${companyFullName}!`)
                   .deleteChars(`${companyFullName.length + 1}`)
-                  .typeString(`${companyName}`) 
+                  .typeString(`${companyName}`)
                   .pauseFor(1000)
                   .deleteAll()
                   .typeString(
@@ -167,9 +209,7 @@ function MyApp({ Component, pageProps }) {
             sx={{
               flexGrow: 1,
               opacity: opa,
-              // opacity: welcome ? opa : 0,
               transition: "all 5000ms ease",
-              // opacity: welcome ? 100 : 0,
             }}
           >
             <Header />
@@ -184,7 +224,6 @@ function MyApp({ Component, pageProps }) {
                 position: "sticky",
                 display: "flex",
                 bottom: "1rem",
-                // display: { xs: "none", sm: "flex" },
                 alignItems: "center",
                 justifyContent: "center",
               }}

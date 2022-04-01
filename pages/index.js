@@ -44,6 +44,7 @@ import {
   trackWindowScroll,
 } from "react-lazy-load-image-component";
 import TestimonialsComp from "../components/testimonialsComp";
+import Hyphenated from "react-hyphen";
 
 export default function Home() {
   const matchesXs = useMediaQuery((theme) => theme.breakpoints.up("xs"));
@@ -57,7 +58,7 @@ export default function Home() {
       src: "/Images/huddleLandingPage.png",
       alt: "Huddle Landing Page",
       height: "auto",
-      width: 300,
+      width: matchesMd ? 300 : "100%",
       title: "Website App Development",
     },
     {
@@ -71,7 +72,7 @@ export default function Home() {
       src: "/Images/websiteOnMobileAndDesktopWithBackgroundRemoved.png",
       alt: "Huddle Landing Page",
       height: "auto",
-      width: 300,
+      width: matchesMd ? 300 : "100%",
       title: "Web App Development",
     },
   ];
@@ -168,73 +169,68 @@ export default function Home() {
       </Head>
 
       {/* Heading Section */}
-      <Box
-        component={"main"}
-        minHeight={"100vh"}
-        flex={1}
-        display={"flex"}
-        flexDirection={"column"}
-        justifyContent={"center"}
-        alignItems={"center"}
-        gap={2}
-        sx={{
-          backgroundImage: `url("/Images/three-computers-coding-lg.jpg")`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: { xs: "center", md: "0 60%" },
-        }}
-      >
-        <Paper
-          elevation={10}
+      <Hyphenated>
+        <Box
+          component={"main"}
+          minHeight={"100vh"}
+          flex={1}
+          display={"flex"}
+          flexDirection={"column"}
+          justifyContent={"center"}
+          alignItems={"center"}
+          gap={2}
           sx={{
-            p: 1,
-            mx: 2,
-            backgroundColor: "rgba(245, 245, 255, 0.75)",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
+            backgroundImage: `url("/Images/three-computers-coding-lg.jpg")`,
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: { xs: "center", md: "0 60%" },
           }}
         >
-          <Typography
-            variant={
-              (matchesMd && `h1`) || (matchesSm && "h2") || (matchesXs && "h3")
-            }
-            component="h1"
-            color={"info.dark"}
-            textAlign={"center"}
-            gutterBottom
+          <Paper
+            elevation={10}
+            sx={{
+              p: 1,
+              mx: 2,
+              backgroundColor: "rgba(245, 245, 255, 0.75)",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
           >
-            {(matchesSm && "Professional Web Development") ||
-              (matchesXs && "Web Design")}
-          </Typography>
+            <Typography
+              variant={"h1"}
+              color={"info.dark"}
+              textAlign={"center"}
+              gutterBottom
+            >
+              Professional Web Development
+            </Typography>
 
-          <Typography
-            variant={
-              (matchesMd && `h2`) || (matchesSm && "h3") || (matchesXs && "h4")
-            }
-            component="h2"
-            textAlign={"center"}
-            maxWidth={"30ch"}
-            color={"info.main"}
-            gutterBottom
-          >
-            We specialize in developing:
-            <TypewriterComponent
-              options={{
-                strings: servicesWeOffer,
-                autoStart: true,
-                loop: true,
-                delay: 30,
-                deleteSpeed: 30,
-                pauseFor: "2000ms",
-                skipAddStyles: true,
-              }}
-            />
-          </Typography>
-        </Paper>
-        {getStartedBtn()}
-      </Box>
+            <Typography
+              variant={"h2"}
+              textAlign={"center"}
+              maxWidth={"30ch"}
+              color={"info.main"}
+              gutterBottom
+            >
+              We specialize in developing:
+              <TypewriterComponent
+                options={{
+                  strings: servicesWeOffer,
+                  autoStart: true,
+                  loop: true,
+                  delay: 30,
+                  deleteSpeed: 30,
+                  pauseFor: "2000ms",
+                  skipAddStyles: true,
+                }}
+              />
+            </Typography>
+          </Paper>
+          {getStartedBtn()}
+        </Box>
+      </Hyphenated>
 
       <Skelebar />
 
@@ -350,9 +346,6 @@ export default function Home() {
           Testimonials
         </Typography>
         <TestimonialsComp />
-        <Box display={"flex"} justifyContent={"center"}>
-          {getStartedBtn("Contact Us Now!")}
-        </Box>
       </Box>
     </div>
   );

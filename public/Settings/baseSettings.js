@@ -4,6 +4,7 @@ import {
   DataThresholding,
   FlightLand,
   PrecisionManufacturing,
+  PriorityHighOutlined,
   Sell,
   YoutubeSearchedFor,
 } from "@mui/icons-material";
@@ -43,14 +44,14 @@ export const menuLabels = [
   //   title: "Education",
   //   menuTitle: ["Web Development Journey"],
   // },
-  // {
-  //   title: "Portfolios",
-  //   menuTitle: [
-  //     "First Portfolio",
-  //     "React Portfolio",
-  //     "MorrisonDevOps WordPress",
-  //   ],
-  // },
+  {
+    title: "Portfolios",
+    menuTitle: [
+      "First Portfolio",
+      "React Portfolio",
+      "MorrisonDevOps WordPress",
+    ],
+  },
 ];
 // extMenuLink: [
 //   "https://mjmorrison10.github.io/Portfolio/",
@@ -85,6 +86,7 @@ export const getStartedBtn = (label = "Get Started Now") => {
     <Button
       variant="contained"
       color="secondary"
+      startIcon={<PriorityHighOutlined />}
       href="https://docs.google.com/forms/d/e/1FAIpQLSdQaPXLg0daDpEd3QO88JRBJcrquMVQm-G4PIqcd1ehhPj6Bg/viewform?usp=sf_link"
     >
       {label}
