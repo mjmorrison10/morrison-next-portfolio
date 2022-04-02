@@ -10,6 +10,7 @@ import {
   Fab,
   Fade,
   Tooltip,
+  Typography,
   useMediaQuery,
 } from "@mui/material";
 import ActionTooltip from "../components/actionTooltip";
@@ -228,41 +229,47 @@ function MyApp({ Component, pageProps }) {
               Skip
             </Button>
 
-            <TypewriterComponent
-              // options={{
-              //   strings: [
-              //     "Welcome to MorrisonDevOps,",
-              //     "We specialize in developing sales funnel pages",
-              //     "Click here to enter.",
-              //   ],
-              //   autoStart: true,
-              //   loop: false,
-              // }}
-              options={{
-                delay: 25,
-                deleteSpeed: 25,
+            <Typography
+              sx={{
+                fontFamily: "Share Tech Mono",
               }}
-              onInit={(typewriter) => {
-                typewriter
-                  .typeString(`Welcome to ${companyFullName}!`)
-                  .deleteChars(`${companyFullName.length + 1}`)
-                  .typeString(`${companyName}`)
-                  .pauseFor(1000)
-                  .deleteAll()
-                  .typeString(
-                    "We specialize in developing sales funnel pages for businesses!"
-                  )
-                  .pauseFor(1000)
-                  .deleteAll()
-                  .typeString("Please wait while our servers load. :)")
-                  .pauseFor(1000)
-                  .callFunction(() => {
-                    setWelcome(true);
-                    console.log("All strings were deleted");
-                  })
-                  .start();
-              }}
-            />
+            >
+              <TypewriterComponent
+                // options={{
+                //   strings: [
+                //     "Welcome to MorrisonDevOps,",
+                //     "We specialize in developing sales funnel pages",
+                //     "Click here to enter.",
+                //   ],
+                //   autoStart: true,
+                //   loop: false,
+                // }}
+                options={{
+                  delay: 25,
+                  deleteSpeed: 25,
+                }}
+                onInit={(typewriter) => {
+                  typewriter
+                    .typeString(`Welcome to ${companyFullName}!`)
+                    .deleteChars(`${companyFullName.length + 1}`)
+                    .typeString(`${companyName}`)
+                    .pauseFor(1000)
+                    .deleteAll()
+                    .typeString(
+                      "We specialize in developing sales funnel pages for businesses!"
+                    )
+                    .pauseFor(1000)
+                    .deleteAll()
+                    .typeString("Please wait while our servers load. :)")
+                    .pauseFor(1000)
+                    .callFunction(() => {
+                      setWelcome(true);
+                      console.log("All strings were deleted");
+                    })
+                    .start();
+                }}
+              />
+            </Typography>
           </Box>
         )}
         {welcome && (

@@ -10,6 +10,7 @@ import {
   Box,
   Grow,
   Paper,
+  Slide,
   Typography,
   useMediaQuery,
 } from "@mui/material";
@@ -26,9 +27,11 @@ import styles from "../styles/Home.module.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import TestimonialsComp from "../components/testimonialsComp";
 import Hyphenated from "react-hyphen";
-import React, { useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import { blue } from "@mui/material/colors";
-import { useInView } from "react-intersection-observer";
+import InView, { useInView } from "react-intersection-observer";
+import ListOfServicesComp from "../components/index/listOfServicesComp";
+import ListOfDevelopmentServices from "../components/index/listOfDevelopmentServices";
 
 export default function Home() {
   const matchesXs = useMediaQuery((theme) => theme.breakpoints.up("xs"));
@@ -37,24 +40,43 @@ export default function Home() {
   const matchesLg = useMediaQuery((theme) => theme.breakpoints.up("lg"));
   const matchesXl = useMediaQuery((theme) => theme.breakpoints.up("xl"));
 
+  // const containerRef = React.useRef(null);
+
   const { ref, inView, entry } = useInView({
     /* Optional options */
-    threshold: 0.25,
-    rootMargin: "150px",
-    triggerOnce: true,
+    // threshold: 0.25,
+    // triggerOnce: true,
   });
-  const [checked, setChecked] = useState(false);
 
-  const handleChange = () => {
-    setChecked((prev) => !prev);
-  };
+  // const [inView, setInView] = React.useState(false);
+
+  // const { ref, inView, entry } = useInView({
+  //   /* Optional options */
+  //   threshold: 0.25,
+  //   rootMargin: "150px",
+  //   // triggerOnce: true,
+  // });
+
+  // const ref = useRef();
+  // const [inViewRef, inView] = useInView();
+
+  // // Use `useCallback` so we don't recreate the function on each render - Could result in infinite loop
+  // const setRefs = useCallback(
+  //   (node) => {
+  //     // Ref's from useRef needs to have the node assigned to `current`
+  //     ref.current = node;
+  //     // Callback refs, like the one from `useInView`, is a function that takes the node as an argument
+  //     inViewRef(node);
+  //   },
+  //   [inViewRef]
+  // );
 
   const listOfDevelopmentServices = [
     {
       src: "/Images/huddleLandingPage.png",
       alt: "Huddle Landing Page",
       height: "auto",
-      width: matchesMd ? 300 : "100%",
+      width: matchesMd ? 300 : "50%",
       title: "Website App Development",
     },
     {
@@ -68,99 +90,74 @@ export default function Home() {
       src: "/Images/websiteOnMobileAndDesktopWithBackgroundRemoved.png",
       alt: "Huddle Landing Page",
       height: "auto",
-      width: matchesMd ? 300 : "100%",
+      width: matchesMd ? 300 : "50%",
       title: "Web App Development",
     },
   ];
 
-  const listOfServicesComp = () =>
-    listOfServicesData.map((data, i) => (
-      // !matchesMd ? (
-      //   <Paper
-      //     key={i}
-      //     sx={{
-      //       display: "flex",
-      //       gap: 1,
-      //       p: 1,
-      //       alignItems: "center",
-      //       maxWidth: "65ch",
-      //       width: "100%",
-      //     }}
-      //   >
-      //     <Box color={"info.dark"}>{data.icon}</Box>
-      //     <Box width={"100%"}>
-      //       <Typography
-      //         variant="h6"
-      //         component={"h3"}
-      //         color={"info.main"}
-      //         textAlign={"center"}
-      //       >
-      //         {data.heading}
-      //       </Typography>
-      //       <SkeleBar
-      //         clr={randomColorWithAccent}
-      //         h={2}
-      //         w={"100%"}
-      //         my={0}
-      //         animate={"wave"}
-      //       />
-      //       {displayServiceDetails(data.description)}
-      //     </Box>
-      //   </Paper>
-      // ) : (
-
-      <Grow
-        ref={ref}
-        key={i}
-        in={inView}
-        style={{ transformOrigin: "0 0 0" }}
-        {...(checked ? { timeout: 1000 * i } : {})}
-      >
-        <Accordion
-          sx={{
-            backgroundColor: "transparent",
-            boxShadow: "none",
-            border: `1px solid ${blue[900]}`,
-            boxShadow: 1,
-          }}
-        >
-          <AccordionSummary
-            expandIcon={<ExpandMore color={"info"} />}
-            aria-controls={`panel${i}a-content`}
-            id={`panel${i}a-header`}
-          >
-            <Box display={"flex"} gap={1} alignItems={"center"} width={"100%"}>
-              <Box color={"info.dark"}>{data.icon}</Box>
-              <Typography
-                variant="accent"
-                component={"h3"}
-                color={"info.main"}
-                textAlign={"center"}
-                alignSelf={"center"}
-                width={"100%"}
-                sx={{ fontSize: 30 }}
-              >
-                {data.heading}
-              </Typography>
-            </Box>
-          </AccordionSummary>
-          <Skelebar
-            clr={randomColorWithAccent}
-            h={2}
-            w={"95%"}
-            my={0}
-            animate={"wave"}
-          />
-          <AccordionDetails>
-            <Typography>{data.description}</Typography>
-          </AccordionDetails>
-        </Accordion>
-      </Grow>
-    ));
-  // )
+  // const listOfServicesComp = () => (
+  //   <InView threshold={0.25} triggerOnce={true}>
+  //     {({ inView, ref, entry }) =>
+  //       listOfServicesData.map((data, i) => (
+  //         <Grow
+  //           ref={ref}
+  //           in={inView}
+  //           key={i}
+  //           style={{ transformOrigin: "0 0 0" }}
+  //           {...(inView ? { timeout: 1000 * i } : {})}
+  //         >
+  //           <Accordion
+  //             sx={{
+  //               backgroundColor: "transparent",
+  //               boxShadow: "none",
+  //               border: `1px solid ${blue[900]}`,
+  //               boxShadow: 1,
+  //             }}
+  //           >
+  //             <AccordionSummary
+  //               expandIcon={<ExpandMore color={"info"} />}
+  //               aria-controls={`panel${i}a-content`}
+  //               id={`panel${i}a-header`}
+  //             >
+  //               <Box
+  //                 display={"flex"}
+  //                 gap={1}
+  //                 alignItems={"center"}
+  //                 width={"100%"}
+  //               >
+  //                 <Box color={"info.dark"}>{data.icon}</Box>
+  //                 <Typography
+  //                   variant="accent"
+  //                   component={"h3"}
+  //                   color={"info.main"}
+  //                   textAlign={"center"}
+  //                   alignSelf={"center"}
+  //                   width={"100%"}
+  //                   sx={{ fontSize: 30 }}
+  //                 >
+  //                   {data.heading}
+  //                 </Typography>
+  //               </Box>
+  //             </AccordionSummary>
+  //             <Skelebar
+  //               clr={randomColorWithAccent}
+  //               h={2}
+  //               w={"95%"}
+  //               my={0}
+  //               animate={"wave"}
+  //             />
+  //             <AccordionDetails>
+  //               <Typography>{data.description}</Typography>
+  //             </AccordionDetails>
+  //           </Accordion>
+  //         </Grow>
+  //       ))
+  //     }
+  //   </InView>
+  // );
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={ref}>
       <Head>
         <title>Michael Morrison</title>
 
@@ -175,6 +172,7 @@ export default function Home() {
       {/* Heading Section */}
       <Hyphenated>
         <Box
+          ref={ref}
           component={"main"}
           minHeight={"100vh"}
           flex={1}
@@ -286,14 +284,15 @@ export default function Home() {
             width={"100%"}
             gap={1}
           >
-            {listOfServicesComp()}
+            <ListOfServicesComp />
+            {/* {listOfServicesComp()} */}
           </Box>
         </Box>
       </Box>
 
       <Skelebar />
 
-      {/* Development */}
+      {/* Our Work Speaks for Itself */}
       <Box
         display={"flex"}
         justifyContent={"center"}
@@ -303,8 +302,7 @@ export default function Home() {
         minHeight={"75vh"}
       >
         <Typography
-          variant="h4"
-          component={"h2"}
+          variant="h2"
           color="info.dark"
           textAlign={"center"}
           gutterBottom
@@ -318,32 +316,48 @@ export default function Home() {
           justifyContent={"space-around"}
           width={"100%"}
           color="info.main"
+          // overflow={"hidden"}
+          // ref={containerRef}
         >
-          {listOfDevelopmentServices.map((dev, i) => (
-            <Box
-              flex={1}
-              key={i}
-              display={"flex"}
-              justifyContent={"space-between"}
-              alignItems={"center"}
-              flexDirection={"column"}
-            >
-              <LazyLoadImage
-                src={dev.src}
-                alt={dev.alt}
-                height={dev.height}
-                width={dev.width}
-              />
-              <Typography
-                variant="h6"
-                component={"h3"}
-                textAlign={"center"}
-                gutterBottom
-              >
-                {dev.title}
-              </Typography>
-            </Box>
-          ))}
+
+          <ListOfDevelopmentServices />
+
+          {/* <InView threshold={0.25} triggerOnce={true}>
+            {({ inView, ref, entry }) =>
+              listOfDevelopmentServices.map((dev, i) => (
+                <Slide
+                  ref={ref}
+                  in={inView}
+                  key={i}
+                  direction="up"
+                  container={containerRef.current}
+                >
+                  <Box
+                    flex={1}
+                    display={"flex"}
+                    justifyContent={"space-between"}
+                    alignItems={"center"}
+                    flexDirection={"column"}
+                  >
+                    <LazyLoadImage
+                      src={dev.src}
+                      alt={dev.alt}
+                      height={dev.height}
+                      width={dev.width}
+                    />
+                    <Typography
+                      variant="h6"
+                      component={"h3"}
+                      textAlign={"center"}
+                      gutterBottom
+                    >
+                      {dev.title}
+                    </Typography>
+                  </Box>
+                </Slide>
+              ))
+            }
+          </InView> */}
         </Box>
         {getStartedBtn("Ask about our services")}
       </Box>
