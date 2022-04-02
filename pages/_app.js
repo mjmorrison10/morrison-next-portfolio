@@ -113,13 +113,13 @@ theme.typography.h2 = {
   fontFamily: "Montserrat",
   fontWeight: 600,
   [theme.breakpoints.up("xs")]: {
-    fontSize: "2rem",
+    fontSize: "1.5rem",
   },
   [theme.breakpoints.up("sm")]: {
-    fontSize: "3rem",
+    fontSize: "2rem",
   },
   [theme.breakpoints.up("lg")]: {
-    fontSize: "5rem",
+    fontSize: "3rem",
   },
 };
 
@@ -132,7 +132,7 @@ theme.typography.h3 = {
     fontSize: "2rem",
   },
   [theme.breakpoints.up("lg")]: {
-    fontSize: "4rem",
+    fontSize: "2.5rem",
   },
 };
 
