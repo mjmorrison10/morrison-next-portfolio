@@ -32,9 +32,12 @@ const theme = createTheme({
   },
 
   typography: {
-    fontFamily: ["Roboto", "Bangers", "Montserrat", "Share Tech Mono"].join(
-      ","
-    ),
+    fontFamily: [
+      // "Roboto",
+      "Bangers",
+      "Montserrat",
+      "Share Tech Mono",
+    ].join(", "),
 
     primary: {
       fontFamily: "Bangers",
@@ -87,7 +90,7 @@ const theme = createTheme({
 //   fontSize: '1.5rem',
 // },
 theme.typography.h1 = {
-  fontFamily: "Bangers",
+  fontFamily: "Bangers !important",
   letterSpacing: "0.185rem",
   [theme.breakpoints.up("xs")]: {
     fontSize: "2.5rem",
