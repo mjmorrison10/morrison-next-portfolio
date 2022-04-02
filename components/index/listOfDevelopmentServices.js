@@ -78,10 +78,10 @@ function ListOfDevelopmentServices() {
                     width={dev.width}
                   />
                   <Typography
-                    variant="h6"
                     component={"h3"}
                     textAlign={"center"}
                     gutterBottom
+                    fontFamily={"Share Tech Mono"}
                   >
                     {dev.title}
                   </Typography>

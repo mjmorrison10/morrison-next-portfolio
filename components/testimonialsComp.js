@@ -316,7 +316,13 @@ export default function TestimonialsComp(props) {
                 alignItems={"center"}
               >
                 <Avatar {...stringAvatar(`${list.name}`)} />
-                <Typography>{list.name}</Typography>
+                <Typography
+                  // variant={'h3'}
+                  fontFamily={"Share Tech Mono"}
+                  component={"h3"}
+                >
+                  {list.name}
+                </Typography>
               </Box>
               <Skelebar h={2} w={"100%"} my={0} clr={randomColorWithAccent} />
 
@@ -327,7 +333,7 @@ export default function TestimonialsComp(props) {
                 flexGrow={1}
               >
                 <Typography
-                  variant={"body"}
+                  variant={"body2"}
                   textAlign={"center"}
                   gutterBottom
                   noWrap={
@@ -368,7 +374,9 @@ export default function TestimonialsComp(props) {
         onChange={handlePaginationChange}
       />
 
-      <Box mt={10} mb={5}>{getStartedBtn("Contact us now!")}</Box>
+      <Box mt={10} mb={5}>
+        {getStartedBtn("Contact us now!")}
+      </Box>
     </Box>
   );
 }

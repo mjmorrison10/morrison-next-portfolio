@@ -237,7 +237,7 @@ export default function Home() {
 
       <Skelebar />
 
-      {/* Services Section */}
+      {/* List of Services Section */}
       <Box position={"relative"}>
         <Typography
           variant={"h2"}
@@ -292,7 +292,7 @@ export default function Home() {
 
       <Skelebar />
 
-      {/* Our Work Speaks for Itself */}
+      {/* Our Work Speaks for Itself Section */}
       <Box
         display={"flex"}
         justifyContent={"center"}
