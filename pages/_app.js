@@ -1,6 +1,6 @@
-import Header from "../components/header";
 import "../styles/globals.css";
 import "../styles/fonts.css";
+import Header from "../components/header";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import { blue, blueGrey, grey, lightGreen, orange } from "@mui/material/colors";
 import Footer from "../components/footer";
@@ -33,7 +33,7 @@ const theme = createTheme({
 
   typography: {
     fontFamily: [
-      // "Roboto",
+      "Roboto",
       "Bangers",
       "Montserrat",
       "Share Tech Mono",
