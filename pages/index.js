@@ -1,4 +1,8 @@
-import { ExpandMore, MiscellaneousServices } from "@mui/icons-material";
+import {
+  ExpandMore,
+  MiscellaneousServices,
+  SignalCellularNullSharp,
+} from "@mui/icons-material";
 import {
   Accordion,
   AccordionDetails,
@@ -136,7 +140,7 @@ export default function Home() {
                 width={"100%"}
                 sx={{ fontSize: 30 }}
               >
-                {data.heading + " " + inView}
+                {data.heading}
               </Typography>
             </Box>
           </AccordionSummary>
@@ -244,11 +248,11 @@ export default function Home() {
           sx={{
             fontSize: "1rem !important",
             textDecoration: "underline",
-            position: "absolute",
+            position: { xs: null, md: "absolute" },
             left: "10%",
             top: "10%",
             zIndex: 10,
-            transform: "rotateY(0deg) rotate(-45deg)",
+            transform: { xs: null, md: "rotateY(0deg) rotate(-45deg)" },
           }}
         >
           List of Services <MiscellaneousServices />

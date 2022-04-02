@@ -1,5 +1,4 @@
 import "../styles/globals.css";
-import "../styles/fonts.css";
 import Header from "../components/header";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import { blue, blueGrey, grey, lightGreen, orange } from "@mui/material/colors";
@@ -19,6 +18,8 @@ import { useEffect, useState } from "react";
 import TypewriterComponent from "typewriter-effect";
 import { companyFullName, companyName } from "../public/Settings/baseSettings";
 
+console.log();
+
 const theme = createTheme({
   components: {
     MuiButton: {
@@ -32,12 +33,13 @@ const theme = createTheme({
   },
 
   typography: {
-    fontFamily: [
-      "Roboto",
-      "Bangers",
-      "Montserrat",
-      "Share Tech Mono",
-    ].join(", "),
+    // fontFamily: ["Roboto", "Bangers", "Montserrat", "Share Tech Mono"].join(
+    //   ", "
+    // ),
+
+    fontFamily: ["'Roboto", "Bangers", "Montserrat", "Share Tech Mono'"].join(
+      "', '"
+    ),
 
     primary: {
       fontFamily: "Bangers",
@@ -135,10 +137,12 @@ theme.typography.h3 = {
 
 theme.typography.body1 = {
   fontFamily: "Montserrat",
+  fontWeight: 600,
 };
 
 theme.typography.body2 = {
   fontFamily: "Montserrat",
+  fontSize: "0.85rem",
 };
 
 // theme.typography.h4 = {
