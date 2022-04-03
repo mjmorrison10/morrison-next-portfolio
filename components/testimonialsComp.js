@@ -24,53 +24,6 @@ import {
 } from "@mui/material";
 import Skelebar from "./SkeleBar";
 
-// function TabPanel(props) {
-//   const matchesXs = useMediaQuery((theme) => theme.breakpoints.up("xs"));
-//   const matchesSm = useMediaQuery((theme) => theme.breakpoints.up("sm"));
-//   const matchesMd = useMediaQuery((theme) => theme.breakpoints.up("md"));
-//   const matchesLg = useMediaQuery((theme) => theme.breakpoints.up("lg"));
-//   const matchesXl = useMediaQuery((theme) => theme.breakpoints.up("xl"));
-
-//   const { children, value, index, ...other } = props;
-
-//   return (
-//     <Box
-//       role="tabpanel"
-//       hidden={value !== index}
-//       id={`vertical-tabpanel-${index}`}
-//       aria-labelledby={`vertical-tab-${index}`}
-//       {...other}
-//     >
-//       {value === index && (
-//         <Box
-//           sx={{
-//             p: 3,
-//             overflowY: "scroll",
-//             height: "100%",
-//           }}
-//           maxWidth={"65ch"}
-//         >
-//           {/* <Typography> */}
-//           {children}
-//           {/* </Typography> */}
-//         </Box>
-//       )}
-//     </Box>
-//   );
-// }
-
-// TabPanel.propTypes = {
-//   children: PropTypes.node,
-//   index: PropTypes.number.isRequired,
-//   value: PropTypes.number.isRequired,
-// };
-
-// function a11yProps(index) {
-//   return {
-//     id: `vertical-tab-${index}`,
-//     "aria-controls": `vertical-tabpanel-${index}`,
-//   };
-// }
 
 function stringToColor(string) {
   let hash = 0;

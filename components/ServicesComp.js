@@ -58,13 +58,12 @@ function ServicesComp({ page }) {
           <Typography variant={"body2"} gutterBottom>
             {pageData.subheader}
           </Typography>
-          <Typography variant={"h4"} color={"info.dark"} component={"div"}>
+          <Typography variant={"h5"} color={"info.dark"} component={"div"}>
             {pageData.feature}
           </Typography>
 
           <Typography
             variant={"h2"}
-            component="h2"
             textAlign={"center"}
             maxWidth={"30ch"}
             color={"info.main"}
@@ -85,27 +84,27 @@ function ServicesComp({ page }) {
 
           {pageData.listHeader1 && (
             <Box>
-              <Typography variant={"h4"} color={"info.dark"} component={"div"}>
+              <Typography variant={"h3"} color={"info.dark"}>
                 {pageData.listHeader1}
               </Typography>
               <Box component={"ul"}>
-                <Typography variant={"body1"} gutterBottom component={"li"}>
+                <Typography variant={"body2"} gutterBottom component={"li"}>
                   {pageData.list1a}
                 </Typography>
-                <Typography variant={"body1"} gutterBottom component={"li"}>
+                <Typography variant={"body2"} gutterBottom component={"li"}>
                   {pageData.list1b}
                 </Typography>
-                <Typography variant={"body1"} gutterBottom component={"li"}>
+                <Typography variant={"body2"} gutterBottom component={"li"}>
                   {pageData.list1c}
                 </Typography>
                 {pageData.list1d && (
-                  <Typography variant={"body1"} gutterBottom component={"li"}>
+                  <Typography variant={"body2"} gutterBottom component={"li"}>
                     {pageData.list1d}
                   </Typography>
                 )}
 
                 {pageData.list1e && (
-                  <Typography variant={"body1"} gutterBottom component={"li"}>
+                  <Typography variant={"body2"} gutterBottom component={"li"}>
                     {pageData.list1e}
                   </Typography>
                 )}
@@ -124,17 +123,17 @@ function ServicesComp({ page }) {
 
           {pageData.listHeader2 && (
             <Box>
-              <Typography variant={"h4"} color={"info.dark"} component={"div"}>
+              <Typography variant={"h3"} color={"info.dark"}>
                 {pageData.listHeader2}
               </Typography>
               <Box component={"ul"}>
-                <Typography variant={"body1"} gutterBottom component={"li"}>
+                <Typography variant={"body2"} gutterBottom component={"li"}>
                   {pageData.list2a}
                 </Typography>
-                <Typography variant={"body1"} gutterBottom component={"li"}>
+                <Typography variant={"body2"} gutterBottom component={"li"}>
                   {pageData.list2b}
                 </Typography>
-                <Typography variant={"body1"} gutterBottom component={"li"}>
+                <Typography variant={"body2"} gutterBottom component={"li"}>
                   {pageData.list2c}
                 </Typography>
               </Box>
@@ -193,6 +192,7 @@ function ServicesComp({ page }) {
             justifyContent={"center"}
             borderRadius={"45% 15%"}
             boxShadow={3}
+            overflow={"hidden"}
           >
             <LazyLoadImage
               src={pageData.img1}
@@ -201,7 +201,6 @@ function ServicesComp({ page }) {
               width={"100%"}
               style={{
                 objectFit: "cover",
-                borderRadius: "45% 15%",
               }}
             />
           </Box>
@@ -221,6 +220,7 @@ function ServicesComp({ page }) {
             justifyContent={"center"}
             borderRadius={"15% 45%"}
             boxShadow={3}
+            overflow={"hidden"}
           >
             <LazyLoadImage
               src={pageData.img2}
@@ -229,7 +229,6 @@ function ServicesComp({ page }) {
               width={"100%"}
               style={{
                 objectFit: "cover",
-                borderRadius: "15% 45%",
               }}
             />
           </Box>
@@ -248,6 +247,7 @@ function ServicesComp({ page }) {
             justifyContent={"center"}
             borderRadius={"45% 15%"}
             boxShadow={3}
+            overflow={"hidden"}
           >
             <LazyLoadImage
               src={pageData.img3}
@@ -256,7 +256,6 @@ function ServicesComp({ page }) {
               width={"100%"}
               style={{
                 objectFit: "cover",
-                borderRadius: "45% 15%",
               }}
             />
           </Box>

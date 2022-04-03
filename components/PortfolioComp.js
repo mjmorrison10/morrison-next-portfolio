@@ -1,10 +1,8 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import React from "react";
 import PageComingSoon from "./pageComingSoon";
 import { portfolioWritings } from "../public/Settings/WriteSettings";
-import {
-  LazyLoadImage,
-} from "react-lazy-load-image-component";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function PortfolioComp({ portfolio }) {
   const base = portfolio;
@@ -29,13 +27,16 @@ function PortfolioComp({ portfolio }) {
 
   return (
     <Box
+      px={2}
+      gap={1}
       minHeight={"100vh"}
       display={"flex"}
       sx={{
+        mt: { xs: 7, md: 10 },
         flexDirection: { xs: "column", md: "row" },
       }}
     >
-      <Box flex={1}>
+      <Box flex={1} display={"flex"} flexDirection={"column"} gap={1}>
         <PageComingSoon />
         <Typography variant={"h1"} color={"info.dark"}>
           {base.header}
@@ -46,6 +47,9 @@ function PortfolioComp({ portfolio }) {
         <Typography variant={"body1"} maxWidth={"65ch"}>
           {base.desc1}
         </Typography>
+        <Button variant={"outlined"} color={"info"} href={base.link}>
+          Check out my {base.header}
+        </Button>
       </Box>
       <Box flex={1}>
         <LazyLoadImage

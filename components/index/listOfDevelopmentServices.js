@@ -53,7 +53,7 @@ function ListOfDevelopmentServices() {
             gap={matchesMd ? null : 6}
             justifyContent={"space-around"}
             width={"100%"}
-            color="info.main"
+            // color="info.main"
           >
             {listOfDevelopmentServices.map((dev, i) => (
               <Slide
@@ -61,6 +61,7 @@ function ListOfDevelopmentServices() {
                 in={inView}
                 key={i}
                 direction={matchesMd ? "up" : "left"}
+                timeout={1000 * i}
                 //   container={containerRef.current}
               >
                 <Box

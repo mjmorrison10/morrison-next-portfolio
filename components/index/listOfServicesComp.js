@@ -61,7 +61,6 @@ function ListOfServicesComp() {
                     textAlign={"center"}
                     alignSelf={"center"}
                     width={"100%"}
-                    sx={{ fontSize: 30 }}
                   >
                     {data.heading}
                   </Typography>

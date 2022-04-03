@@ -28,7 +28,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import TestimonialsComp from "../components/testimonialsComp";
 import Hyphenated from "react-hyphen";
 import React, { useCallback, useRef, useState } from "react";
-import { blue } from "@mui/material/colors";
+import { blue, blueGrey } from "@mui/material/colors";
 import InView, { useInView } from "react-intersection-observer";
 import ListOfServicesComp from "../components/index/listOfServicesComp";
 import ListOfDevelopmentServices from "../components/index/listOfDevelopmentServices";
@@ -157,7 +157,12 @@ export default function Home() {
   // );
 
   return (
-    <div className={styles.container} ref={ref}>
+    <Box
+      className={styles.container}
+      sx={{
+        overflowX: "hidden",
+      }}
+    >
       <Head>
         <title>Michael Morrison</title>
 
@@ -174,7 +179,7 @@ export default function Home() {
         <Box
           ref={ref}
           component={"main"}
-          minHeight={"100vh"}
+          minHeight={"50vh"}
           flex={1}
           display={"flex"}
           flexDirection={"column"}
@@ -185,7 +190,7 @@ export default function Home() {
             backgroundImage: `url("/Images/three-computers-coding-lg.jpg")`,
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
-            backgroundPosition: { xs: "center", md: "0 60%" },
+            backgroundPosition: { xs: "center" },
           }}
         >
           <Paper
@@ -248,9 +253,9 @@ export default function Home() {
             textDecoration: "underline",
             position: { xs: null, md: "absolute" },
             left: "10%",
-            top: "10%",
+            top: "0%",
             zIndex: 10,
-            transform: { xs: null, md: "rotateY(0deg) rotate(-45deg)" },
+            // transform: { xs: null, md: "rotateY(0deg) rotate(-45deg)" },
           }}
         >
           List of Services <MiscellaneousServices />
@@ -259,7 +264,7 @@ export default function Home() {
         <Box
           display={"flex"}
           gap={1}
-          minHeight={"100vh"}
+          // minHeight={"100vh"}
           px={1}
           flexDirection={(matchesMd && `row`) || (matchesXs && "column")}
         >
@@ -285,12 +290,16 @@ export default function Home() {
             gap={1}
           >
             <ListOfServicesComp />
+
             {/* {listOfServicesComp()} */}
           </Box>
         </Box>
+        <Box display={"flex"} justifyContent={"center"} mt={4} mb={8}>
+          {getStartedBtn()}
+        </Box>
       </Box>
 
-      <Skelebar />
+      {/* <Skelebar /> */}
 
       {/* Our Work Speaks for Itself Section */}
       <Box
@@ -299,11 +308,35 @@ export default function Home() {
         alignItems={"center"}
         flexDirection={"column"}
         gap={6}
-        minHeight={"75vh"}
+        paddingY={8}
+        minHeight={"100vh"}
+        bgcolor={blueGrey[900]}
+        sx={{
+          clipPath: {
+            xs: `polygon(0 5%, 100% 0%, 100% 95%, 0% 100%)`,
+            md: `polygon(
+            0 10%, 
+            10% 15%,
+             5% 10%,
+
+             95% 0%,
+             85% 10%,
+             95% 5%,
+
+             100% 90%,
+             85% 80%,
+             95% 90%,
+
+             5% 100%,
+             15% 85%,
+             5% 95%)`,
+          },
+          // clipPath: `polygon(0 10%, 100% 0%, 100% 90%, 0 100%)`,
+        }}
       >
         <Typography
           variant="h2"
-          color="info.dark"
+          color={blue[50]}
           textAlign={"center"}
           gutterBottom
         >
@@ -315,11 +348,10 @@ export default function Home() {
           gap={matchesMd ? null : 6}
           justifyContent={"space-around"}
           width={"100%"}
-          color="info.main"
+          color={blue[50]}
           // overflow={"hidden"}
           // ref={containerRef}
         >
-
           <ListOfDevelopmentServices />
 
           {/* <InView threshold={0.25} triggerOnce={true}>
@@ -362,7 +394,7 @@ export default function Home() {
         {getStartedBtn("Ask about our services")}
       </Box>
 
-      <Skelebar />
+      {/* <Skelebar /> */}
 
       {/* Testimonials */}
       <Box
@@ -385,6 +417,6 @@ export default function Home() {
         </Typography>
         <TestimonialsComp />
       </Box>
-    </div>
+    </Box>
   );
 }
