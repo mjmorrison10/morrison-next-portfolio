@@ -2,6 +2,7 @@ import { Typography } from "@mui/material";
 import React from "react";
 import Hyphenated from "react-hyphen";
 import Typewriter from "typewriter-effect";
+import { companyPhoneNumber } from "./baseSettings";
 
 export const Writings = {
   apiAndBackend: {
@@ -20,9 +21,22 @@ export const Writings = {
   },
   cms: {
     header: `Professional, Personalized Websites`,
+    subheader: `Content Management Systems like WordPress, Wix, Shopify are useful to quickly set up a webpage.`,
     feature: `Features section:`,
     h2: `Need a website? The MorrisonDevOps team is here to help!`,
     h2body: `Do you want a professional website but don't want to pay thousands of dollars for it? We make it easy with our affordable and hassle-free websites. With no contracts, you're free to cancel anytime.`,
+    h3: `Quick Development Schedule`,
+    h3body: `Due to how CMS works, we can develop a landing page for your business by the end of the day. Perfect for anybody looking to set up a quick, hassle-free website. Easy to set up blogging, too!`,
+    h4: `Start Your Business Today`,
+    h4body: `Sites like WordPress makes it easy and fast to create a website. We strive to help business establish their online identity as quick as possible with this package! Do you have an idea you want or a product to sell? You need to get started immediately!`,
+    listHeader1: "Why Select CMS",
+    list1a: "Simplified design and ease to set up",
+    list1b: "No Coding Necessary. This means bugs are less likely to occur!",
+    list1c:
+      "Backend systems, like shopping carts, contact forms, etc. are better protected.",
+    list1d:
+      "WordPress is perfect for blogs or a landing page selling a service",
+    list1e: "Shopify is perfect for small businesses selling prodcts",
     img1: `/Images/wordpressBackgroundWebDesign.jpg`,
     img2: `/Images/automotiveBlog.jpg`,
     img3: `/Images/socialMediaHelpSupport.jpg`,
@@ -49,6 +63,10 @@ export const Writings = {
     h2body: `Whether you're looking for a quick fix or something more in-depth, MorrisonDevOps has the solution needed. We diagnose your website and fix any errors found with our fast, affordable, and easy to use service — all while keeping you in the loop with regular updates.`,
     h3: `Thoughtful Service`,
     h3body: `We give you all the information you need upfront to avoid surprises or hidden fees. After a thorough analysis of your site, we'll provide an honest quote, and then just as important - we'll stick to it!`,
+    h4: `Start the Process Today!`,
+    h4body: `We're here to help you and your business. Our programming experts are ready to go and fix anything that you need.`,
+    h5body: `Software errors can cost businesses thousands of dollars in lost revenue and wasted time. With our help, we can find bugs, errors, or other miscellaneous problems in your programming code—in any or all programming languages, for any size company! With our service, you'll never have to worry about bugs again.`,
+    h6body: `Let us help you with your programming needs. Whether it be an error in a script or a bug in your website's coding, we can take care of it. Call us today! Give us a call now at ${companyPhoneNumber} if you want to know more about our services!`,
     img1: `/Images/workTypingComputerNotebook.jpg`,
     img2: `/Images/programmingDevelopingStartup.jpg`,
     img3: `/Images/ussNormandyCg606.jpg`,
@@ -135,6 +153,20 @@ export const Writings = {
     list2a: `Google Authenticator, Firestore and Firebase`,
     list2b: `Mongo DB Database`,
     list2c: `Node.js and Express`,
+    img1: `/Images/motoimg.jpg`,
+    img2: `/Images/michael-icon.png`,
+    img3: `/Images/meandbaby.jpg`,
+  },
+  whyYouShouldHireMe: {
+    header: `Hire a Professional Web Developer`,
+    h2: `Who am I?`,
+    h2body: `I'm a web developer with over a year of experience. I know what it feels like to be working hard on a website that isn't profitable and feeling like it's too much work. You deserve something better. I offer website design, development, consultation, and maintenance services to help you grow your business.`,
+    h3: `You need a Website!`,
+    h3body: `When people go to your website, they want to find answers. They want to know what you do and how you can help them. Your website needs content that is informative and easy to read. I can create a professional-looking website for your business, one that will make it easy for visitors to find out more about you and your work.`,
+    h4: `Do you want to convert leads into sales?`,
+    h4body: `I'm a digital marketing consultant that specializes in SEO and SEM. I can help you rank higher in the search engines, increase your site traffic, generate leads that converts into sales!`,
+    h5: `Dedicated and Highly Competitive!`,
+    h5body: `With over a year of web development experience and proven successes in countries around the world, you can trust me to provide you with the best web development services for your business. I also specialize in creating websites that are SEO-friendly and responsive.`,
     img1: `/Images/motoimg.jpg`,
     img2: `/Images/michael-icon.png`,
     img3: `/Images/meandbaby.jpg`,

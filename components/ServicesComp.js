@@ -174,6 +174,9 @@ function ServicesComp({ page }) {
           <Typography variant={"body1"} gutterBottom>
             {pageData.h6body}
           </Typography>
+
+          {getStartedBtn()}
+
         </Box>
 
         <Box flex={1} position={"relative"} minHeight={"100vh"}>
