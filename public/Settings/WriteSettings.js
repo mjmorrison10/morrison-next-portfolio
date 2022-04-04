@@ -128,7 +128,7 @@ export const Writings = {
       <Hyphenated>
         <Typography
           variant={"h3"}
-          component={"div"}
+          // component={"span"}
           textAlign={"center"}
           color={"info.main"}
           gutterBottom

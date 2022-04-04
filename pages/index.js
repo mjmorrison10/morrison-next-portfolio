@@ -191,6 +191,7 @@ export default function Home() {
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundPosition: { xs: "center" },
+            pt: {xs: 10}
           }}
         >
           <Paper

@@ -271,7 +271,7 @@ export default function TestimonialsComp(props) {
                   sx={{
                     display: "flex",
                     flexDirection: "column",
-                    // maxWidth: "90vw",
+                    maxWidth: "90vw",
                   }}
                 >
                   <Typography
@@ -354,7 +354,7 @@ export default function TestimonialsComp(props) {
                   flexDirection: "column",
                   padding: 1,
                   gap: 1,
-                  width: `${!matchesSm ? "82.5vw" : null}`,
+                  maxWidth: `${!matchesSm ? "82.5vw" : null}`,
                 }}
               >
                 <Box

@@ -43,7 +43,7 @@ function ListOfDevelopmentServices() {
   ];
 
   return (
-    <InView threshold={0} rootMargin={"-250px"} triggerOnce={true}>
+    <InView threshold={0} rootMargin={"-150px"} triggerOnce={true}>
       {
         ({ inView, ref, entry }) => (
           <Box

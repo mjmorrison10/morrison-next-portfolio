@@ -282,7 +282,7 @@ function MyApp({ Component, pageProps }) {
               transition: "all 5000ms ease",
             }}
           >
-            <Header />
+            {/* <Header /> */}
             <Component {...pageProps} />
             <Fab
               color="info"
