@@ -1,4 +1,4 @@
-import { Box, Slide, Typography, useMediaQuery } from "@mui/material";
+import { Box, Grow, Slide, Typography, useMediaQuery } from "@mui/material";
 import React from "react";
 import InView, { useInView } from "react-intersection-observer";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -47,7 +47,7 @@ function ListOfDevelopmentServices() {
       {
         ({ inView, ref, entry }) => (
           <Box
-            ref={ref}
+            // ref={ref}
             display={"flex"}
             flexDirection={matchesMd ? "row" : "column"}
             gap={matchesMd ? null : 6}
@@ -56,13 +56,20 @@ function ListOfDevelopmentServices() {
             // color="info.main"
           >
             {listOfDevelopmentServices.map((dev, i) => (
-              <Slide
-                //   ref={ref}
+              // <Slide
+              //   //   ref={ref}
+              //   in={inView}
+              //   key={i}
+              //   direction={matchesMd ? "up" : "left"}
+              //   timeout={1000 * i}
+              //   //   container={containerRef.current}
+              // >
+              <Grow
+                ref={ref}
                 in={inView}
                 key={i}
-                direction={matchesMd ? "up" : "left"}
-                timeout={1000 * i}
-                //   container={containerRef.current}
+                style={{ transformOrigin: "0 0 0" }}
+                {...(inView ? { timeout: 1000 * i } : {})}
               >
                 <Box
                   ref={ref}
@@ -87,7 +94,7 @@ function ListOfDevelopmentServices() {
                     {dev.title}
                   </Typography>
                 </Box>
-              </Slide>
+              </Grow>
             ))}
           </Box>
         )
