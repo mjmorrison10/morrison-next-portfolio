@@ -230,6 +230,7 @@ function MyApp({ Component, pageProps }) {
             </Button>
 
             <Typography
+            component={'div'}
               sx={{
                 fontFamily: "Share Tech Mono",
               }}
@@ -282,7 +283,7 @@ function MyApp({ Component, pageProps }) {
               transition: "all 5000ms ease",
             }}
           >
-            {/* <Header /> */}
+            <Header />
             <Component {...pageProps} />
             <Fab
               color="info"
