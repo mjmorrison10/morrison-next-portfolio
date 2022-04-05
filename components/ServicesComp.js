@@ -23,22 +23,30 @@ function ServicesComp({ page }) {
   return (
     <Box minHeight={"100vh"} display={"flex"} flexDirection={"column"} px={1}>
       <Hyphenated>
-        <Typography
-          variant={"h1"}
-          component="h1"
-          color={blue[50]}
-          textAlign={"center"}
-          gutterBottom
+        <Box
           sx={{
-            mt: { xs: 5, md: 10 },
             bgcolor: "info.dark",
-            py: 5,
-            clipPath: `polygon(0 10%, 100% 0, 100% 90%, 0% 100%)`,
-            borderRadius: 4,
+            pb: 4,
+            mb: 2,
+            borderRadius: "0 0 0% 2rem ",
+
+            clipPath: `polygon(0 10%, 100% 0, 100% 80%, 0% 100%)`,
           }}
         >
-          {pageData.header}
-        </Typography>
+          <Typography
+            variant={"h1"}
+            component="h1"
+            color={blue[50]}
+            textAlign={"center"}
+            gutterBottom
+            sx={{
+              mt: { xs: 5, md: 10 },
+              transform: "rotate(-5deg)",
+            }}
+          >
+            {pageData.header}
+          </Typography>
+        </Box>
 
         <Box
           width={"100%"}
