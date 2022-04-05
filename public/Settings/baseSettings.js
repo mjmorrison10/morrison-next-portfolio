@@ -199,6 +199,15 @@ export const listOfServicesData = [
 
 export const ProjectsWorkedOn = [
   {
+    name: `Personal Trainer Landing Page`,
+    lastPublishedDate: `April, 4, 2022`,
+    description: `I developed this landing page website specifically with personal fitness trainers in mind. We want to help YOU attract clients and convert sales with a website similar to this!`,
+    languages: [`HTML`, `CSS`, `JavaScript`],
+    website: `https://mdo-fitness.netlify.app/`,
+    image: `../Images/Projects/fitnessad.png`,
+    category: ["All Websites", "Landing Page", "Best Work"],
+  },
+  {
     name: `Old School RuneScape`,
     lastPublishedDate: `July 8, 2021`,
     description: `RuneScape holds a special place in my heart, especially in my web development journey. Huge compliments to JaGeX for developing this incredible game years ago. This game got me started with programming by creating an IRC bot using mIRC Scripting Language. This website was one of my first projects developed using HTML and CSS.`,
@@ -673,7 +682,7 @@ export const ProjectsWorkedOn = [
     languages: ["HTML", "CSS", "JavaScript"],
     website: `https://rome-fly-artwork.netlify.app/`,
     image: `../Images/Projects/rome.png`,
-    category: ["All Websites", "Landing Page", "Client Work", "Portfolio" ],
+    category: ["All Websites", "Landing Page", "Client Work", "Portfolio"],
   },
 
   {
@@ -683,7 +692,13 @@ export const ProjectsWorkedOn = [
     languages: ["HTML", "CSS", "JavaScript", "React", "next"],
     website: `https://tax-mdo.netlify.app/`,
     image: `../Images/Projects/taxCompany.png`,
-    category: ["All Websites", "Landing Page", "Client Work", "React", "Best Work"],
+    category: [
+      "All Websites",
+      "Landing Page",
+      "Client Work",
+      "React",
+      "Best Work",
+    ],
   },
 
   {
