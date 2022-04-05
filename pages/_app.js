@@ -188,7 +188,23 @@ function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
       <Box
-        backgroundColor={welcome ? blue[50] : grey[900]}
+
+      sx={{
+
+        // backgroundColor: welcome ? 
+          
+        //   blue[50]?
+        //   radial-gradient(circle, rgba(0,212,255,1) 0%, rgba(1,106,146,1) 90%, rgba(2,0,36,1) 100%)
+          
+        //   : grey[900]
+        // }}
+        background: welcome ? 
+          
+          // blue[50]?
+          `radial-gradient(circle, ${blue[50]} 0%, ${blue[200]} 66%, ${blue[900]} 100%)`
+          
+          : grey[900]
+        }}
         minHeight={"100vh"}
         // display={"flex"}
         // flexDirection={"column"}

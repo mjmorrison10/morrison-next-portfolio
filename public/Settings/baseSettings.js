@@ -603,7 +603,7 @@ export const ProjectsWorkedOn = [
     languages: ["HTML", "CSS", "JavaScript"],
     website: `https://whichbank-landing.netlify.app/`,
     image: `../Images/Projects/whichbankLanding.png`,
-    category: ["All Websites", "JavaScript", "Landing Page"],
+    category: ["All Websites", "JavaScript", "Landing Page", "Best Work"],
   },
 
   {
@@ -613,7 +613,7 @@ export const ProjectsWorkedOn = [
     languages: ["HTML", "CSS", "JavaScript"],
     website: `https://mapty-ss.netlify.app/`,
     image: `../Images/Projects/mapty.png`,
-    category: ["All Websites", "JavaScript"],
+    category: ["All Websites", "JavaScript", "Best Work"],
   },
 
   {
@@ -623,7 +623,7 @@ export const ProjectsWorkedOn = [
     languages: ["HTML", "CSS", "JavaScript"],
     website: `https://forkify-ss.netlify.app/`,
     image: `../Images/Projects/forkify.png`,
-    category: ["All Websites", "JavaScript"],
+    category: ["All Websites", "JavaScript", "Best Work"],
   },
 
   {
@@ -673,7 +673,7 @@ export const ProjectsWorkedOn = [
     languages: ["HTML", "CSS", "JavaScript"],
     website: `https://rome-fly-artwork.netlify.app/`,
     image: `../Images/Projects/rome.png`,
-    category: ["All Websites", "Landing Page", "Client Work", "Portfolio"],
+    category: ["All Websites", "Landing Page", "Client Work", "Portfolio" ],
   },
 
   {
@@ -683,7 +683,7 @@ export const ProjectsWorkedOn = [
     languages: ["HTML", "CSS", "JavaScript", "React", "next"],
     website: `https://tax-mdo.netlify.app/`,
     image: `../Images/Projects/taxCompany.png`,
-    category: ["All Websites", "Landing Page", "Client Work", "React"],
+    category: ["All Websites", "Landing Page", "Client Work", "React", "Best Work"],
   },
 
   {
@@ -726,16 +726,19 @@ export const projectsFilter = (search) => {
 };
 
 export const projectsFilterByLanguages = (search) => {
+  if (search == "") return null;
   return ProjectsWorkedOn.filter((project) =>
     project.languages.includes(search)
   );
 };
 
 export const projectsFilterByName = (search) => {
+  if (search == "") return null;
   return ProjectsWorkedOn.filter((project) => project.name.includes(search));
 };
 
 export const projectsFilterByCategories = (search) => {
+  if (search == "") return null;
   return ProjectsWorkedOn.filter((project) =>
     project.category.includes(search)
   );

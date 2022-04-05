@@ -23,7 +23,6 @@ import {
   trackWindowScroll,
 } from "react-lazy-load-image-component";
 
-
 let project,
   projectName,
   projectWebsite,
@@ -76,6 +75,10 @@ export default function ImageListOfProjects({ projects }) {
   const handleClose = () => {
     setOpen(false);
   };
+
+  if (projects === null) return <div></div>;
+
+  projects.sort((a, b) => (a.name > b.name ? 1 : -1));
 
   return (
     <Box paddingX={{ xs: 1, md: 0 }}>
@@ -250,7 +253,6 @@ export default function ImageListOfProjects({ projects }) {
           </Box>
         </Box>
       </Modal>
-
     </Box>
   );
 }

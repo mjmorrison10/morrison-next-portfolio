@@ -31,18 +31,18 @@ import CarouselOfProjects from "../components/carouselOfProjects";
 import ImageListOfProjects from "../components/imageListOfProjects";
 
 function Projects() {
-  const [categoryValue, setCategoryValue] = React.useState(null);
-  const [categoryInputValue, setCategoryInputValue] = React.useState(null);
+  const [categoryValue, setCategoryValue] = React.useState("Best Work");
+  const [categoryInputValue, setCategoryInputValue] = React.useState("Best Work");
 
-  const [nameValue, setNameValue] = React.useState(null);
-  const [nameInputValue, setNameInputValue] = React.useState(null);
+  const [nameValue, setNameValue] = React.useState("");
+  const [nameInputValue, setNameInputValue] = React.useState("");
 
-  const [languagesValue, setLanguagesValue] = React.useState(null);
-  const [languagesInputValue, setLanguagesInputValue] = React.useState(null);
+  const [languagesValue, setLanguagesValue] = React.useState("");
+  const [languagesInputValue, setLanguagesInputValue] = React.useState("");
 
-  const [searchByName, setSearchByName] = React.useState(null);
-  const [searchByLanguages, setSearchByLanguages] = React.useState(null);
-  const [searchByCategory, setSearchByCategory] = React.useState(null);
+  const [searchByName, setSearchByName] = React.useState("");
+  const [searchByLanguages, setSearchByLanguages] = React.useState("");
+  const [searchByCategory, setSearchByCategory] = React.useState("Best Work");
 
   // console.log(searchByLanguages);
   // console.log(searchByCategory);
@@ -57,20 +57,20 @@ function Projects() {
   // console.log(ProjectsWorkedOn[0].image)
 
   const resetCategoryValues = () => {
-    setCategoryValue(null);
-    setCategoryInputValue(null);
-    setSearchByCategory(null);
+    setCategoryValue("");
+    setCategoryInputValue("");
+    setSearchByCategory("");
   };
   const resetNameValues = () => {
-    setNameValue(null);
-    setNameInputValue(null);
-    setSearchByName(null);
+    setNameValue("");
+    setNameInputValue("");
+    setSearchByName("");
   };
 
   const resetLanguageValues = () => {
-    setLanguagesValue(null);
-    setLanguagesInputValue(null);
-    setSearchByLanguages(null);
+    setLanguagesValue("");
+    setLanguagesInputValue("");
+    setSearchByLanguages("");
   };
 
   const resetValues = () => {
@@ -80,12 +80,18 @@ function Projects() {
   };
 
   return (
-    <Box minHeight={"100vh"}>
+    <Box
+      minHeight={"100vh"}
+      sx={{
+        pt: { xs: 10},
+      }}
+    >
       <Typography
         variant="h2"
         component={"h1"}
         color={"info.main"}
         textAlign={"center"}
+        gutterBottom
         sx={{
           textTransform: "capitalize",
         }}
@@ -113,7 +119,14 @@ function Projects() {
         Check out all my projects below!
       </Typography>
 
-      <Box display={"flex"} justifyContent={"space-around"}>
+      <Box
+        display={"flex"}
+        justifyContent={"space-around"}
+        flexWrap={"wrap"}
+        gap={1}
+        px={1}
+        // sx={{ flexDirection: { xs: "column", md: "row" } }}
+      >
         <Box display={"flex"} flexDirection={"column"}>
           <Autocomplete
             value={categoryValue}
@@ -127,7 +140,7 @@ function Projects() {
             }}
             id="controllable-states-demo"
             options={ProjectAllCategories}
-            sx={{ width: 300, margin: "0 auto", my: 1 }}
+            sx={{ width: { xs: 200, md: 300 }, margin: "0 auto", my: 1 }}
             renderInput={(params) => <TextField {...params} />}
           />
           <Typography variant={"caption"} gutterBottom textAlign={"center"}>
@@ -148,7 +161,7 @@ function Projects() {
             }}
             id="controllable-states-demo"
             options={ProjectAllLanguages}
-            sx={{ width: 300, margin: "0 auto", my: 1 }}
+            sx={{ width: { xs: 200, md: 300 }, margin: "0 auto", my: 1 }}
             renderInput={(params) => <TextField {...params} />}
           />
           <Typography variant={"caption"} gutterBottom textAlign={"center"}>
@@ -169,7 +182,7 @@ function Projects() {
             }}
             id="controllable-states-demo"
             options={ProjectAllName}
-            sx={{ width: 300, margin: "0 auto", my: 1 }}
+            sx={{ width: { xs: 200, md: 300 }, margin: "0 auto", my: 1 }}
             renderInput={(params) => <TextField {...params} />}
           />
           <Typography variant={"caption"} gutterBottom textAlign={"center"}>
@@ -209,7 +222,6 @@ function Projects() {
           color={"info.dark"}
           component={"h3"}
           mt={4}
-
         >
           Searching by Name: {nameValue}
         </Typography>
@@ -224,7 +236,6 @@ function Projects() {
           color={"info.dark"}
           component={"h3"}
           mt={4}
-        
         >
           Searching by Languages: {languagesValue}
         </Typography>

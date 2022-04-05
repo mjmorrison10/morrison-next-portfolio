@@ -139,7 +139,6 @@ function ServicesComp({ page }) {
               </Box>
             </Box>
           )}
-
           <Typography
             variant={"h2"}
             textAlign={"center"}
@@ -175,8 +174,9 @@ function ServicesComp({ page }) {
             {pageData.h6body}
           </Typography>
 
-          {getStartedBtn()}
-
+          <Box display={"flex"} justifyContent={"center"} mt={2}>
+            {getStartedBtn()}
+          </Box>
         </Box>
 
         <Box flex={1} position={"relative"} minHeight={"100vh"}>

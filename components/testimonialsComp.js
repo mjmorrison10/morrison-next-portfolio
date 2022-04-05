@@ -119,73 +119,6 @@ export default function TestimonialsComp(props) {
     // setDisplayText(displayText ? panel : false);
   };
 
-  // function testimonial() {
-  //   return (
-  //     <Paper
-  //       // onClick={() => {
-  //       //   console.log(i);
-  //       //   setDisplayText(!displayText);
-  //       // }}
-  //       onClick={handleChange(i)}
-  //       key={i}
-  //       sx={{
-  //         display: "flex",
-  //         flexDirection: "column",
-  //         padding: 1,
-  //         gap: 1,
-  //         width: `${!matchesSm ? "82.5vw" : null}`,
-  //       }}
-  //     >
-  //       <Box
-  //         display={"flex"}
-  //         justifyContent={"center"}
-  //         gap={1}
-  //         alignItems={"center"}
-  //       >
-  //         <Avatar {...stringAvatar(`${list.name}`)} />
-  //         <Typography>{list.name}</Typography>
-  //       </Box>
-  //       <Skelebar h={2} w={"100%"} my={0} clr={randomColorWithAccent} />
-
-  //       <Box
-  //         display={"flex"}
-  //         flexDirection={"column"}
-  //         justifyContent={"space-between"}
-  //         flexGrow={1}
-  //       >
-  //         <Typography
-  //           variant={"body"}
-  //           noWrap={
-  //             matchesMd || (!displayText && specificCardToDisplay === i)
-  //               ? false
-  //               : true
-  //           }
-  //           maxWidth={"65ch"}
-  //         >
-  //           {list.testimonial}
-  //         </Typography>
-  //         <Box
-  //           alignSelf={"flex-end"}
-  //           display={"flex"}
-  //           alignItems={"center"}
-  //           justifyContent={"center"}
-  //         >
-  //           <Typography variant={"caption"}>Rating:</Typography>
-  //           <Rating
-  //             defaultValue={list.starRating}
-  //             precision={0.5}
-  //             readOnly
-  //             sx={{
-  //               color: randomColorWithAccent,
-  //               transition: "all 300ms ease-in-out",
-  //             }}
-  //           />
-  //         </Box>
-  //       </Box>
-  //     </Paper>
-  //   );
-  // }
-
   function filterTestimonials(list, i) {
     if (page === 1)
       return (
@@ -287,7 +220,6 @@ export default function TestimonialsComp(props) {
                     <Avatar {...stringAvatar(`${list.name}`)} />
                     {list.name}
                   </Typography>
-
                   {!matchesMd && expandedPanel != `panel${i}` && (
                     <Typography
                       variant={"body2"}
@@ -303,9 +235,7 @@ export default function TestimonialsComp(props) {
                   )}
                 </Box>
               </AccordionSummary>
-
               <Skelebar h={2} w={"100%"} my={0} clr={randomColorWithAccent} />
-
               <AccordionDetails>
                 <Typography
                   variant={"body2"}
@@ -315,7 +245,6 @@ export default function TestimonialsComp(props) {
                 >
                   {list.testimonial}
                 </Typography>
-
                 <Box
                   alignSelf={"flex-end"}
                   display={"flex"}
