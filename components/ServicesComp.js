@@ -26,11 +26,15 @@ function ServicesComp({ page }) {
         <Typography
           variant={"h1"}
           component="h1"
-          color={"info.dark"}
+          color={blue[50]}
           textAlign={"center"}
           gutterBottom
           sx={{
             mt: { xs: 5, md: 10 },
+            bgcolor: "info.dark",
+            py: 5,
+            clipPath: `polygon(0 10%, 100% 0, 100% 90%, 0% 100%)`,
+            borderRadius: 4,
           }}
         >
           {pageData.header}
