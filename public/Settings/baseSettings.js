@@ -159,27 +159,27 @@ const iconFontSize = "large";
 
 export const listOfServicesData = [
   {
-    heading: `Landing Page`,
+    heading: `Landing Page Design and Development`,
     description: `We'll develop and design a professional and modern landing page to generate leads for your business. We'll collect user information such as email to increase your email list.`,
     icon: <FlightLand fontSize={iconFontSize} />,
   },
   {
-    heading: `Sales Funnel Page`,
+    heading: `Sales Funnel Page Design and Development`,
     description: `Do you need a high converting sales funnel page? Well, we are here to help! We can develop and design a website that will boost the sales of your product or online educational course. We'll develop up to three different sales funnels to test which does the best and go from there!`,
     icon: <Sell fontSize={iconFontSize} />,
   },
   {
-    heading: `Complete Custom Web Page`,
+    heading: `Complete Web Development`,
     description: `Premium service. Do you want a complete website with multiple pages for your business? This offer is for you! This service is an all in one package, including all of our other services. Includes numerous pages, utilizing an API to display data, and full stack web development with a backend database.`,
     icon: <Cottage fontSize={iconFontSize} />,
   },
   {
-    heading: `Web page built on CMS`,
+    heading: `CMS Development Services`,
     description: `We can work with Content Management Systems (CMS) software to develop your website. We can use tools such as Elementor to customize your WordPress website. Other CMS software includes, but not limited to, Wix, Shopify, and Google Sites. Perfect for bloggers!`,
     icon: <PrecisionManufacturing fontSize={iconFontSize} />,
   },
   {
-    heading: `Web page using API and Backend`,
+    heading: `Front & Back-End Development`,
     description: `We can work with Content Management Systems (CMS) software to develop your website. We'll use tools such as Elementor to customize your WordPress website. Other CMS software includes, but is not limited to, Wix, Shopify, and Google Sites. Perfect for bloggers!`,
     icon: <DataThresholding fontSize={iconFontSize} />,
   },

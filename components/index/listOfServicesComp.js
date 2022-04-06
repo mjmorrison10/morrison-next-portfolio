@@ -53,7 +53,9 @@ function ListOfServicesComp() {
 
   console.log(arr);
 
-  const [hoverState, setHoverState] = React.useState(listOfServicesData.length + 10)
+  const [hoverState, setHoverState] = React.useState(
+    listOfServicesData.length + 10
+  );
 
   return (
     <InView threshold={0.25} triggerOnce={true}>
@@ -72,14 +74,14 @@ function ListOfServicesComp() {
               placement="top"
               arrow={true}
               onOpen={() => {
-                setHoverState(i)
+                setHoverState(i);
                 // console.log(data.isHover);
-                console.log("open",listOfServicesData)
+                console.log("open", listOfServicesData);
               }}
               onClose={() => {
                 // data.isHover = false
-                setHoverState(listOfServicesData.length + 10)
-                console.log("close",listOfServicesData)
+                setHoverState(listOfServicesData.length + 10);
+                console.log("close", listOfServicesData);
                 // console.log(data.isHover);
               }}
               sx={{
@@ -92,28 +94,35 @@ function ListOfServicesComp() {
                 // onMouseLeave={handleHoverStatusLeave}
                 id={i}
                 sx={{
-                  transition: '2500ms all ease',
-                  backgroundColor: hoverState != i ? "transparent" : 'info.dark',
+                  transition: "2500ms all ease",
+                  backgroundColor:
+                    hoverState != i ? "transparent" : "info.dark",
                   boxShadow: "none",
                   // border: `1px solid`,
-                  border: hoverState != i ? "1px solid" : '2px solid',
+                  border: hoverState != i ? "1px solid" : "2px solid",
                   borderColor: hoverState != i ? blue[900] : blue[50],
                   // borderColor: fontColorWhileHover,
                   boxShadow: 1,
                   maxWidth: 200,
-                  minHeight: 200,
-                  color: hoverState != i ? "info.main" : 'infoRev.light',
+                  minHeight: 100,
+                  color: hoverState != i ? "info.main" : "infoRev.light",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
                   justifyContent: "center",
                   borderRadius: 2,
+                  overflow: "hidden",
                 }}
               >
                 <AccordionSummary
-                  expandIcon={<ExpandMore color={hoverState != i ? "info" : 'infoRev'} />}
+                  expandIcon={
+                    <ExpandMore color={hoverState != i ? "info" : "infoRev"} />
+                  }
                   aria-controls={`panel${i}a-content`}
                   // id={`panel${i}a-header`}
+                  sx={{
+                    minHeight: 100,
+                  }}
                 >
                   <Box
                     display={"flex"}
@@ -121,7 +130,9 @@ function ListOfServicesComp() {
                     alignItems={"center"}
                     width={"100%"}
                   >
-                    <Box color={hoverState != i ? "info.dark" : "infoRev.dark"}>{data.icon}</Box>
+                    <Box color={hoverState != i ? "info.dark" : "infoRev.dark"}>
+                      {data.icon}
+                    </Box>
                     <Typography
                       variant="accent"
                       component={"h3"}
@@ -142,7 +153,10 @@ function ListOfServicesComp() {
                   animate={"wave"}
                 />
                 <AccordionDetails>
-                  <Typography variant={"body2"} color={hoverState != i ? "text.primary" : "infoRev.light"}>
+                  <Typography
+                    variant={"body2"}
+                    color={hoverState != i ? "text.primary" : "infoRev.light"}
+                  >
                     {data.description}
                   </Typography>
                 </AccordionDetails>

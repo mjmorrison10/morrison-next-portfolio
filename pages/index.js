@@ -32,6 +32,7 @@ import { blue, blueGrey } from "@mui/material/colors";
 import InView, { useInView } from "react-intersection-observer";
 import ListOfServicesComp from "../components/index/listOfServicesComp";
 import ListOfDevelopmentServices from "../components/index/listOfDevelopmentServices";
+import PricingComp from "../components/PricingComp";
 
 export default function Home() {
   const matchesXs = useMediaQuery((theme) => theme.breakpoints.up("xs"));
@@ -212,7 +213,7 @@ export default function Home() {
           <Paper
             elevation={10}
             sx={{
-              minHeight: '50vh',
+              minHeight: "50vh",
               flex: 1,
               p: 1,
               m: 2,
@@ -428,6 +429,9 @@ export default function Home() {
       </Box>
 
       {/* <Skelebar /> */}
+
+      {/* Pricing Component */}
+      <PricingComp />
 
       {/* Testimonials */}
       <Box
