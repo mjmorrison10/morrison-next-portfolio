@@ -60,12 +60,12 @@ export const menuLabels = [
 // ],
 
 export const servicesWeOffer = [
-  "High-Converting Sales Funnel page",
-  "Lead Generation Landing Page",
-  "Complete Homepage Website for your Business",
+  "High-Converting Sales Funnel page for Fitness Influencers",
+  "Lead Generation Landing Page to Build your Fitness Email List",
+  "Complete Website for your Personal Coaching Services",
   "Content Management System",
-  "SEO Optimization",
-  "Alpha / Beta Testing and Debugging",
+  "SEO Optimization suited for Personal Trainers",
+  "Alpha / Beta Testing and Debugging software",
 ];
 
 export const companyName = "Morrison DevOps";

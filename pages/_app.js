@@ -85,6 +85,11 @@ const theme = createTheme({
       dark: lightGreen["A700"],
       contrastText: grey[900],
     },
+    infoRev: {
+      light: blue[50],
+      main: blue[100],
+      dark: blue[200],
+    },
   },
 });
 
@@ -188,29 +193,36 @@ function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
       <Box
+        sx={{
+          // backgroundColor: welcome ?
 
-      sx={{
+          //   blue[50]?
+          //   radial-gradient(circle, rgba(0,212,255,1) 0%, rgba(1,106,146,1) 90%, rgba(2,0,36,1) 100%)
 
-        // backgroundColor: welcome ? 
-          
-        //   blue[50]?
-        //   radial-gradient(circle, rgba(0,212,255,1) 0%, rgba(1,106,146,1) 90%, rgba(2,0,36,1) 100%)
-          
-        //   : grey[900]
-        // }}
-        background: welcome ? 
-          
-          // blue[50]?
-          `radial-gradient(circle, ${blue[50]} 0%, ${blue[200]} 66%, ${blue[900]} 100%)`
-          
-          : grey[900]
+          //   : grey[900]
+          // }}
+          // backgroundPosition: "50% -50%",
+          // // backgroundAttachment: 'fixed',
+          // backgroundRepeat: "no-repeat",
+          // backgroundImage: `url('/Images/royalBlueBanner.jpg')`,
+          // backgroundSize: "100%",
+
+          // // fixed, url('/Images/royalBlueBanner.jpg'), 50% -100%, no-repeat,
+          background: welcome
+            ? // blue[50]?
+              `radial-gradient(circle, ${blue[50]} 0%, ${blue[200]} 75%, ${blue[900]} 100%)`
+            : grey[900],
         }}
         minHeight={"100vh"}
-        // display={"flex"}
-        // flexDirection={"column"}
-        // Disable once website is finished
-        // justifyContent={welcome ? "flex-end" : "center"}
-        // alignItems={!welcome && "center"}
+        display={"flex"}
+        flexDirection={"column"}
+        Disable
+        once
+        website
+        is
+        finished
+        justifyContent={welcome ? "flex-end" : "center"}
+        alignItems={!welcome && "center"}
       >
         {!welcome && (
           <Box
@@ -246,7 +258,7 @@ function MyApp({ Component, pageProps }) {
             </Button>
 
             <Typography
-            component={'div'}
+              component={"div"}
               sx={{
                 fontFamily: "Share Tech Mono",
               }}
@@ -299,6 +311,7 @@ function MyApp({ Component, pageProps }) {
               transition: "all 5000ms ease",
             }}
           >
+           
             <Header />
             <Component {...pageProps} />
             <Fab

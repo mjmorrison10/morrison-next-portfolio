@@ -48,6 +48,20 @@ export default function Home() {
     // triggerOnce: true,
   });
 
+  const [triggerRequestFreeQuoteBtn, setTriggerRequestFreeQuoteBtn] =
+    React.useState(false);
+
+  const handleRequestFreeQuoteBtn = () => {
+    setTimeout(() => {
+      console.log("test");
+      setTriggerRequestFreeQuoteBtn(true);
+    }, 2000);
+  };
+
+  React.useEffect(() => {
+    handleRequestFreeQuoteBtn();
+  }, []);
+
   // const [inView, setInView] = React.useState(false);
 
   // const { ref, inView, entry } = useInView({
@@ -179,26 +193,29 @@ export default function Home() {
         <Box
           ref={ref}
           component={"main"}
-          minHeight={"50vh"}
+          minHeight={"100vh"}
           flex={1}
           display={"flex"}
-          flexDirection={"column"}
-          justifyContent={"center"}
+          justifyContent={"flex-start"}
           alignItems={"center"}
           gap={2}
           sx={{
+            flexDirection: { xs: "column", md: "row" },
             backgroundImage: `url("/Images/three-computers-coding-lg.jpg")`,
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundPosition: { xs: "center" },
-            pt: {xs: 10}
+            pt: { xs: 10 },
+            pb: { xs: 2, md: 0 },
           }}
         >
           <Paper
             elevation={10}
             sx={{
+              minHeight: '50vh',
+              flex: 1,
               p: 1,
-              mx: 2,
+              m: 2,
               backgroundColor: "rgba(245, 245, 255, 0.75)",
               display: "flex",
               flexDirection: "column",
@@ -222,6 +239,7 @@ export default function Home() {
               maxWidth={"30ch"}
               color={"info.main"}
               gutterBottom
+              fontSize={"1.5rem !important"}
             >
               We specialize in developing:
               <TypewriterComponent
@@ -237,7 +255,20 @@ export default function Home() {
               />
             </Typography>
           </Paper>
-          {getStartedBtn()}
+          <Box
+            flex={1}
+            display={"flex"}
+            alignItems={"center"}
+            justifyContent={"center"}
+          >
+            <Slide
+              direction="left"
+              in={triggerRequestFreeQuoteBtn}
+              mountOnEnter
+            >
+              {getStartedBtn("Request a Free Quote")}
+            </Slide>
+          </Box>
         </Box>
       </Hyphenated>
 
@@ -284,7 +315,8 @@ export default function Home() {
           <Box
             flex={1}
             display={"flex"}
-            flexDirection={"column"}
+            // flexDirection={"column"}
+            flexWrap={"wrap"}
             alignItems={(matchesMd && `flex-end`) || (matchesXs && "center")}
             justifyContent={"center"}
             width={"100%"}
