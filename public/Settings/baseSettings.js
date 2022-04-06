@@ -30,6 +30,7 @@ export const menuLabels = [
       "Why you should hire me",
       // "Frequently Asked Questions",
       "Testimonials",
+      "Pricing",
     ],
   },
   // {
