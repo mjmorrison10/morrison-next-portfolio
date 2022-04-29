@@ -60,14 +60,14 @@ export const menuLabels = [
 //   "https://mjmorrison10.wordpress.com/",
 // ],
 
-export const servicesWeOffer = [
-  "High-Converting Sales Funnel page for Fitness Influencers",
-  "Lead Generation Landing Page to Build your Fitness Email List",
-  "Complete Website for your Personal Coaching Services",
-  "Content Management System",
-  "SEO Optimization suited for Personal Trainers",
-  "Alpha / Beta Testing and Debugging software",
-];
+// export const servicesWeOffer = [
+//   "High-Converting Sales Funnel page for Fitness Influencers",
+//   "Lead Generation Landing Page to Build your Fitness Email List",
+//   "Complete Website for your Personal Coaching Services",
+//   "Content Management System",
+//   "SEO Optimization suited for Personal Trainers",
+//   "Alpha / Beta Testing and Debugging software",
+// ];
 
 export const companyName = "Morrison DevOps";
 export const companyFullName = "Morrison Developer Operations";
@@ -86,7 +86,7 @@ export const getStartedBtn = (label = "Get Started Now") => {
   return (
     <Button
       variant="contained"
-      color="secondary"
+      color="customSecondary"
       startIcon={<PriorityHighOutlined />}
       href="https://docs.google.com/forms/d/e/1FAIpQLSdQaPXLg0daDpEd3QO88JRBJcrquMVQm-G4PIqcd1ehhPj6Bg/viewform?usp=sf_link"
     >

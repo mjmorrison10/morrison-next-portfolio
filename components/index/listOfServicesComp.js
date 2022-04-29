@@ -18,33 +18,6 @@ import {
 import Skelebar from "../SkeleBar";
 
 function ListOfServicesComp() {
-  const { ref, inView, entry } = useInView({
-    /* Optional options */
-    // threshold: 0.25,
-    // triggerOnce: true,
-  });
-
-  // const [hoverStatus, setHoverStatus] = React.useState(listOfServicesData.length + 10);
-
-  // const handleHoverStatusEnter = (e) => {
-  //   setHoverStatus(e.target.id)
-  //   // setHoverStatus(!hoverStatus);
-  // };
-
-  // const handleHoverStatusLeave = (e) => {
-  //   setHoverStatus(listOfServicesData.length + 10)
-  //   // setHoverStatus(!hoverStatus);
-  // };
-
-  // const hoverBorderColor =
-  const initialArr = [
-    [1, 2, 3, 3, 4, 5, 6, 7, 8, 9],
-    [1, 2, 3, 3, 4, 5, 6, 7, 8, 9],
-    [1, 2, 3, 3, 4, 5, 6, 7, 8, 9],
-    [1, 2, 3, 3, 4, 5, 6, 7, 8, 9],
-    [1, 2, 3, 3, 4, 5, 6, 7, 8, 9],
-  ];
-
   listOfServicesData.map((e) => {
     e.isHover = false;
   });
@@ -57,116 +30,159 @@ function ListOfServicesComp() {
     listOfServicesData.length + 10
   );
 
-  return (
-    <InView threshold={0.25} triggerOnce={true}>
-      {({ inView, ref, entry }) =>
-        listOfServicesData.map((data, i) => (
-          <Grow
-            ref={ref}
-            in={inView}
-            key={i}
-            id={i}
-            style={{ transformOrigin: "0 0 0" }}
-            {...(inView ? { timeout: 1000 * i } : {})}
+  const styles = {
+    grow: { transformOrigin: "0 0 0" },
+    tooltip: {
+      // height: "1px",
+      // width: "1px",
+    },
+    accordion(i) {
+      if (i === "icon")
+        return {
+          color: "customPrimary.main",
+          bgcolor: "customPrimaryReversed.light",
+          borderRadius: "50%",
+          ml: 1,
+          transition: "all 250ms ease",
+          "&:hover": {
+            // bgcolor: "customPrimary.dark",
+            // border: `2px solid`,
+            bgcolor: "customPrimary.dark",
+            color: "customPrimaryReversed.light",
+          },
+        };
+
+      return {
+        // backgroundColor: hoverState != i ? "transparent" : "info.dark",
+        bgcolor: "transparent",
+        boxShadow: "none",
+        border: `2px solid`,
+        // border: hoverState != i ? "2px solid" : "2px solid",
+        // borderColor: hoverState != i ? blue[900] : blue[50],
+        // borderColor: fontColorWhileHover,
+        boxShadow: 1,
+        maxWidth: { xs: "90%", md: 200, lg: 300 },
+        minHeight: 150,
+        // color: hoverState != i ? "info.main" : "infoRev.light",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        borderRadius: 2,
+        overflow: "hidden",
+
+        color: "customPrimary.main",
+        "&:hover": {
+          bgcolor: "customPrimary.dark",
+          border: `2px solid`,
+          color: "customPrimaryReversed.light",
+        },
+      };
+    },
+    icon: {
+      // color: "customPrimary.dark",
+      // "&:hover": {
+      //   color: "customPrimaryReversed.light",
+      // },
+    },
+    AccordionSummary: {
+      minHeight: 100,
+    },
+    header: {
+      display: "flex",
+      gap: 1,
+      alignItems: "center",
+      width: "100%",
+    },
+    h3: {
+      variant: "accent",
+      component: "h3",
+      // color: "info.main",
+      textAlign: "center",
+      alignSelf: "center",
+      width: "100%",
+    },
+    skelebar: {
+      clr: "customPrimaryReversed.main",
+      h: 2,
+      w: "95%",
+      my: 0,
+      animate: "wave",
+    },
+    description: {
+      variant: "body2",
+      // color: "text.primary",
+      // "&:hover": {
+      //   color: "customPrimaryReversed.light",
+      // },
+    },
+  };
+
+  return listOfServicesData.map((data, i) => (
+    <Grow
+      // ref={ref}
+      // in={inView}
+      in={true}
+      key={i}
+      id={i}
+      style={styles.grow}
+      // {...(inView ? { timeout: 1000 * i } : {})}
+    >
+      <Tooltip
+        title={data.heading}
+        placement="top"
+        arrow={true}
+        onOpen={() => {
+          setHoverState(i);
+        }}
+        onClose={() => {
+          setHoverState(listOfServicesData.length + 10);
+        }}
+        sx={styles.tooltip}
+      >
+        <Accordion id={i} sx={styles.accordion(i)}>
+          <AccordionSummary
+            expandIcon={<ExpandMore sx={styles.accordion("icon")} />}
+            aria-controls={`panel${i}a-content`}
+            // id={`panel${i}a-header`}
+            sx={styles.accordionSummary}
           >
-            <Tooltip
-              title={data.heading}
-              placement="top"
-              arrow={true}
-              onOpen={() => {
-                setHoverState(i);
-                // console.log(data.isHover);
-                console.log("open", listOfServicesData);
-              }}
-              onClose={() => {
-                // data.isHover = false
-                setHoverState(listOfServicesData.length + 10);
-                console.log("close", listOfServicesData);
-                // console.log(data.isHover);
-              }}
-              sx={{
-                height: "1px",
-                width: "1px",
-              }}
-            >
-              <Accordion
-                // onMouseEnter={handleHoverStatusEnter}
-                // onMouseLeave={handleHoverStatusLeave}
-                id={i}
-                sx={{
-                  transition: "2500ms all ease",
-                  backgroundColor:
-                    hoverState != i ? "transparent" : "info.dark",
-                  boxShadow: "none",
-                  // border: `1px solid`,
-                  border: hoverState != i ? "1px solid" : "2px solid",
-                  borderColor: hoverState != i ? blue[900] : blue[50],
-                  // borderColor: fontColorWhileHover,
-                  boxShadow: 1,
-                  maxWidth: 200,
-                  minHeight: 100,
-                  color: hoverState != i ? "info.main" : "infoRev.light",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  borderRadius: 2,
-                  overflow: "hidden",
-                }}
+            <Box sx={styles.header}>
+              <Box sx={styles.icon}>{data.icon}</Box>
+              <Typography
+                variant={styles.h3.variant}
+                component={styles.h3.component}
+                sx={styles.h3}
               >
-                <AccordionSummary
-                  expandIcon={
-                    <ExpandMore color={hoverState != i ? "info" : "infoRev"} />
-                  }
-                  aria-controls={`panel${i}a-content`}
-                  // id={`panel${i}a-header`}
-                  sx={{
-                    minHeight: 100,
-                  }}
-                >
-                  <Box
-                    display={"flex"}
-                    gap={1}
-                    alignItems={"center"}
-                    width={"100%"}
-                  >
-                    <Box color={hoverState != i ? "info.dark" : "infoRev.dark"}>
-                      {data.icon}
-                    </Box>
-                    <Typography
-                      variant="accent"
-                      component={"h3"}
-                      // color={"info.main"}
-                      textAlign={"center"}
-                      alignSelf={"center"}
-                      width={"100%"}
-                    >
-                      {data.heading}
-                    </Typography>
-                  </Box>
-                </AccordionSummary>
-                <Skelebar
-                  clr={randomColorWithAccent}
-                  h={2}
-                  w={"95%"}
-                  my={0}
-                  animate={"wave"}
-                />
-                <AccordionDetails>
-                  <Typography
-                    variant={"body2"}
-                    color={hoverState != i ? "text.primary" : "infoRev.light"}
-                  >
-                    {data.description}
-                  </Typography>
-                </AccordionDetails>
-              </Accordion>
-            </Tooltip>
-          </Grow>
-        ))
-      }
-    </InView>
-  );
+                {data.heading}
+              </Typography>
+            </Box>
+          </AccordionSummary>
+
+          <Skelebar
+            clr={styles.skelebar.clr}
+            h={styles.skelebar.h}
+            w={styles.skelebar.w}
+            my={styles.skelebar.my}
+            animate={styles.skelebar.animate}
+          />
+
+          <AccordionDetails>
+            <Typography
+              variant={styles.description.variant}
+              sx={styles.description}
+            >
+              {data.description}
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+      </Tooltip>
+    </Grow>
+  ));
 }
 
+// // <InView threshold={0.25} triggerOnce={true}>
+//   {/* {({ inView, ref, entry }) => */}
+//   // }
+// {/* </InView> */}
 export default ListOfServicesComp;

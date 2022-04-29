@@ -4,7 +4,7 @@ import React from "react";
 
 function Skelebar({
   animate = "pulse",
-  clr = "secondary.light",
+  clr = "customAccent.main",
   h = 8,
   w = "95%",
   my = 2,

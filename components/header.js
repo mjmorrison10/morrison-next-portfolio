@@ -9,7 +9,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Slide from "@mui/material/Slide";
 import capWords from "../components/capWords";
-import { Button, ButtonGroup, Modal } from "@mui/material";
+import { Button, ButtonGroup, Fade, Modal } from "@mui/material";
 import { grey } from "@mui/material/colors";
 import { Close, Menu, PhoneCallback } from "@mui/icons-material";
 import SplitButton from "./splitButton";
@@ -24,6 +24,7 @@ import {
 } from "../public/Settings/baseSettings";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Logo from "./logo";
+import MorrisonDevOpsIcon from "./icons/MorrisonDevOpsIcon";
 
 function HideOnScroll(props) {
   const { children, window } = props;
@@ -52,24 +53,24 @@ HideOnScroll.propTypes = {
 
 const objButton = menuLabels;
 
-const style = {
-  position: "absolute",
-  top: "5vh",
-  left: "5vw",
-  width: "90vw",
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "flex-end",
-  gap: 1,
-  overflow: "scroll",
+// const style = {
+//   position: "absolute",
+//   top: "5vh",
+//   left: "5vw",
+//   width: "90vw",
+//   display: "flex",
+//   flexDirection: "column",
+//   alignItems: "flex-end",
+//   gap: 1,
+//   overflow: "scroll",
 
-  // transform: "translate(-50%, -50%)",
-  // width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
+//   // transform: "translate(-50%, -50%)",
+//   // width: 400,
+//   bgcolor: "background.paper",
+//   border: "2px solid #000",
+//   boxShadow: 24,
+//   p: 4,
+// };
 
 // objButton.map((btn) => {
 //   console.log(btn.menuTitle);
@@ -93,54 +94,100 @@ function Header(props) {
     !open ? setOpen(true) : setOpen(false);
   };
 
+  const content = {
+    iconColor: "hsl(239, 85%, 95%)",
+  };
+
+  const styles = {
+    appBar: {
+      backgroundColor: "customAccent.main",
+      borderRadius: "0 0 5% 25%",
+      pb: 2,
+    },
+    toolbar: {
+      display: "flex",
+      justifyContent: "space-between",
+      gap: 2,
+    },
+    businessContainer: {
+      display: "flex",
+      gap: 1,
+      alignItems: "center",
+      cursor: "pointer",
+    },
+    businessNameContainer: {
+      minWidth: "fit-content",
+      display: "flex",
+      flexDirection: "column",
+    },
+    companyNameTypo: {
+      variant: "primary",
+      component: "div",
+
+      minWidth: "fit-content",
+      color: "customAccentReversed.light",
+      letterSpacing: 2,
+      lineHeight: 0.5,
+    },
+    companyOwnerTypo: {
+      variant: "body2",
+
+      minWidth: "fit-content",
+      color: "customAccentReversed.light",
+      fontWeight: "bold",
+      letterSpacing: 1,
+    },
+    modalIcon: {
+      display: { xs: "block", md: "none" },
+      color: "customAccentReversed.light",
+    },
+    modal: {
+      overflow: "scroll",
+    },
+    modalBox: {
+      backgroundColor: "customAccent.main",
+      position: "absolute",
+      top: "5vh",
+      left: "5vw",
+      width: "90vw",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "flex-end",
+      gap: 1,
+      overflow: "scroll",
+      border: `2px solid hsl(209, 85%, 95%)`,
+      px: 4,
+      py: 2,
+    },
+  };
+
   return (
     <React.Fragment>
       <CssBaseline />
       <HideOnScroll {...props}>
-        <AppBar
-          sx={{
-            backgroundColor: "primary.light",
-            borderRadius: "0 0 5% 25%",
-            pb: 2,
-          }}
-        >
-          <Toolbar
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              gap: 2,
-            }}
-          >
+        <AppBar sx={styles.appBar}>
+          <Toolbar sx={styles.toolbar}>
             <Link href="/" passHref>
-              <Box
-                display={"flex"}
-                gap={1}
-                alignItems={"center"}
-                sx={{
-                  cursor: "pointer",
-                }}
-              >
-                <Logo size={75} />
+              <Box sx={styles.businessContainer}>
+                {/* <Logo size={75} /> */}
+                <MorrisonDevOpsIcon
+                  color={content.iconColor}
+                  height={60}
+                  width={60}
+                  marginTop={"3px"}
+                />
 
-                <Box
-                  minWidth={"fit-content"}
-                  display={"flex"}
-                  flexDirection={"column"}
-                >
+                <Box sx={styles.businessNameContainer}>
                   <Typography
-                    variant="primary"
-                    component="div"
-                    sx={{
-                      minWidth: "fit-content",
-                    }}
+                    variant={styles.companyNameTypo.variant}
+                    component={styles.companyNameTypo.component}
+                    sx={styles.companyNameTypo}
                   >
                     {companyName}
                   </Typography>
                   <Typography
-                    variant="caption"
-                    sx={{
-                      minWidth: "fit-content",
-                    }}
+                    variant={styles.companyOwnerTypo.variant}
+                    sx={styles.companyOwnerTypo}
                   >
                     {companyOwner}
                   </Typography>
@@ -154,9 +201,9 @@ function Header(props) {
               }}
             >
               {!open ? (
-                <Menu sx={{ display: { xs: "block", md: "none" } }} />
+                <Menu sx={styles.modalIcon} />
               ) : (
-                <Close sx={{ display: { xs: "block", md: "none" } }} />
+                <Close sx={styles.modalIcon} />
               )}
             </Box>
 
@@ -165,60 +212,61 @@ function Header(props) {
               onClose={activateModal}
               aria-labelledby="Navbar"
               aria-describedby="Navigation bar"
-              sx={{
-                overflow: "scroll",
-              }}
+              sx={styles.modal}
             >
-              <Box sx={style}>
-                <Close
-                  onClick={() => {
-                    activateModal();
-                  }}
-                />
-                <ButtonGroup
-                  sx={{
-                    gap: 2,
-                    flexDirection: "column",
-                    width: "100%",
-                  }}
-                >
-                  {getStartedBtn()}
-                  {objButton.map((btn, i) => (
-                    <SplitButton
-                      // onClick={() => {
-                      //   activateModal();
-                      // }}
-                      isModalOpen={open}
-                      modal={activateModal}
-                      variant={`contained`}
-                      inactiveColor={"info"}
-                      activeColor={"secondary"}
-                      // btnColor={btnColor}
-                      // setBtnColor={setBtnColor}
-                      key={i}
-                      title={`${btn.title}`}
-                      menuOptions={btn.menuTitle.sort()}
-                      sx={{
-                        width: "100%",
-                      }}
-                    ></SplitButton>
-                  ))}
-
-                  {/* <Link href="/apply" passHref> */}
-                  <Button
+              <Fade in={open}>
+                <Box sx={styles.modalBox}>
+                  <Close
                     onClick={() => {
                       activateModal();
                     }}
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSdQaPXLg0daDpEd3QO88JRBJcrquMVQm-G4PIqcd1ehhPj6Bg/viewform?usp=sf_link"
-                    endIcon={<PhoneCallback />}
-                    variant="contained"
-                    color="primary"
+                  />
+                  <ButtonGroup
+                    sx={{
+                      gap: 2,
+                      flexDirection: "column",
+                      width: "100%",
+                    }}
                   >
-                    Free Consultation
-                  </Button>
-                  {/* </Link> */}
-                </ButtonGroup>
-              </Box>
+                    {getStartedBtn()}
+
+                    {objButton.map((btn, i) => (
+                      <SplitButton
+                        // onClick={() => {
+                        //   activateModal();
+                        // }}
+                        isModalOpen={open}
+                        modal={activateModal}
+                        variant={`contained`}
+                        inactiveColor={"customPrimary"}
+                        activeColor={"customSecondary"}
+                        // btnColor={btnColor}
+                        // setBtnColor={setBtnColor}
+                        key={i}
+                        title={`${btn.title}`}
+                        menuOptions={btn.menuTitle.sort()}
+                        sx={{
+                          width: "100%",
+                        }}
+                      ></SplitButton>
+                    ))}
+
+                    {/* <Link href="/apply" passHref> */}
+                    <Button
+                      onClick={() => {
+                        activateModal();
+                      }}
+                      href="https://docs.google.com/forms/d/e/1FAIpQLSdQaPXLg0daDpEd3QO88JRBJcrquMVQm-G4PIqcd1ehhPj6Bg/viewform?usp=sf_link"
+                      endIcon={<PhoneCallback />}
+                      variant="contained"
+                      color="primary"
+                    >
+                      Free Consultation
+                    </Button>
+                    {/* </Link> */}
+                  </ButtonGroup>
+                </Box>
+              </Fade>
             </Modal>
 
             <ButtonGroup
@@ -236,8 +284,8 @@ function Header(props) {
               {objButton.map((btn, i) => (
                 <SplitButton
                   variant={`contained`}
-                  inactiveColor={"info"}
-                  activeColor={"secondary"}
+                  inactiveColor={"customPrimary"}
+                  activeColor={"customSecondary"}
                   // btnColor={btnColor}
                   // setBtnColor={setBtnColor}
                   key={i}

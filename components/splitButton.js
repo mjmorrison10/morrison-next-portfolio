@@ -79,6 +79,14 @@ export default function SplitButton(props) {
     setOpen(false);
   };
 
+  const styles = {
+    paper: {
+      bgcolor: 'customAccent.main',
+      color: 'customAccentReversed.main',
+      boxShadow: `0rem 0rem 0.5rem 0.125rem hsl(209, 85%, 95%)`
+    }
+  }
+
   return (
     <React.Fragment>
       {/* <Link
@@ -119,7 +127,7 @@ export default function SplitButton(props) {
                 placement === "bottom" ? "center top" : "center bottom",
             }}
           >
-            <Paper>
+            <Paper sx={styles.paper}>
               <ClickAwayListener onClickAway={handleClose}>
                 <MenuList id="split-button-menu">
                   {props.menuOptions.map((option, index) => (
