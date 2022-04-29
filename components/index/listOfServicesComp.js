@@ -36,25 +36,29 @@ function ListOfServicesComp() {
       // height: "1px",
       // width: "1px",
     },
-    accordion(i) {
-      if (i === "icon")
+    accordion(sec, i) {
+      if (sec === "icon")
         return {
-          color: "customPrimary.main",
-          bgcolor: "customPrimaryReversed.light",
+          color:
+            hoverState !== i
+              ? "customPrimary.main"
+              : "customPrimaryReversed.light",
+          // color: "customPrimary.main",
+          // bgcolor: "customPrimaryReversed.light",
           borderRadius: "50%",
-          ml: 1,
+          // ml: 1,
           transition: "all 250ms ease",
-          "&:hover": {
-            // bgcolor: "customPrimary.dark",
-            // border: `2px solid`,
-            bgcolor: "customPrimary.dark",
-            color: "customPrimaryReversed.light",
-          },
+          // "&:hover": {
+          // bgcolor: "customPrimary.dark",
+          // border: `2px solid`,
+          // bgcolor: "customPrimary.dark",
+          // color: "customPrimaryReversed.light",
+          // },
         };
 
       return {
         // backgroundColor: hoverState != i ? "transparent" : "info.dark",
-        bgcolor: "transparent",
+        bgcolor: hoverState !== i ? "transparent" : "customPrimary.dark",
         boxShadow: "none",
         border: `2px solid`,
         // border: hoverState != i ? "2px solid" : "2px solid",
@@ -71,19 +75,19 @@ function ListOfServicesComp() {
         borderRadius: 2,
         overflow: "hidden",
 
-        color: "customPrimary.main",
-        "&:hover": {
-          bgcolor: "customPrimary.dark",
-          border: `2px solid`,
-          color: "customPrimaryReversed.light",
-        },
+        color:
+          hoverState === i
+            ? "customPrimaryReversed.light"
+            : "customPrimary.main",
+
+        // color: "customPrimary.main",
+        // color: "customPrimaryReversed.light",
+        // "&:hover": {
+        //   bgcolor: "customPrimary.dark",
+        //   border: `2px solid`,
+        //   color: "customPrimaryReversed.light",
+        // },
       };
-    },
-    icon: {
-      // color: "customPrimary.dark",
-      // "&:hover": {
-      //   color: "customPrimaryReversed.light",
-      // },
     },
     AccordionSummary: {
       minHeight: 100,
@@ -101,22 +105,35 @@ function ListOfServicesComp() {
       textAlign: "center",
       alignSelf: "center",
       width: "100%",
+      mr: 1,
     },
     skelebar: {
-      clr: "customPrimaryReversed.main",
+      clr(i) {
+        return hoverState == i
+          ? "customPrimaryReversed.main"
+          : "customPrimary.main";
+      },
       h: 2,
       w: "95%",
       my: 0,
       animate: "wave",
     },
-    description: {
-      variant: "body2",
+    description(i) {
+      return {
+        variant: "body2",
+        color:
+          hoverState === i
+            ? "customPrimaryReversed.light"
+            : "customPrimary.main",
+      };
       // color: "text.primary",
       // "&:hover": {
       //   color: "customPrimaryReversed.light",
       // },
     },
   };
+
+  console.log("-->", styles.description.color);
 
   return listOfServicesData.map((data, i) => (
     <Grow
@@ -140,9 +157,9 @@ function ListOfServicesComp() {
         }}
         sx={styles.tooltip}
       >
-        <Accordion id={i} sx={styles.accordion(i)}>
+        <Accordion id={i} sx={styles.accordion("", i)}>
           <AccordionSummary
-            expandIcon={<ExpandMore sx={styles.accordion("icon")} />}
+            expandIcon={<ExpandMore sx={styles.accordion("icon", i)} />}
             aria-controls={`panel${i}a-content`}
             // id={`panel${i}a-header`}
             sx={styles.accordionSummary}
@@ -160,7 +177,7 @@ function ListOfServicesComp() {
           </AccordionSummary>
 
           <Skelebar
-            clr={styles.skelebar.clr}
+            clr={styles.skelebar.clr(i)}
             h={styles.skelebar.h}
             w={styles.skelebar.w}
             my={styles.skelebar.my}
@@ -170,7 +187,7 @@ function ListOfServicesComp() {
           <AccordionDetails>
             <Typography
               variant={styles.description.variant}
-              sx={styles.description}
+              sx={styles.description(i)}
             >
               {data.description}
             </Typography>

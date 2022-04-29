@@ -28,5 +28,13 @@ a {
 }
 
 .fewiaofewjfa {
+  /* primary */
+  color: hsl(239, 85%, 46%);
+  color: #1215d9;
+  /* second */
   color: hsl(59, 85%, 46%);
+  color: #d9d612;
+  /* accent */
+  color: hsl(209, 85%, 46%);
+  color: #1279d9;
 }
