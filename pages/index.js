@@ -33,6 +33,20 @@ export default function Home() {
   //   },
   // ];
 
+  const content = {
+    head: {
+      title: `Michael Morrison's Portfolio`,
+      meta: {
+        name: `Michael is a web developer, educator, and sales funnel expert. He enjoys improving the world around him by developing websites for small businesses and helping individuals become developers. Michael's passion lies in mentoring beginner developers on how to build their first landing page. He is proficient in HTML, CSS, and JavaScript. He is currently learning React, MongoDB, Express, and Node. Michael is also interested in copywriting to improve his website's conversion rate.`,
+        content: `Welcome to my portfolio website! I'm a self-taught front-end web developer from Southern California, USA. My website will showcase my skills, what I do for fun, and who I am, and why you should utilize my services!`,
+      },
+      gsc: {
+        name: `google-site-verification`,
+        content: `31rvHCdQdbozwIYBR33907PYcg0NeZXwek44wcOxDow`,
+      }
+    }
+  }
+
   const containerStyles = {
     component: "main",
     display: 'flex',
@@ -46,16 +60,16 @@ export default function Home() {
   return (
     <Box sx={containerStyles} component={containerStyles.component}>
       <Head>
-        <title>Michael Morrison's Portfolio</title>
+        <title>{content.head.title}</title>
 
         <meta
-          name="Michael is a web developer, educator, and sales funnel expert. He enjoys improving the world around him by developing websites for small businesses and helping individuals become developers. Michael's passion lies in mentoring beginner developers on how to build their first landing page. He is proficient in HTML, CSS, and JavaScript. He is currently learning React, MongoDB, Express, and Node. Michael is also interested in copywriting to improve his website's conversion rate."
-          content="Welcome to my portfolio website! I'm a self-taught front-end web developer from Southern California, USA. My website will showcase my skills, what I do for fun, and who I am, and why you should utilize my services!"
+          name={content.head.meta.name}
+          content={content.head.meta.name}
         />
 
         <meta
-          name="google-site-verification"
-          content="31rvHCdQdbozwIYBR33907PYcg0NeZXwek44wcOxDow"
+          name={content.head.gsc.name}
+          content={content.head.gsc.content}
         />
 
         <link rel="icon" href="/Images/morrisonDevOpsLogo.png" />

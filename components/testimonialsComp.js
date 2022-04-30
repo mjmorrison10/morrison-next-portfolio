@@ -74,7 +74,7 @@ export default function TestimonialsComp(props) {
     // console.log(expandedPanel);
   };
 
-  React.useEffect(() => !expanded && setExpandedPanel(""));
+  React.useEffect(() => !expanded && setExpandedPanel(""), [expanded]);
 
   const [displayText, setDisplayText] = React.useState(false);
   const [specificCardToDisplay, setSpecificCardToDisplay] =
