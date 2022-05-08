@@ -161,7 +161,13 @@ const iconFontSize = "large";
 export const listOfServicesData = [
   {
     heading: `Landing Page Design and Development`,
-    description: `We'll develop and design a professional and modern landing page to generate leads for your business. We'll collect user information such as email to increase your email list.`,
+    description: [
+      `Ready to make a better first impression? A great landing page can increase your conversion rate by 380%.`,
+      `We've helped other businesses increase their conversions. Why not you?`,
+      `Dozens of templates and colors to choose from or a custom design to suit your needs. You'll be on the forefront of your industry with a high converting website`,
+      `Give us a call, or contact us today!`,
+    ],
+    // description: `We'll develop and design a professional and modern landing page to generate leads for your business. We'll collect user information such as email to increase your email list.`,
     icon: <FlightLand fontSize={iconFontSize} />,
   },
   {
@@ -169,6 +175,12 @@ export const listOfServicesData = [
     description: `Do you need a high converting sales funnel page? Well, we are here to help! We can develop and design a website that will boost the sales of your product or online educational course. We'll develop up to three different sales funnels to test which does the best and go from there!`,
     icon: <Sell fontSize={iconFontSize} />,
   },
+  // {
+  //   heading: `Sales Funnel Page Design and Development`,
+
+  //   description: `Do you need a high converting sales funnel page? Well, we are here to help! We can develop and design a website that will boost the sales of your product or online educational course. We'll develop up to three different sales funnels to test which does the best and go from there!`,
+  //   icon: <Sell fontSize={iconFontSize} />,
+  // },
   {
     heading: `Complete Web Development`,
     description: `Premium service. Do you want a complete website with multiple pages for your business? This offer is for you! This service is an all in one package, including all of our other services. Includes numerous pages, utilizing an API to display data, and full stack web development with a backend database.`,

@@ -1,5 +1,5 @@
 import { MiscellaneousServices } from "@mui/icons-material";
-import { Box, Typography, useMediaQuery } from "@mui/material";
+import { Box, Container, Typography, useMediaQuery } from "@mui/material";
 import React from "react";
 import { getStartedBtn } from "../../public/Settings/baseSettings";
 import ListOfServicesComp from "../index/listOfServicesComp";
@@ -18,12 +18,20 @@ function Services() {
   const styles = {
     container: {
       position: "relative",
+      minHeight: "100vh",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
     },
     h2: {
       variant: "h2",
-      color: "info.main",
+      color: "customPrimary.main",
       fontSize: "1rem !important",
       textDecoration: "underline",
+      textUnderlineOffset: 3,
+      textDecorationThickness: 2,
+      fontWeight: "bolder",
       position: { xs: null, md: "absolute" },
       left: "10%",
       top: "0%",
@@ -44,7 +52,7 @@ function Services() {
       // flexDirection: (matchesMd && `row`) || (matchesXs && "column"),
     },
     image: {
-      flex: 1,
+      flex: 0.75,
       minHeight: 300,
       // background: `url('/Images/websiteOnMobileAndDesktopWithBackgroundRemoved.png') no-repeat contain`,
       backgroundSize: `contain`,
@@ -53,7 +61,7 @@ function Services() {
       backgroundImage: `url('/Images/websiteOnMobileAndDesktopWithBackgroundRemoved.png')`,
     },
     service: {
-      flex: 1,
+      flex: 1.25,
       display: "flex",
       // flexDirection:"column",
       flexWrap: "wrap",
@@ -61,6 +69,7 @@ function Services() {
       justifyContent: "center",
       width: "100%",
       gap: 1,
+      // bgcolor: 'blue',
     },
     getStarted: {
       display: "flex",
@@ -71,7 +80,7 @@ function Services() {
   };
 
   return (
-    <Box sx={styles.container}>
+    <Container maxWidth="xl" sx={styles.container}>
       <Typography
         variant={styles.h2.variant}
         color={styles.h2.color}
@@ -91,7 +100,7 @@ function Services() {
         </Box>
       </Box>
       <Box sx={styles.getStarted}>{getStartedBtn()}</Box>
-    </Box>
+    </Container>
   );
 }
 

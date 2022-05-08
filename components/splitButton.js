@@ -82,7 +82,7 @@ export default function SplitButton(props) {
   const styles = {
     paper: {
       bgcolor: 'customAccent.main',
-      color: 'customAccentReversed.main',
+      color: 'customAccent.contrastText',
       boxShadow: `0rem 0rem 0.5rem 0.125rem hsl(209, 85%, 95%)`
     }
   }

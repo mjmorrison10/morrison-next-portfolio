@@ -6,11 +6,8 @@ import Typography from "@mui/material/Typography";
 import CssBaseline from "@mui/material/CssBaseline";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
 import Slide from "@mui/material/Slide";
-import capWords from "../components/capWords";
 import { Button, ButtonGroup, Fade, Modal } from "@mui/material";
-import { grey } from "@mui/material/colors";
 import { Close, Menu, PhoneCallback } from "@mui/icons-material";
 import SplitButton from "./splitButton";
 import Link from "next/link";
@@ -20,10 +17,7 @@ import {
   companyPhoneNumber,
   getStartedBtn,
   menuLabels,
-  listOfServicesData,
 } from "../public/Settings/baseSettings";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import Logo from "./logo";
 import MorrisonDevOpsIcon from "./icons/MorrisonDevOpsIcon";
 
 function HideOnScroll(props) {
@@ -123,23 +117,21 @@ function Header(props) {
     companyNameTypo: {
       variant: "primary",
       component: "div",
-
       minWidth: "fit-content",
-      color: "customAccentReversed.light",
+      color: "customAccent.contrastText",
       letterSpacing: 2,
       lineHeight: 0.5,
     },
     companyOwnerTypo: {
       variant: "body2",
-
       minWidth: "fit-content",
-      color: "customAccentReversed.light",
+      color: "customAccent.contrastText",
       fontWeight: "bold",
       letterSpacing: 1,
     },
     modalIcon: {
       display: { xs: "block", md: "none" },
-      color: "customAccentReversed.light",
+      color: "customAccent.contrastText",
     },
     modal: {
       overflow: "scroll",
@@ -159,6 +151,21 @@ function Header(props) {
       px: 4,
       py: 2,
     },
+    buttonGroup: {
+      py: 1,
+      gap: 2,
+      display: { xs: "none", md: "inherit" },
+      flexWrap: "wrap",
+      justifyContent: "flex-end",
+      alignItems: "center",
+    },
+    btn: {},
+    companyBtn: {
+      px: 1,
+      py: 0.5,
+      borderRadius: "0 0 15% 15%",
+    },
+
   };
 
   return (
@@ -259,7 +266,7 @@ function Header(props) {
                       href="https://docs.google.com/forms/d/e/1FAIpQLSdQaPXLg0daDpEd3QO88JRBJcrquMVQm-G4PIqcd1ehhPj6Bg/viewform?usp=sf_link"
                       endIcon={<PhoneCallback />}
                       variant="contained"
-                      color="primary"
+                      color="customPrimary"
                     >
                       Free Consultation
                     </Button>
@@ -271,14 +278,7 @@ function Header(props) {
 
             <ButtonGroup
               spacing={2}
-              sx={{
-                py: 1,
-                gap: 2,
-                display: { xs: "none", md: "inherit" },
-                flexWrap: "wrap",
-                justifyContent: "flex-end",
-                alignItems: "center",
-              }}
+              sx={styles.buttonGroup}
             >
               {getStartedBtn()}
               {objButton.map((btn, i) => (
@@ -286,25 +286,19 @@ function Header(props) {
                   variant={`contained`}
                   inactiveColor={"customPrimary"}
                   activeColor={"customSecondary"}
-                  // btnColor={btnColor}
-                  // setBtnColor={setBtnColor}
                   key={i}
                   title={`${btn.title}`}
                   menuOptions={btn.menuTitle.sort()}
+                  sx={styles.btn}
                 ></SplitButton>
               ))}
 
-              {/* <Link > */}
               <Button
                 endIcon={<PhoneCallback />}
                 variant="contained"
-                color="primary"
+                color="customPrimary"
                 href="https://docs.google.com/forms/d/e/1FAIpQLSdQaPXLg0daDpEd3QO88JRBJcrquMVQm-G4PIqcd1ehhPj6Bg/viewform?usp=sf_link"
-                sx={{
-                  px: 1,
-                  py: 0.5,
-                  borderRadius: "0 0 15% 15%",
-                }}
+                sx={styles.companyBtn}
               >
                 <Box display={"flex"} flexDirection={"column"}>
                   <Box fontWeight={"bold"} mb={-0.5}>
@@ -313,7 +307,6 @@ function Header(props) {
                   <Box mt={-0.5}>{companyPhoneNumber}</Box>
                 </Box>
               </Button>
-              {/* </Link> */}
             </ButtonGroup>
           </Toolbar>
         </AppBar>

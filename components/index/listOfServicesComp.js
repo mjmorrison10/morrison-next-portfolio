@@ -1,20 +1,16 @@
-import { ExpandMore, Scale } from "@mui/icons-material";
+import { ExpandMore } from "@mui/icons-material";
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
   Box,
-  Grow,
   Tooltip,
   Typography,
 } from "@mui/material";
-import { blue } from "@mui/material/colors";
 import React from "react";
 import InView, { useInView } from "react-intersection-observer";
-import {
-  listOfServicesData,
-  randomColorWithAccent,
-} from "../../public/Settings/baseSettings";
+import { Fade, Slide } from "react-reveal";
+import { listOfServicesData } from "../../public/Settings/baseSettings";
 import Skelebar from "../SkeleBar";
 
 function ListOfServicesComp() {
@@ -24,14 +20,19 @@ function ListOfServicesComp() {
 
   const [arr, setArr] = React.useState(() => listOfServicesData);
 
-  console.log(arr);
+  // console.log(arr);
 
   const [hoverState, setHoverState] = React.useState(
     listOfServicesData.length + 10
   );
 
   const styles = {
-    grow: { transformOrigin: "0 0 0" },
+    mainContainer: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    grow: { transformOrigin: "0 0 0", direction: "left" },
     tooltip: {
       // height: "1px",
       // width: "1px",
@@ -42,9 +43,8 @@ function ListOfServicesComp() {
           color:
             hoverState !== i
               ? "customPrimary.main"
-              : "customPrimaryReversed.light",
+              : "customPrimary.contrastText",
           // color: "customPrimary.main",
-          // bgcolor: "customPrimaryReversed.light",
           borderRadius: "50%",
           // ml: 1,
           transition: "all 250ms ease",
@@ -52,7 +52,6 @@ function ListOfServicesComp() {
           // bgcolor: "customPrimary.dark",
           // border: `2px solid`,
           // bgcolor: "customPrimary.dark",
-          // color: "customPrimaryReversed.light",
           // },
         };
 
@@ -65,7 +64,8 @@ function ListOfServicesComp() {
         // borderColor: hoverState != i ? blue[900] : blue[50],
         // borderColor: fontColorWhileHover,
         boxShadow: 1,
-        maxWidth: { xs: "90%", md: 200, lg: 300 },
+        maxWidth: { xs: "100%", md: 250 },
+        mx: {xs: 0, sm: 8, md: 0},
         minHeight: 150,
         // color: hoverState != i ? "info.main" : "infoRev.light",
         display: "flex",
@@ -77,15 +77,13 @@ function ListOfServicesComp() {
 
         color:
           hoverState === i
-            ? "customPrimaryReversed.light"
+            ? "customPrimary.contrastText"
             : "customPrimary.main",
 
         // color: "customPrimary.main",
-        // color: "customPrimaryReversed.light",
         // "&:hover": {
         //   bgcolor: "customPrimary.dark",
         //   border: `2px solid`,
-        //   color: "customPrimaryReversed.light",
         // },
       };
     },
@@ -110,7 +108,7 @@ function ListOfServicesComp() {
     skelebar: {
       clr(i) {
         return hoverState == i
-          ? "customPrimaryReversed.main"
+          ? "customPrimary.contrastText"
           : "customPrimary.main";
       },
       h: 2,
@@ -123,28 +121,14 @@ function ListOfServicesComp() {
         variant: "body2",
         color:
           hoverState === i
-            ? "customPrimaryReversed.light"
+            ? "customPrimary.contrastText"
             : "customPrimary.main",
       };
-      // color: "text.primary",
-      // "&:hover": {
-      //   color: "customPrimaryReversed.light",
-      // },
     },
   };
 
-  console.log("-->", styles.description.color);
-
   return listOfServicesData.map((data, i) => (
-    <Grow
-      // ref={ref}
-      // in={inView}
-      in={true}
-      key={i}
-      id={i}
-      style={styles.grow}
-      // {...(inView ? { timeout: 1000 * i } : {})}
-    >
+    <Slide right>
       <Tooltip
         title={data.heading}
         placement="top"
@@ -194,7 +178,7 @@ function ListOfServicesComp() {
           </AccordionDetails>
         </Accordion>
       </Tooltip>
-    </Grow>
+    </Slide>
   ));
 }
 

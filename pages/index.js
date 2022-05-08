@@ -8,7 +8,7 @@ import Services from "../components/landingPage/services";
 import OurWork from "../components/landingPage/ourWork";
 import Heading from "../components/landingPage/heading";
 
-export default function Home() {
+export default function Home({ mode, theme }) {
   // const listOfDevelopmentServices = [
   //   {
   //     src: "/Images/huddleLandingPage.png",
@@ -43,18 +43,19 @@ export default function Home() {
       gsc: {
         name: `google-site-verification`,
         content: `31rvHCdQdbozwIYBR33907PYcg0NeZXwek44wcOxDow`,
-      }
-    }
-  }
+      },
+    },
+  };
 
   const containerStyles = {
     component: "main",
-    display: 'flex',
-    flexDirection: 'column',
-    width: '100%',
+    display: "flex",
+    flexDirection: "column",
+    width: "100%",
     // placeItems: 'center',
-    alignItems: 'center',
+    alignItems: "center",
     // justifyContent: 'center',
+    overflowX: "hidden",
   };
 
   return (
@@ -62,30 +63,25 @@ export default function Home() {
       <Head>
         <title>{content.head.title}</title>
 
-        <meta
-          name={content.head.meta.name}
-          content={content.head.meta.name}
-        />
+        <meta name={content.head.meta.name} content={content.head.meta.name} />
 
-        <meta
-          name={content.head.gsc.name}
-          content={content.head.gsc.content}
-        />
+        <meta name={content.head.gsc.name} content={content.head.gsc.content} />
 
         <link rel="icon" href="/Images/morrisonDevOpsLogo.png" />
       </Head>
 
-      <Heading />
+      <Heading mode={mode} theme={theme}  />
 
-      <Skelebar />
+      <Skelebar mode={mode} theme={theme}  />
 
-      <Services />
+      <Services mode={mode} theme={theme} />
 
-      <OurWork />
+      <OurWork mode={mode} theme={theme} />
 
-      {/* <PricingComp /> */}
 
-      {/* <Testimonials /> */}
+      {/* <PricingComp {...mode} /> */}
+
+      {/* <Testimonials {...mode} /> */}
     </Box>
   );
 }

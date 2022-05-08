@@ -9,13 +9,18 @@ import {
 } from "@mui/material";
 import React from "react";
 import Hyphenated from "react-hyphen";
+import { Flip } from "react-reveal";
 import TypewriterComponent from "typewriter-effect";
 import {
   getStartedBtn,
   servicesWeOffer,
 } from "../../public/Settings/baseSettings";
 
-function Heading() {
+function Heading({ mode, theme }) {
+  const custMode = mode === "dark";
+
+  console.log(theme);
+
   const [triggerRequestFreeQuoteBtn, setTriggerRequestFreeQuoteBtn] =
     React.useState(false);
 
@@ -63,10 +68,8 @@ function Heading() {
       justifyContent: "flex-star  t",
       alignItems: "center",
       gap: 2,
-
       flexDirection: "column",
-      // flexDirection: { xs: "column", md: "row" },
-      backgroundColor: `hsl(239, 85%, 15%)`,
+      backgroundColor: theme.palette.customPrimaryDark.main,
       backgroundImage: `url("/Images/three-computers-coding-lg.jpg")`,
       backgroundBlendMode: `multiply`,
       backgroundAttachment: "fixed",
@@ -84,13 +87,16 @@ function Heading() {
     mainContainer: {
       display: "flex",
       width: "100%",
+      placeItems: "center",
+      flexDirection: { xs: "column", md: "row" },
     },
     leftContainer: {
       flex: 1,
       height: "100%",
       display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
+      placeItems: "center",
+      // alignItems: "center",
+      // justifyContent: "center",
       flexDirection: "column",
       gap: 5,
     },
@@ -107,7 +113,7 @@ function Heading() {
       // justifyContent: "center",
       alignItems: "center",
 
-      color: "customPrimaryReversed.light",
+      color: custMode ? "customPrimary.main" : "customPrimary.contrastText",
       transition: "all 250ms ease",
       width: "fit-content",
       height: "fit-content",
@@ -124,19 +130,13 @@ function Heading() {
       flex: 1,
       height: "100%",
       display: "flex",
-      // alignItems: "center",
-      // justifyContent: "center",
-
       img: {
         img: "/Images/laptop.png",
+        alt: `Personal Fitness Website displayed on a Laptop`,
         height: "100%",
         width: "100%",
         objectFit: "contain",
       },
-      // backgroundImage: `url("/Images/laptop.png")`,
-      // backgroundSize: "contain",
-      // backgroundRepeat: "no-repeat",
-      // backgroundPo sition: { xs: "center" },
     },
     h1: {
       variant: "primary",
@@ -152,7 +152,6 @@ function Heading() {
       component: "h2",
       textAlign: "center",
       maxWidth: "30ch",
-      // color: "customPrimaryReversed.main",
       fontSize: "1.5rem !important",
     },
     h3: {
@@ -160,7 +159,6 @@ function Heading() {
       component: "div",
       textAlign: "center",
       maxWidth: "25ch",
-      // color: "customPrimaryReversed.main",
       fontSize: "1.5rem !important",
     },
     btnContainer: {
@@ -218,6 +216,7 @@ function Heading() {
             component="img"
             sx={styles.rightContainer.img}
             src={styles.rightContainer.img.img}
+            alt={styles.rightContainer.img.alt}
           />
         </Box>
       </Box>

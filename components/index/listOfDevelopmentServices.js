@@ -2,21 +2,10 @@ import { Box, Grow, Slide, Typography, useMediaQuery } from "@mui/material";
 import React from "react";
 import InView, { useInView } from "react-intersection-observer";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { Zoom } from "react-reveal";
 
 function ListOfDevelopmentServices() {
-  const matchesXs = useMediaQuery((theme) => theme.breakpoints.up("xs"));
-  const matchesSm = useMediaQuery((theme) => theme.breakpoints.up("sm"));
   const matchesMd = useMediaQuery((theme) => theme.breakpoints.up("md"));
-  const matchesLg = useMediaQuery((theme) => theme.breakpoints.up("lg"));
-  const matchesXl = useMediaQuery((theme) => theme.breakpoints.up("xl"));
-
-  //   const containerRef = React.useRef(null);
-
-  //   const { ref, inView, entry } = useInView({
-  //     /* Optional options */
-  //     // threshold: 0.25,
-  //     // triggerOnce: true,
-  //   });
 
   const listOfDevelopmentServices = [
     {
@@ -42,41 +31,34 @@ function ListOfDevelopmentServices() {
     },
   ];
 
+  const styles = {
+    container: {
+      display: "flex",
+      flexDirection: { md: "row", xs: "column" },
+      gap: { md: null, xs: 6 },
+      justifyContent: "space-around",
+      width: "100%",
+    },
+    innerContainer: {
+      flex: 1,
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      flexDirection: "column",
+    },
+    text: {
+      variant: "accent",
+      component: "div",
+      textAlign: "center",
+      fontFamily: "Share Tech Mono",
+    },
+  };
+
   return (
-    <Box
-      // ref={ref}
-      display={"flex"}
-      flexDirection={matchesMd ? "row" : "column"}
-      gap={matchesMd ? null : 6}
-      justifyContent={"space-around"}
-      width={"100%"}
-      // color="info.main"
-    >
+    <Box sx={styles.container}>
       {listOfDevelopmentServices.map((dev, i) => (
-        // <Slide
-        //   //   ref={ref}
-        //   in={inView}
-        //   key={i}
-        //   direction={matchesMd ? "up" : "left"}
-        //   timeout={1000 * i}
-        //   //   container={containerRef.current}
-        // >
-        <Grow
-          // ref={ref}
-          in={true}
-          // in={inView}
-          key={i}
-          style={{ transformOrigin: "0 0 0" }}
-          // {...(inView ? { timeout: 1000 * i } : {})}
-        >
-          <Box
-            // ref={ref}
-            flex={1}
-            display={"flex"}
-            justifyContent={"space-between"}
-            alignItems={"center"}
-            flexDirection={"column"}
-          >
+        <Zoom>
+          <Box sx={styles.innerContainer}>
             <LazyLoadImage
               src={dev.src}
               alt={dev.alt}
@@ -84,62 +66,17 @@ function ListOfDevelopmentServices() {
               width={dev.width}
             />
             <Typography
-              component={"h3"}
-              textAlign={"center"}
+              variant={styles.text.variant}
+              component={styles.text.component}
               gutterBottom
-              fontFamily={"Share Tech Mono"}
+              sx={styles.text}
             >
               {dev.title}
             </Typography>
           </Box>
-        </Grow>
+        </Zoom>
       ))}
     </Box>
-    // <InView threshold={0} rootMargin={"-150px"} triggerOnce={true}>
-    //   {
-    //     ({ inView, ref, entry }) => (
-    //     )
-
-    //   <div ref={ref}>
-    //     <h2>{`Header inside viewport ${inView}.`}</h2>
-    //   </div>
-
-    // <div ref={ref}>in view: '{inView}'</div>
-
-    // listOfDevelopmentServices.map((dev, i) => (
-    //   <Slide
-    //     ref={ref}
-    //     in={inView}
-    //     key={i}
-    //     direction="up"
-    //     container={containerRef.current}
-    //   >
-    //     <Box
-    //       flex={1}
-    //       display={"flex"}
-    //       justifyContent={"space-between"}
-    //       alignItems={"center"}
-    //       flexDirection={"column"}
-    //     >
-    //       <LazyLoadImage
-    //         src={dev.src}
-    //         alt={dev.alt}
-    //         height={dev.height}
-    //         width={dev.width}
-    //       />
-    //       <Typography
-    //         variant="h6"
-    //         component={"h3"}
-    //         textAlign={"center"}
-    //         gutterBottom
-    //       >
-    //         {dev.title}
-    //       </Typography>
-    //     </Box>
-    //   </Slide>
-    // ))
-    //   }
-    // </InView>
   );
 }
 
