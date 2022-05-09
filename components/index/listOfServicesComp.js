@@ -128,7 +128,7 @@ function ListOfServicesComp() {
   };
 
   return listOfServicesData.map((data, i) => (
-    <Slide right>
+    <Slide right key={i}>
       <Tooltip
         title={data.heading}
         placement="top"

@@ -35,14 +35,15 @@ function Heading({ mode, theme }) {
   const content = {
     h1: `React Web Development`,
     h2: `Websites for Small Business`,
-    h3: `We specialize in:`,
+    h3: `Our services include:`,
     servicesWeOffer: [
       "High-Converting Sales Funnel page",
-      "Lead Generation Landing Page",
-      "Completely customized web application",
+      "Lead Generating Landing Page",
+      "Customized Web Application",
       "Content Management System",
       "SEO Optimization",
-      "Alpha / Beta Testing and Debugging software",
+      "Alpha / Beta Testing Websites",
+      "Debugging Software",
     ],
   };
 
