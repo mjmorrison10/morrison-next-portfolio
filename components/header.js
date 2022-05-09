@@ -17,6 +17,7 @@ import {
   companyPhoneNumber,
   getStartedBtn,
   menuLabels,
+  transitionDelay,
 } from "../public/Settings/baseSettings";
 import MorrisonDevOpsIcon from "./icons/MorrisonDevOpsIcon";
 
@@ -94,6 +95,8 @@ function Header(props) {
 
   const styles = {
     appBar: {
+      transition: transitionDelay,
+
       backgroundColor: "customAccent.main",
       borderRadius: "0 0 5% 25%",
       pb: 2,
@@ -118,6 +121,8 @@ function Header(props) {
       variant: "primary",
       component: "div",
       minWidth: "fit-content",
+      transition: transitionDelay,
+
       color: "customAccent.contrastText",
       letterSpacing: 2,
       lineHeight: 0.5,
@@ -125,18 +130,24 @@ function Header(props) {
     companyOwnerTypo: {
       variant: "body2",
       minWidth: "fit-content",
+      transition: transitionDelay,
+
       color: "customAccent.contrastText",
       fontWeight: "bold",
       letterSpacing: 1,
     },
     modalIcon: {
       display: { xs: "block", md: "none" },
+      transition: transitionDelay,
+
       color: "customAccent.contrastText",
     },
     modal: {
       overflow: "scroll",
     },
     modalBox: {
+      transition: transitionDelay,
+
       backgroundColor: "customAccent.main",
       position: "absolute",
       top: "5vh",
@@ -165,7 +176,6 @@ function Header(props) {
       py: 0.5,
       borderRadius: "0 0 15% 15%",
     },
-
   };
 
   return (
@@ -276,10 +286,7 @@ function Header(props) {
               </Fade>
             </Modal>
 
-            <ButtonGroup
-              spacing={2}
-              sx={styles.buttonGroup}
-            >
+            <ButtonGroup spacing={2} sx={styles.buttonGroup}>
               {getStartedBtn()}
               {objButton.map((btn, i) => (
                 <SplitButton

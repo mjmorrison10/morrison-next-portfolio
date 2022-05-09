@@ -13,13 +13,11 @@ import { Flip } from "react-reveal";
 import TypewriterComponent from "typewriter-effect";
 import {
   getStartedBtn,
-  servicesWeOffer,
+  transitionDelay,
 } from "../../public/Settings/baseSettings";
 
 function Heading({ mode, theme }) {
   const custMode = mode === "dark";
-
-  console.log(theme);
 
   const [triggerRequestFreeQuoteBtn, setTriggerRequestFreeQuoteBtn] =
     React.useState(false);
@@ -69,19 +67,17 @@ function Heading({ mode, theme }) {
       alignItems: "center",
       gap: 2,
       flexDirection: "column",
-      backgroundColor: theme.palette.customPrimaryDark.main,
+      transition: transitionDelay,
+      backgroundColor: theme.palette.customPrimaryReversed.main,
       backgroundImage: `url("/Images/three-computers-coding-lg.jpg")`,
       backgroundBlendMode: `multiply`,
       backgroundAttachment: "fixed",
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
       backgroundPosition: { xs: "center" },
-
       // boxShadow: `inset 100vh 100vw hsla(239, 85%, 15%, 85%)`,
-
       pt: { xs: 10 },
       pb: { xs: 2, md: 0 },
-
       clipPath: `polygon(0 0, 100% 0, 100% calc(100% - 5rem), 50% 100%, 0 calc(100% - 5rem))`,
     },
     mainContainer: {
@@ -106,18 +102,18 @@ function Heading({ mode, theme }) {
       px: 2,
       py: 1,
       m: 2,
+      transition: transitionDelay,
       backgroundColor: "transparent",
-      // backgroundColor: "rgba(245, 245, 255, 0.75)",
       display: "flex",
       flexDirection: "column",
       // justifyContent: "center",
       alignItems: "center",
-
       color: custMode ? "customPrimary.main" : "customPrimary.contrastText",
       transition: "all 250ms ease",
       width: "fit-content",
       height: "fit-content",
       "&:hover": {
+        transition: transitionDelay,
         color: "customAccent.contrastText",
         backgroundColor: "customAccent.main",
         // borderRadius: `40% 5% 5% 50%`,

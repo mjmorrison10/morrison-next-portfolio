@@ -1,33 +1,32 @@
 import { Box, Grow, Slide, Typography, useMediaQuery } from "@mui/material";
 import React from "react";
-import InView, { useInView } from "react-intersection-observer";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Zoom } from "react-reveal";
 
 function ListOfDevelopmentServices() {
   const matchesMd = useMediaQuery((theme) => theme.breakpoints.up("md"));
 
-  const listOfDevelopmentServices = [
+  const content = [
     {
       src: "/Images/huddleLandingPage.png",
       alt: "Huddle Landing Page",
       height: "auto",
       width: matchesMd ? 300 : "50%",
-      title: "Website App Development",
+      title: "Landing Page or Sales Funnel",
     },
     {
       src: "/Images/copyLandingPage.png",
       alt: "Huddle Landing Page",
       height: 250,
       width: "auto",
-      title: "Responsive App Development",
+      title: "Responsive Design",
     },
     {
       src: "/Images/websiteOnMobileAndDesktopWithBackgroundRemoved.png",
       alt: "Huddle Landing Page",
       height: "auto",
       width: matchesMd ? 300 : "50%",
-      title: "Web App Development",
+      title: "Complete Website",
     },
   ];
 
@@ -51,13 +50,14 @@ function ListOfDevelopmentServices() {
       component: "div",
       textAlign: "center",
       fontFamily: "Share Tech Mono",
+      maxWidth: '15ch',
     },
   };
 
   return (
     <Box sx={styles.container}>
-      {listOfDevelopmentServices.map((dev, i) => (
-        <Zoom>
+      {content.map((dev, i) => (
+        <Zoom key={i}>
           <Box sx={styles.innerContainer}>
             <LazyLoadImage
               src={dev.src}

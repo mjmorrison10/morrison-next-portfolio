@@ -1,7 +1,7 @@
 import { MiscellaneousServices } from "@mui/icons-material";
 import { Box, Container, Typography, useMediaQuery } from "@mui/material";
 import React from "react";
-import { getStartedBtn } from "../../public/Settings/baseSettings";
+import { getStartedBtn, transitionDelay } from "../../public/Settings/baseSettings";
 import ListOfServicesComp from "../index/listOfServicesComp";
 import Skelebar from "../SkeleBar";
 
@@ -26,6 +26,8 @@ function Services() {
     },
     h2: {
       variant: "h2",
+      transition: transitionDelay,
+
       color: "customPrimary.main",
       fontSize: "1rem !important",
       textDecoration: "underline",

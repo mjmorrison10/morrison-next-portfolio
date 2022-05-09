@@ -17,8 +17,8 @@ function OurWork({ mode, theme }) {
       minHeight: "100vh",
       bgcolor:
         mode !== "light"
-          ? theme.palette.customPrimaryDark.light
-          : theme.palette.customPrimaryDark.dark,
+          ? theme.palette.customPrimaryReversed.light
+          : theme.palette.customPrimaryReversed.dark,
       color:
         mode == "light"
           ? theme.palette.customPrimary.contrastText

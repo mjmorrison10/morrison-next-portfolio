@@ -13,6 +13,7 @@ import IconButton from "@mui/material/IconButton";
 import { useTheme, ThemeProvider, createTheme } from "@mui/material/styles";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
+import { transitionDelay } from "../public/Settings/baseSettings";
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -137,22 +138,22 @@ export default function ToggleColorMode({ Component, pageProps }) {
                   bgcolor: `hsl(239, 90%, 6%)`,
                 },
                 customPrimaryReversed: {
-                  light: `hsl(239, 85%, 85%)`,
-                  main: `hsl(239, 85%, 90%)`,
-                  dark: `hsl(239, 90%, 95%)`,
+                  light: `hsl(239, 85%, 16%)`,
+                  main: `hsl(239, 85%, 11%)`,
+                  dark: `hsl(239, 90%, 6%)`,
                   contrastText: `hsl(239, 90%, 11%)`,
                 },
                 customPrimaryDark: {
-                  light: `hsl(239, 85%, 20%)`,
-                  main: `hsl(239, 85%, 15%)`,
-                  dark: `hsl(239, 85%, 10%)`,
-                  contrastText: `hsl(239, 90%, 90%)`,
+                  light: `hsl(239, 85%, 95%)`,
+                  main: `hsl(239, 85%, 90%)`,
+                  dark: `hsl(239, 85%, 85%)`,
+                  contrastText: `hsl(239, 90%, 11%)`,
                 },
                 customSecondary: {
-                  light: `hsl(59, 85%, 61%)`,
-                  main: `hsl(59, 85%, 46%)`,
-                  dark: `hsl(59, 90%, 31%)`,
-                  contrastText: `hsl(59, 90%, 15%)`,
+                  light: `hsl(59, 85%, 6%)`,
+                  main: `hsl(59, 85%, 11%)`,
+                  dark: `hsl(59, 85%, 16%)`,
+                  contrastText: `hsl(59, 85%, 85%)`,
                 },
                 customAccent: {
                   light: `hsl(209, 85%, 21%)`,
@@ -162,16 +163,13 @@ export default function ToggleColorMode({ Component, pageProps }) {
                 },
               }),
         },
-
-        // palette: {
-        //   mode,
-        // },
       }),
     [mode]
   );
 
   const styles = {
     container: {
+      transition: transitionDelay,
       backgroundColor: theme.palette.customPrimary.bgcolor,
       minHeight: "100vh",
       display: "flex",
@@ -182,7 +180,7 @@ export default function ToggleColorMode({ Component, pageProps }) {
     fabIcon(fab) {
       return {
         size: "small",
-        color: fab ? "customPrimaryReversed" : "customPrimary",
+        color: fab ? "customPrimaryDark" : "customPrimary",
         position: "sticky",
         display: "flex",
         bottom: "1rem",

@@ -779,3 +779,6 @@ export const projectsFilterByCategories = (search) => {
 // export const projectsFilter = ProjectsWorkedOn.filter(
 //   (project, objProp, filterType, search) => project.objProp.filterType(search)
 //   );
+
+
+export const transitionDelay = `all 250ms ease`;
